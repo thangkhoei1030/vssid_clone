@@ -1,0 +1,47 @@
+{
+	"import snippet": {
+		"prefix": "import",
+		"body": [
+			"import 'package:get/get.dart';",
+			"import 'package:vssid/core/src_core.dart';",
+			"import 'package:flutter/material.dart';",
+			"import 'package:vssid/features/src_feature.dart';",
+		],
+		"description": "import library"
+	},
+	"generate_feature": {
+		"prefix": "generatfeaturebookapp",
+		"body": [
+			"import 'package:get/get.dart';",
+			"import 'package:vssid/core/src_core.dart';",
+			"import 'package:flutter/material.dart';",
+			"import 'package:vssid/features/src_feature.dart';",
+			"",
+			"class $1Repository extends BaseRepository {",
+			"  $1Repository(super.controller);",
+			"}",
+			"",
+			"abstract class $1Controller extends BaseGetxController {}",
+			"",
+			"class $1ControllerImp extends $1Controller {",
+			"  @override",
+			"  void onInit() {",
+			"    super.onInit();",
+			"  }",
+			"}",
+			"",
+			"class $1Page extends BaseGetWidget<$1Controller> {",
+			"  const $1Page({super.key});",
+			"  @override",
+			"  $1Controller get controller => Get.put($1ControllerImp());",
+			"  @override",
+			"  Widget buildWidgets(BuildContext context) {",
+			"    // TODO: implement buildWidgets",
+			"    throw UnimplementedError();",
+			"  }",
+			"}",
+			""
+		],
+		"description": "generate_feature"
+	},
+}
