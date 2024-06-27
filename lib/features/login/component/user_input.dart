@@ -8,24 +8,36 @@ class UserInputComponent extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _buildInput(
-          Icons.account_box,
-          InputTextModel(
-            controller: controller.codeBHXH,
-            hintText: LoginStr.codeBHXH,
+    return Form(
+      key: controller.formKey,
+      child: Column(
+        children: [
+          _buildInput(
+            Icons.account_box,
+            InputTextModel(
+              controller: controller.codeBHXH,
+              hintText: LoginStr.codeBHXH,
+              validator: (value) => validateInput(
+                nameField: LoginStr.codeBHXH,
+                value: value,
+              ),
+            ),
           ),
-        ),
-        UtilWidget.sizedBoxPadding,
-        _buildInput(
-          Icons.key,
-          InputTextModel(
-            controller: controller.password,
-            hintText: LoginStr.password,
+          UtilWidget.sizedBoxPadding,
+          _buildInput(
+            Icons.key,
+            InputTextModel(
+              obscureText: true,
+              controller: controller.password,
+              hintText: LoginStr.password,
+              validator: (value) => validateInput(
+                nameField: LoginStr.password,
+                value: value,
+              ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 

@@ -10,6 +10,8 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
   @override
   Widget buildWidgets(BuildContext context) {
     return SafeArea(
+      top: false,
+      bottom: false,
       child: Scaffold(
         drawer: const Drawer(
           backgroundColor: Colors.blue,
@@ -29,11 +31,11 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
           controller: controller.pageController,
           allowImplicitScrolling: true,
           physics: const NeverScrollableScrollPhysics(),
-          children: [
-            const ProfileManagerPage(),
-            const PublicServicePage(),
-            const LookUpOnline(),
-            const SupportPage(),
+          children: const [
+            ProfileManagerPage(),
+            PublicServicePage(),
+            LookUpOnline(),
+            SupportPage(),
           ],
         ),
         bottomNavigationBar: Container(

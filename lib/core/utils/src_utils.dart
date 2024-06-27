@@ -9,4 +9,4 @@ export 'permission.dart';
 export 'keyboard.dart';
 export 'validate.dart';
 export 'widgets/loading/src_loading.dart';
-export 'singleton/src_singleton.dart';
+export 'services/src_singleton.dart';

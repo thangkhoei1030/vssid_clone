@@ -7,19 +7,20 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:vssid/pages/pages.dart';
 import 'package:vssid/pages/routes.dart';
-
 import 'core/src_core.dart';
+
 String applicationPath = "";
-void main()async {
+final AppLocalAuth localAuth = AppLocalAuth();
+
+void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-      applicationPath =
+  applicationPath =
       (await path_provider.getApplicationDocumentsDirectory()).path;
-    if (Platform.isIOS) {
+  if (Platform.isIOS) {
     showBarNotificationIOS();
   }
   _errorWidgetBuilder();
   runApp(const MyApp());
-
 }
 
 void showBarNotificationIOS() {
@@ -52,7 +53,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-       return AnnotatedRegion(
+    return AnnotatedRegion(
       value: const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
       child: ScreenUtilInit(
         useInheritedMediaQuery: true,

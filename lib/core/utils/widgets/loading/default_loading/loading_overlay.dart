@@ -26,7 +26,7 @@ class LoadingOverlayWidget extends StatelessWidget {
               child: _buildLoading(),
             )
           : _buildLoading(),
-      useDefaultLoading: false,
+      useDefaultLoading: true,
       child: child,
     );
   }
@@ -36,7 +36,7 @@ class LoadingOverlayWidget extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppDimens.radius8),
-        color: Colors.black.withOpacity(0.4),
+        color: Colors.black.withOpacity(0.1),
       ),
       child: const AnimationDialog(
         animationDialogType: AnimationDialogType.loading,

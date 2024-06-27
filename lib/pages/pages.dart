@@ -39,7 +39,10 @@ class PageRoutes {
     GetPage(
       name: AppRoutes.pageBuilder,
       page: () => const PageBuilder(),
-      binding: PageBuilderBindings(),
+      bindings: [
+        PageBuilderBindings(),
+        LookUpOnlineBindings(),
+      ],
     ),
     GetPage(
       name: AppRoutes.healthInsuranceCard,

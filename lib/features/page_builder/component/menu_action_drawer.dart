@@ -3,7 +3,7 @@ import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
-class MenuActionDrawer extends StatelessWidget {
+class MenuActionDrawer extends GetView<PageBuilderController> {
   const MenuActionDrawer({super.key});
 
   @override
@@ -22,22 +22,22 @@ class MenuActionDrawer extends StatelessWidget {
             title: PageBuilderString.news,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: Get.back,
             icon: Icons.account_circle_outlined,
             title: PageBuilderString.profileManager,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => {Get.back(), controller.onPageChange(1)},
             icon: Icons.list,
             title: PageBuilderString.publicService,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => {Get.back(), controller.onPageChange(2)},
             icon: Icons.search,
             title: PageBuilderString.lookUpOnline,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => {Get.back(), controller.onPageChange(3)},
             icon: Icons.support_agent_sharp,
             title: PageBuilderString.support,
           ),

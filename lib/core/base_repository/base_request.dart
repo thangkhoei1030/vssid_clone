@@ -84,7 +84,6 @@ class BaseRequest extends GetxService {
 
     CancelToken cancelToken = CancelToken();
     controller.addCancelToken(cancelToken);
-    print(headers);
     try {
       if (requestMethod == RequestMethod.POST) {
         if (isQueryParametersPost) {
@@ -188,7 +187,7 @@ class BaseRequest extends GetxService {
       isImage ? [] : json ?? [],
     );
     return jwt.sign(
-      SecretKey('4I40Jqz9g38GIIyDtEL4P2hBJic0uMD6HcMa6D9Q7cYl3AKzhp'),
+      SecretKey('1LbkcLCikacNr3BDpPhVLB0E4mynN6RkIGeVRm62zLj9QqHFI5'),
       algorithm: JWTAlgorithm.HS256,
     );
   }

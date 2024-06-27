@@ -21,7 +21,7 @@ class AppConst {
   static const String keyUserName = "keyUserName";
   static const String keyUserpassword = "keyPassword";
   static const String keyDarkMode = "keyDarkMode";
-  // static const String keyCookies = "keyCookies";
+  static const String keyEnableBiometricLogin = "keyEnableBiometricLogin";
 
   //giá trị mặc định phần nghìn
   static const bool isDot = false;

@@ -8,31 +8,34 @@ class LoginPage extends BaseGetWidget<LoginController> {
 
   @override
   Widget buildWidgets(BuildContext context) {
-    return PageScaffold(
-      child: Column(
-        children: [
-          const LoginAppBar(),
-          const SizedBox(
-            height: 100,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: const [
-                  UserInputComponent(),
-                  UtilWidget.sizedBoxPadding,
-                  ForgotAndRegisterButton(),
-                  UtilWidget.sizedBoxPadding,
-                  LoginButton(),
-                  UtilWidget.sizedBoxPaddingMedium,
-                ],
+    return LoadingOverlayWidget(
+      isLoadingPage: true,
+      child: PageScaffold(
+        child: Column(
+          children: [
+            const LoginAppBar(),
+            const SizedBox(
+              height: 100,
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const [
+                    UserInputComponent(),
+                    UtilWidget.sizedBoxPadding,
+                    ForgotAndRegisterButton(),
+                    UtilWidget.sizedBoxPadding,
+                    LoginButton(),
+                    UtilWidget.sizedBoxPaddingMedium,
+                  ],
+                ),
               ),
             ),
-          ),
-          const MoreAction(),
-        ],
-      ).paddingAll(
-        AppDimens.defaultPadding,
+            const MoreAction(),
+          ],
+        ).paddingAll(
+          AppDimens.defaultPadding,
+        ),
       ),
     );
   }

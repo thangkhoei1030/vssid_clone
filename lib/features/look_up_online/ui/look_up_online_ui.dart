@@ -1,6 +1,4 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
@@ -15,6 +13,9 @@ class LookUpOnline extends StatelessWidget {
           children: [
             Expanded(
               child: LookUpItem(
+                function: () => Get.to(
+                  () => const LookUpBHXH(),
+                ),
                 iconData: Icons.qr_code_scanner,
                 serviceName: LookUpOnlineString.lookUpCodeBHXH,
               ),

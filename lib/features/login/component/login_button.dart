@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
-import 'package:vssid/pages/src_pages.dart';
 
 class LoginButton extends GetView<LoginController> {
   const LoginButton({super.key});
@@ -16,7 +15,7 @@ class LoginButton extends GetView<LoginController> {
           Expanded(
             child: CardBuilder(
               onTap: () {
-                Get.toNamed(AppRoutes.pageBuilder);
+                controller.login();
               },
               isBorder: true,
               paddingModel:
@@ -29,11 +28,14 @@ class LoginButton extends GetView<LoginController> {
               ),
             ),
           ),
-          Icon(
-            Icons.fingerprint,
-            size: AppDimens.sizeIconVeryLarge,
-            color: context.onSurfaceColor,
-          ).paddingSymmetric(horizontal: AppDimens.paddingSmall)
+          SimpleButton(
+            onPressed: controller.biometricsLogin,
+            child: Icon(
+              Icons.fingerprint,
+              size: AppDimens.sizeIconVeryLarge,
+              color: context.onSurfaceColor,
+            ).paddingSymmetric(horizontal: AppDimens.paddingSmall),
+          )
         ],
       ),
     );

@@ -13,4 +13,8 @@ class LookUpOnlineString {
 
   static const String lookUpMemberReceiverBHXH =
       "Tra cứu các tổ chức dịch vụ thu BHXH, BHYT";
+
+  static const String provinceAndCity = "Tỉnh - TP";
+
+  static const String selectProvince = "-- Chọn tỉnh --";
 }

@@ -1,6 +1,5 @@
 
 import 'package:vssid/core/src_core.dart';
-import 'package:vssid/main.dart';
 import 'package:vssid/pages/src_pages.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
