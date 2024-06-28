@@ -45,12 +45,13 @@ class LoginControllerImp extends LoginController {
         username: codeBHXH.text,
         password: password.text,
       );
+      await CookiesSingleton().createCookiesForUser(userName: codeBHXH.text);
       try {
         showLoadingOverlay();
-        await loginRepository.login(loginRequest).then((value) {
-          if (value.data != null) {
+        await loginRepository.login(loginRequest).then((value) async {
+          if (value.data != null && value.code != "error") {
             showToast(LoginStr.loginSuccess, toastStatus: ToastStatus.success);
-            _saveDataToLocal();
+            _saveDataToLocal(value);
 
             Get.toNamed(AppRoutes.pageBuilder);
           }
@@ -61,9 +62,9 @@ class LoginControllerImp extends LoginController {
     }
   }
 
-  void _saveDataToLocal() {
+  void _saveDataToLocal(BaseResponse baseResponse) {
     APP_DATA.put(AppConst.keyUserName, codeBHXH.text);
-
+    APP_DATA.put(AppConst.keyUrlBaseImage, baseResponse.extend?.cdnUrl);
     APP_DATA.put(AppConst.keyUserpassword, password.text);
   }
 }

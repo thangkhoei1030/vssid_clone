@@ -22,51 +22,80 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
       radiusModel: const RadiusModel(
         radiusAll: AppDimens.radius8,
       ),
-      child: Column(
-        children: [
-          Row(
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Align(
-                child: CardBuilder(
-                  backgroundColor: Colors.white,
-                  height: 50.h,
-                  width: 50.w,
-                  radiusModel: const RadiusModel(radiusAll: 50),
-                  child: Icon(
-                    Icons.account_circle,
-                    size: 40,
-                    color: context.onSurfaceColor,
-                  ),
+      child: Obx(
+        () => Column(
+          children: [
+            Row(
+              // crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Align(
+                  child: NetworkImageWidget(
+                      widgetImageBuilder: (context, imageProvider) {
+                        return CardBuilder(
+                            width: 50.h,
+                            height: 50.h,
+                            radiusModel: const RadiusModel(radiusAll: 100),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                ),
+                              ),
+                            ));
+                      },
+                      urlImage: controller.pageBuilderController
+                              .memberInfomation.value?.anhTheBhyt
+                              .toUrlCDN() ??
+                          ""),
                 ),
-              ),
-              UtilWidget.sizedBoxWidthPadding,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const TextBuild(
-                    title: "Ngo Quang Thang",
-                    isBoldText: true,
-                  ),
-                  UtilWidget.sizedBoxPadding,
-                  const TextBuild(title: "Thời hạn có giá trị"),
-                  UtilWidget.sizedBoxPadding,
-                  TextBuild(
-                      title:
-                          "${DateTimeFormat().convertToString(DateTime.now(), DateTimePattern.PATTERN_1)} đến ${DateTimeFormat().convertToString(DateTime.now(), DateTimePattern.PATTERN_1)}")
-                ],
-              )
-            ],
-          ),
-          UtilWidget.sizedBoxPadding,
-          UtilWidget.buildDivider(),
-          UtilWidget.sizedBoxPadding,
-          _rowInfo(HealthInsuranceCard.dateOfBirth, "value"),
-          _rowInfo(HealthInsuranceCard.sex, "value"),
-          _rowInfo(HealthInsuranceCard.codeBHYT, "value"),
-          _rowInfo(HealthInsuranceCard.addressDKKCBBD, "value"),
-          _rowInfo(HealthInsuranceCard.time, "value"),
-        ],
+                UtilWidget.sizedBoxWidthPadding,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextBuild(
+                      title: controller.pageBuilderController.memberInfomation
+                              .value?.fullName ??
+                          "",
+                      isBoldText: true,
+                    ),
+                    UtilWidget.sizedBoxPadding,
+                    const TextBuild(title: "Thời hạn có giá trị"),
+                    UtilWidget.sizedBoxPadding,
+                    TextBuild(
+                        title:
+                            "${controller.pageBuilderController.memberInfomation.value?.bhytTuNgay} đến ${controller.pageBuilderController.memberInfomation.value?.bhytDenNgay}")
+                  ],
+                )
+              ],
+            ),
+            UtilWidget.sizedBoxPadding,
+            UtilWidget.buildDivider(),
+            UtilWidget.sizedBoxPadding,
+            _rowInfo(
+                HealthInsuranceCard.dateOfBirth,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.birthday ??
+                    ""),
+            _rowInfo(
+                HealthInsuranceCard.sex,
+                controller.pageBuilderController.memberInfomation.value?.sex ??
+                    ""),
+            _rowInfo(
+                HealthInsuranceCard.codeBHYT,
+                controller.pageBuilderController.memberInfomation.value?.code ??
+                    ""),
+            _rowInfo(
+                HealthInsuranceCard.addressDKKCBBD,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.noiDkkcbBd ??
+                    ""),
+            _rowInfo(
+                HealthInsuranceCard.time,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.thoiDiem5Nam ??
+                    ""),
+          ],
+        ),
       ),
     );
   }

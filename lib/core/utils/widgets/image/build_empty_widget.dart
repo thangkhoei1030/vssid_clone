@@ -21,11 +21,12 @@ class BuildImageLoadError extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widthImage,
-      child: Image.asset(
-        ImageAsset.appImages,
-        fit: BoxFit.cover,
-        // height: heightImage ?? layout.imgHeight(isSlider: isSlider),
-      ),
+
+      // child: Image.asset(
+      //   ImageAsset.appImages,
+      //   fit: BoxFit.cover,
+      //   // height: heightImage ?? layout.imgHeight(isSlider: isSlider),
+      // ),
     );
   }
 }

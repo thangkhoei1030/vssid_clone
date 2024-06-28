@@ -5,14 +5,8 @@ import 'package:vssid/features/src_feature.dart';
 
 class ServiceController extends BaseRefreshGetxController {
   @override
-  Future<void> onLoadMore() {
-    // TODO: implement onLoadMore
-    throw UnimplementedError();
-  }
+  Future<void> onLoadMore() async {}
 
   @override
-  Future<void> onRefresh() {
-    // TODO: implement onRefresh
-    throw UnimplementedError();
-  }
+  Future<void> onRefresh() async {}
 }

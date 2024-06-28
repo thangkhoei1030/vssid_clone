@@ -6,7 +6,7 @@ enum ToastStatus { error, success, warning }
 
 Future<void> showToast(String message,
     {Toast toastLength = Toast.LENGTH_SHORT,
-    ToastGravity gravity = ToastGravity.CENTER,
+    ToastGravity gravity = ToastGravity.BOTTOM,
     required ToastStatus toastStatus}) async {
   // ignore: no_leading_underscores_for_local_identifiers
   Color? _getBackgroundColorToast() {
@@ -28,6 +28,6 @@ Future<void> showToast(String message,
     textColor: Colors.white,
     fontSize: AppDimens.sizeTextDefault,
     toastLength: toastLength,
-    gravity: ToastGravity.CENTER,
+    gravity: gravity,
   );
 }

@@ -41,6 +41,7 @@ class PageRoutes {
       page: () => const PageBuilder(),
       bindings: [
         PageBuilderBindings(),
+        ProfileManageBindings(),
         LookUpOnlineBindings(),
       ],
     ),

@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 abstract class LoginController extends BaseGetxController {
-  final TextEditingController codeBHXH = TextEditingController();
+  final TextEditingController codeBHXH =
+      TextEditingController(text: "dvtruongbk");
 
-  final TextEditingController password = TextEditingController();
+  final TextEditingController password =
+      TextEditingController(text: "12345678");
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 

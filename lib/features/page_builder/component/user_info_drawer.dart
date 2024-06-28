@@ -9,32 +9,42 @@ class UserInfoDrawer extends GetView<PageBuilderController> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        UtilWidget.sizedBoxPaddingHuge,
-        CardBuilder(
-          width: 75.w,
-          height: 75.h,
-          radiusModel: const RadiusModel(radiusAll: 50),
-          child: Icon(
-            Icons.account_circle_sharp,
-            size: 75,
-            color: context.onSurfaceColor,
+    return Obx(
+      () => Column(
+        children: [
+          UtilWidget.sizedBoxPaddingHuge,
+          NetworkImageWidget(
+              widgetImageBuilder: (context, imageProvider) {
+                return CardBuilder(
+                    width: 100.h,
+                    height: 100.h,
+                    radiusModel: const RadiusModel(radiusAll: 50),
+                    child: Container(
+                      height: 100.h,
+                      width: 100.h,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: imageProvider,
+                        ),
+                      ),
+                    ));
+              },
+              urlImage:
+                  controller.memberInfomation.value?.avatar.toUrlCDN() ?? ""),
+          UtilWidget.sizedBoxPadding,
+          TextBuild(
+            title: controller.memberInfomation.value?.fullName ?? "",
+            textColor: Colors.white,
+            fontSize: AppDimens.sizeTextMedium,
           ),
-        ),
-        UtilWidget.sizedBoxPadding,
-        TextBuild(
-          title: "Ngo Quang Thang ",
-          textColor: Colors.white,
-          fontSize: AppDimens.sizeTextMedium,
-        ),
-        UtilWidget.sizedBoxPadding,
-        TextBuild(
-          title: "0126078914",
-          textColor: Colors.white,
-          fontSize: AppDimens.sizeTextMedium,
-        ),
-      ],
+          UtilWidget.sizedBoxPadding,
+          TextBuild(
+            title: controller.memberInfomation.value?.code ?? "",
+            textColor: Colors.white,
+            fontSize: AppDimens.sizeTextMedium,
+          ),
+        ],
+      ),
     );
   }
 }

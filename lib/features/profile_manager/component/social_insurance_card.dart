@@ -16,53 +16,82 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
-      child: Column(
-        children: [
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                CardBuilder(
-                  width: 50.w,
-                  height: 50.h,
-                  radiusModel: const RadiusModel(radiusAll: 50),
-                  child: Icon(
-                    Icons.account_circle_sharp,
-                    size: 50,
-                    color: context.onSurfaceColor,
-                  ),
-                ),
-                UtilWidget.sizedBoxWidthPadding,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextBuild(
-                      title: "Ngo Quang Thang",
-                      isBoldText: true,
-                      fontSize: AppDimens.sizeTextMedium,
-                    ),
-                    UtilWidget.sizedBoxPadding,
-                    const TextBuild(
-                      title: "${ProfileManagerString.codeBHXH} 1234",
-                      textAlign: TextAlign.start,
-                    ),
-                  ],
-                )
-              ],
-            ).paddingSymmetric(horizontal: AppDimens.defaultPadding),
-          ),
-          UtilWidget.sizedBoxPadding,
-          UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
-          UtilWidget.sizedBoxPadding,
-          _rowInfo(ProfileManagerString.dateOfBirth, "value"),
-          UtilWidget.sizedBoxPadding,
-          _rowInfo(ProfileManagerString.cccd, "value"),
-          UtilWidget.sizedBoxPadding,
-          _rowInfo(ProfileManagerString.phone, "value"),
-          UtilWidget.sizedBoxPadding,
-          _rowInfo(ProfileManagerString.address, "value"),
-          UtilWidget.sizedBoxPadding,
-        ],
+      child: Obx(
+        () => Column(
+          children: [
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  NetworkImageWidget(
+                      widgetImageBuilder: (context, imageProvider) {
+                        return CardBuilder(
+                            width: 50.h,
+                            height: 50.h,
+                            radiusModel: const RadiusModel(radiusAll: 100),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: imageProvider,
+                                ),
+                              ),
+                            ));
+                      },
+                      urlImage: controller.pageBuilderController
+                              .memberInfomation.value?.anhTheBhyt
+                              .toUrlCDN() ??
+                          ""),
+                  UtilWidget.sizedBoxWidthPadding,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextBuild(
+                        title: controller.pageBuilderController.memberInfomation
+                                .value?.fullName ??
+                            "",
+                        isBoldText: true,
+                        fontSize: AppDimens.sizeTextMedium,
+                      ),
+                      UtilWidget.sizedBoxPadding,
+                      TextBuild(
+                        title:
+                            "${ProfileManagerString.codeBHXH} ${controller.pageBuilderController.memberInfomation.value?.code ?? ""}",
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  )
+                ],
+              ).paddingSymmetric(horizontal: AppDimens.defaultPadding),
+            ),
+            UtilWidget.sizedBoxPadding,
+            UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
+            UtilWidget.sizedBoxPadding,
+            _rowInfo(
+                ProfileManagerString.dateOfBirth,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.birthday ??
+                    ""),
+            UtilWidget.sizedBoxPadding,
+            _rowInfo(
+                ProfileManagerString.cccd,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.identityCardId ??
+                    ""),
+            UtilWidget.sizedBoxPadding,
+            _rowInfo(
+                ProfileManagerString.phone,
+                controller
+                        .pageBuilderController.memberInfomation.value?.phone ??
+                    ""),
+            UtilWidget.sizedBoxPadding,
+            _rowInfo(
+                ProfileManagerString.address,
+                controller.pageBuilderController.memberInfomation.value
+                        ?.fullAddress ??
+                    ""),
+            UtilWidget.sizedBoxPadding,
+          ],
+        ),
       ),
     );
   }
@@ -90,5 +119,4 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
       ],
     );
   }
-
 }

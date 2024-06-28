@@ -1,5 +1,5 @@
 class ImageAsset {
-  static const String appImages = "assets/img/app_images.png";
+  // static const String appImages = "assets/img/app_images.png";
   static const String chartIcon = "assets/img/chart_icon.png";
   static const String chartImage = "assets/img/chart_image.png";
   static const String chartLineImage = "assets/img/chart_line_image.png";

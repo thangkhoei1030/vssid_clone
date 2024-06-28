@@ -22,7 +22,7 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             title: PageBuilderString.news,
           ),
           MenuActionItem(
-            funcion: Get.back,
+            funcion: () => {Get.back(), controller.onPageChange(0)},
             icon: Icons.account_circle_outlined,
             title: PageBuilderString.profileManager,
           ),
@@ -56,7 +56,7 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             isNeedIconSuffix: false,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => controller.logout(),
             icon: Icons.power_settings_new_outlined,
             title: PageBuilderString.logout,
             isNeedIconSuffix: false,

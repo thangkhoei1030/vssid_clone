@@ -77,19 +77,10 @@ class BaseGetxController extends GetxController {
       BaseResponse baseResponse =
           BaseResponse.fromJson(jsonDecode(error.message));
 
-      if (baseResponse.status != 200) {
-        showToastController(baseResponse);
-        if (baseResponse.status == 403) {
-          Get.offAllNamed(AppRoutes.loginPage);
-        }
-
-        // try {
-        //   await FirebaseAnalyticsSetup.writeLogErrorResponse(
-        //       error: baseResponse.message ?? "");
-        // } finally {
-        //   Sentry.captureException(error);
-        // }
-      }
+      showToastController(baseResponse);
+      // if (baseResponse.status == 403) {
+      //   Get.offAllNamed(AppRoutes.loginPage);
+      // }
     } else if (error is DioException) {
       dioExceptionListener = DioExceptionListener(error);
       dioExceptionListener.setDioExceptionListener();
@@ -103,8 +94,7 @@ class BaseGetxController extends GetxController {
   void showToastController(BaseResponse baseResponse) {
     showToast(
       baseResponse.message ?? "",
-      toastStatus:
-          baseResponse.status != 200 ? ToastStatus.error : ToastStatus.success,
+      toastStatus: ToastStatus.error,
       gravity: ToastGravity.BOTTOM,
     );
   }

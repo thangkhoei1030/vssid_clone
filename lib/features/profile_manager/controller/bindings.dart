@@ -3,7 +3,9 @@ import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
-abstract class ProfileManagerController extends BaseGetxController {
-  final PageBuilderController pageBuilderController  = Get.find();
-
+class ProfileManageBindings extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<ProfileManagerController>(() => ProfileManagerControllerImp());
+  }
 }

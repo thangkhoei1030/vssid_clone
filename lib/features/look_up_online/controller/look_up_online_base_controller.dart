@@ -6,4 +6,12 @@ import 'package:vssid/features/src_feature.dart';
 abstract class LookUpOnlineController extends BaseGetxController {
   late final LookUpOnlineRepository lookUpOnlineRepository =
       LookUpOnlineRepository(this);
+  final List tinhThanh = [];
+
+  final List quanHuyen = [];
+
+  void getTinhThanh(){}
+
+  void getQuanHuyen(){}
+  
 }

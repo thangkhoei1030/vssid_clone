@@ -6,9 +6,16 @@ import 'package:vssid/features/src_feature.dart';
 abstract class PageBuilderController extends BaseGetxController {
   late final PageController pageController;
 
-  RxInt currentIndexPage = 0.obs;
+  late final PageBuilderRepository pageBuilderRepository =
+      PageBuilderRepository(this);
+
+  final Rx<MemberInfomation?> memberInfomation = Rxn();
+
+  final RxInt currentIndexPage = 0.obs;
 
   void onPageChange(int index);
+
+  void logout();
 
   String get titleAppBar {
     switch (currentIndexPage.value) {

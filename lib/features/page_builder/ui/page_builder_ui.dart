@@ -9,72 +9,75 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
   PageBuilderController get controller => Get.put(PageBuilderControllerImp());
   @override
   Widget buildWidgets(BuildContext context) {
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Scaffold(
-        drawer: const Drawer(
-          backgroundColor: Colors.blue,
-          child: PageBuilderDrawer(),
-        ),
-        appBar: AppBar(
-          title: StreamBuilder(
-            stream: controller.currentIndexPage.stream,
-            builder: (context, snapshot) => TextBuild(
-              title: controller.titleAppBar.toUpperCase(),
-              fontSize: AppDimens.sizeTextMedium,
-            ),
+    return LoadingOverlayWidget(
+      
+      child: SafeArea(
+        top: false,
+        bottom: false,
+        child: Scaffold(
+          drawer: const Drawer(
+            backgroundColor: Colors.blue,
+            child: PageBuilderDrawer(),
           ),
-          centerTitle: true,
-        ),
-        body: PageView(
-          controller: controller.pageController,
-          allowImplicitScrolling: true,
-          physics: const NeverScrollableScrollPhysics(),
-          children: const [
-            ProfileManagerPage(),
-            PublicServicePage(),
-            LookUpOnline(),
-            SupportPage(),
-          ],
-        ),
-        bottomNavigationBar: Container(
-          color: Colors.white,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    CustomBottomBar(
-                      label: PageBuilderString.profileManagerShort,
-                      // activeIcon: Icons.account_circle_rounded,
-                      icon: Icons.account_circle_outlined,
-                      index: 0,
-                    ),
-                    CustomBottomBar(
-                      label: PageBuilderString.publicServiceShort,
-                      // activeIcon: Icons.list_alt_sharp,
-                      icon: Icons.list,
-                      index: 1,
-                    ),
-                    CustomBottomBar(
-                      label: PageBuilderString.lookUpOnlineShort,
-                      // activeIcon: IconAsset.ASSET_ICON_BELL_BING_BOLD_SVG,
-                      icon: Icons.search,
-                      index: 2,
-                    ),
-                    CustomBottomBar(
-                      label: PageBuilderString.supportShort,
-                      // activeIcon: IconAsset.ASSET_ICON_PROPERTY_36_BOLD_SVG,
-                      icon: Icons.support_agent_outlined,
-                      index: 3,
-                    ),
-                    // if (isVipMember.isFalse) Container(width: 0,height: 0,)
-                  ]),
+          appBar: AppBar(
+            title: StreamBuilder(
+              stream: controller.currentIndexPage.stream,
+              builder: (context, snapshot) => TextBuild(
+                title: controller.titleAppBar.toUpperCase(),
+                fontSize: AppDimens.sizeTextMedium,
+              ),
+            ),
+            centerTitle: true,
+          ),
+          body: PageView(
+            controller: controller.pageController,
+            allowImplicitScrolling: true,
+            physics: const NeverScrollableScrollPhysics(),
+            children: const [
+              ProfileManagerPage(),
+              PublicServicePage(),
+              LookUpOnline(),
+              SupportPage(),
             ],
-          ).paddingSymmetric(
-            vertical: AppDimens.defaultPadding,
+          ),
+          bottomNavigationBar: Container(
+            color: Colors.white,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: const [
+                      CustomBottomBar(
+                        label: PageBuilderString.profileManagerShort,
+                        // activeIcon: Icons.account_circle_rounded,
+                        icon: Icons.account_circle_outlined,
+                        index: 0,
+                      ),
+                      CustomBottomBar(
+                        label: PageBuilderString.publicServiceShort,
+                        // activeIcon: Icons.list_alt_sharp,
+                        icon: Icons.list,
+                        index: 1,
+                      ),
+                      CustomBottomBar(
+                        label: PageBuilderString.lookUpOnlineShort,
+                        // activeIcon: IconAsset.ASSET_ICON_BELL_BING_BOLD_SVG,
+                        icon: Icons.search,
+                        index: 2,
+                      ),
+                      CustomBottomBar(
+                        label: PageBuilderString.supportShort,
+                        // activeIcon: IconAsset.ASSET_ICON_PROPERTY_36_BOLD_SVG,
+                        icon: Icons.support_agent_outlined,
+                        index: 3,
+                      ),
+                      // if (isVipMember.isFalse) Container(width: 0,height: 0,)
+                    ]),
+              ],
+            ).paddingSymmetric(
+              vertical: AppDimens.defaultPadding,
+            ),
           ),
         ),
       ),

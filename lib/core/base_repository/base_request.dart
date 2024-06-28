@@ -127,26 +127,6 @@ class BaseRequest extends GetxService {
       if (response.data is String) {
         throw FormatException(response.data);
       }
-      // await Sentry.captureEvent(
-      //   SentryEvent(
-      //     type: "Request Success",
-      //     level: SentryLevel.info,
-      //     // logger: "Request Success",
-      //     tags: const {"api": "request_api"},
-      //     throwable: url,
-      //     request: SentryRequest(
-      //       url: url,
-      //       method: requestMethod.toString(),
-      //       headers: headersUrlOther,
-      //       data: jsonMap,
-      //     ),
-      //     platform: AppStr.currentPlatform,
-      //     message: SentryMessage(
-      //       response.data.toString(),
-
-      //     ),
-      //   ),
-      // );
       controller.isError.value = false;
       return response.data;
     } catch (e) {
