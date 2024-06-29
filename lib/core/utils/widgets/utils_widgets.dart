@@ -283,6 +283,36 @@ class UtilWidget {
       ),
     );
   }
+
+  static Widget rowInfo(String key, String value,
+      {bool showDivider = true, Color textColor = Colors.white}) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            TextBuild(
+              title: key,
+              textColor: textColor,
+            ),
+            Expanded(
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: TextBuild(
+                  title: value,
+                  textColor: textColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+        if (showDivider) ...[
+          UtilWidget.sizedBoxPadding,
+          UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
+        ],
+        UtilWidget.sizedBoxPadding,
+      ],
+    );
+  }
 }
 
 class BuildDropDown extends StatelessWidget {

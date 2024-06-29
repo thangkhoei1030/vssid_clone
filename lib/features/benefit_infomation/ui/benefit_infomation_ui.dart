@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/features/benefit_infomation/ui/tab_ui/odst.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
@@ -79,10 +80,10 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
           ),
         ),
         body: TabBarView(controller: controller.tabController, children: const [
-          SizedBox(),
-          SizedBox(),
-          SizedBox(),
-          SizedBox(),
+          OneTimeBenefitUI(),
+          ODSTBenefitUI(),
+          MonthlyBenefitUI(),
+          UnemploymentBenefitUI(),
           // C14TS(),
           // const Service(),
         ]),

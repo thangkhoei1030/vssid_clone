@@ -80,7 +80,7 @@ class BuildSmartRefreshWidget extends StatelessWidget {
     this.header,
     this.footer,
     this.scrollDirection = Axis.vertical,
-    this.isUseDefaultHeader = true,
+    this.isUseDefaultHeader = false,
     this.controller,
   });
   final Widget child;
@@ -99,6 +99,7 @@ class BuildSmartRefreshWidget extends StatelessWidget {
             controller: controller!.refreshController,
             physics: const BouncingScrollPhysics(),
             scrollDirection: scrollDirection,
+            header: const MaterialClassicHeader(),
             enablePullUp: enablePullUp,
             enablePullDown: enablePullDown,
             onRefresh: controller!.onRefresh,

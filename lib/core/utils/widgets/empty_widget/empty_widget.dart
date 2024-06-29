@@ -32,10 +32,11 @@ class EmptyWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         UtilWidget.sizedBox10,
-        Lottie.asset(
-          AnimationAsset.emptyAnimation,
-          frameRate: FrameRate(60),
-        ),
+        //TODO
+        // Lottie.asset(
+        //   AnimationAsset.emptyAnimation,
+        //   frameRate: FrameRate(60),
+        // ),
         UtilWidget.sizedBox10,
         TextBuild(
           title: message ?? AppStr.noData,

@@ -62,12 +62,12 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                     labelPadding: const EdgeInsets.symmetric(
                         vertical: AppDimens.paddingVerySmall),
                     tabs: [
-                      _tabItem(Icons.list, PublicServiceString.service),
+                      _tabItem(Icons.list, ParticipationProcessString.bhxh),
                       _tabItem(Icons.rotate_left_rounded,
-                          PublicServiceString.service),
-                      _tabItem(Icons.list, PublicServiceString.service),
+                          ParticipationProcessString.bhtn),
+                      _tabItem(Icons.list, ParticipationProcessString.bhtnld),
                       _tabItem(Icons.rotate_left_rounded,
-                          PublicServiceString.service),
+                          ParticipationProcessString.bhyt),
                       _tabItem(Icons.list, PublicServiceString.service),
                     ],
                   ),

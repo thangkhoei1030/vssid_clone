@@ -1,5 +1,4 @@
 class BenefitInfomationString {
-
   static const String benefitInfomation = "Thông tin hưởng";
 
   static const String oneTime = "Một lần";
@@ -19,4 +18,21 @@ class BenefitInfomationString {
   static const String adjustmentForm = "Phiếu điều chỉnh";
 
   static const String headerUnemployment = "Thông tin hưởng BH thất nghiệp";
+
+  static const String soQDHuong = "Số QĐ hưởng";
+
+  static const String ngayQDHuonng = "Ngày QĐ hưởng";
+
+  static const String sotien = "Số tiền";
+
+  static const String tendonvi = "Tên đơn vị";
+
+  static const String sotaikhoan = "Số tài khoản";
+
+  static const String tennganhang = "Tên ngân hàng";
+
+  static const String chedo = "Chế độ";
+
+  static String fromDateToDate(String fromDate, String toDate) =>
+      "Từ ngày $fromDate đến ngày $toDate";
 }

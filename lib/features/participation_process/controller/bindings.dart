@@ -6,5 +6,9 @@ class ParticipationProcessBindings extends Bindings {
   void dependencies() {
     Get.lazyPut<ParticipationProcessController>(
         () => ParticipationProcessController());
+    Get.lazyPut<BHXHController>(() => BHXHController());
+    Get.lazyPut<BHTNController>(() => BHTNController());
+    Get.lazyPut<BHTNLDController>(() => BHTNLDController());
+    Get.lazyPut<BHYTController>(() => BHYTController());
   }
 }

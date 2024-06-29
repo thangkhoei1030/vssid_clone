@@ -4,6 +4,8 @@ class ApiUrl {
   static const String urlLogin = "api/member/login";
   //Sổ khám chữa bệnh
   static const String health = "api/health/list";
+  //Quá trình
+  static const String processList = "api/progres/list";
   //Chi tiết quá trình
   static const String process = "api/progres/detail";
   //Chi tiết sổ khám chữa bệnh

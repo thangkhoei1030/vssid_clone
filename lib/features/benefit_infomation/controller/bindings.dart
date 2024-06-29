@@ -6,5 +6,10 @@ class BenefitInfomationBindings extends Bindings {
   void dependencies() {
     Get.lazyPut<BenefitInfomationController>(
         () => BenefitInfomationController());
+    Get.lazyPut<OneTimeBenefitController>(() => OneTimeBenefitController());
+    Get.lazyPut<ODTSBenefitController>(() => ODTSBenefitController());
+    Get.lazyPut<MonthlyBenefitController>(() => MonthlyBenefitController());
+    Get.lazyPut<UnemploymentBenefitController>(
+        () => UnemploymentBenefitController());
   }
 }
