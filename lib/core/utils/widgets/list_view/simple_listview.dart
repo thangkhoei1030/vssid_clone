@@ -13,6 +13,7 @@ class SimpleListView<T> extends StatelessWidget {
     this.height,
     this.padding,
     this.showEmptyWidget = true,
+    this.fillScreenEmpty = true,
   });
   final List<T> data;
   final Widget? separatorWidget;
@@ -23,14 +24,15 @@ class SimpleListView<T> extends StatelessWidget {
   final double? height;
   final EdgeInsetsGeometry? padding;
   final bool showEmptyWidget;
+  final bool fillScreenEmpty;
   @override
   Widget build(BuildContext context) {
     return data.isEmpty
         ? showEmptyWidget
-            ? const Align(
+            ? fillScreenEmpty ? const Align(
                 alignment: Alignment.center,
                 child: EmptyWidget(),
-              )
+              ) : const EmptyWidget()
             : const SizedBox.shrink()
         : SizedBox(
             height: scrollDirection == Axis.horizontal ? height : null,

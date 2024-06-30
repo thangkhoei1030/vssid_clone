@@ -12,9 +12,7 @@ class ProfileManagerAction extends StatelessWidget {
     return Column(
       children: [
         MenuActionItem(
-          funcion: () {
-            Get.toNamed(AppRoutes.healthInsuranceCard);
-          },
+          funcion: () => Get.toNamed(AppRoutes.healthInsuranceCard),
           icon: Icons.card_membership,
           title: ProfileManagerString.healthInsuranceCard,
           iconColor: Colors.blue,
@@ -22,9 +20,7 @@ class ProfileManagerAction extends StatelessWidget {
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
-          funcion: () {
-            Get.toNamed(AppRoutes.participationProcess);
-          },
+          funcion: () => Get.toNamed(AppRoutes.participationProcess),
           icon: Icons.rotate_left_sharp,
           title: ProfileManagerString.participationProcess,
           iconColor: Colors.blue,
@@ -32,9 +28,7 @@ class ProfileManagerAction extends StatelessWidget {
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
-          funcion: () {
-            Get.toNamed(AppRoutes.benefitInfomation);
-          },
+          funcion: () => Get.toNamed(AppRoutes.benefitInfomation),
           icon: Icons.account_circle,
           title: ProfileManagerString.beneficiaryInformation,
           iconColor: Colors.blue,
@@ -42,7 +36,7 @@ class ProfileManagerAction extends StatelessWidget {
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
-          funcion: () {},
+          funcion: () => Get.toNamed(AppRoutes.healthRecord),
           icon: Icons.medical_services,
           title: ProfileManagerString.healthRecords,
           iconColor: Colors.blue,

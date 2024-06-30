@@ -2,7 +2,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
-import 'package:vssid/features/benefit_infomation/ui/tab_ui/odst.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
@@ -22,8 +21,8 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
             child: SafeArea(
               child: Column(
                 children: [
-                  Container(
-                    color: Colors.blue,
+                  SizedBox(
+                    // color: Colors.blue,
                     height: kToolbarHeight,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,14 +33,14 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                           },
                           child: const Icon(
                             Icons.arrow_back_ios,
-                            color: Colors.white,
+                            // color: Colors.white,
                           ),
                         ),
                         TextBuild(
                           title: ParticipationProcessString.processTitle
                               .toUpperCase(),
                           fontSize: AppDimens.sizeTextLarge,
-                          textColor: Colors.white,
+                          // textColor: Colors.white,
                         ),
                         const SizedBox.shrink()
                       ],

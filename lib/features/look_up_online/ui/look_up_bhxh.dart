@@ -7,36 +7,59 @@ class LookUpBHXH extends GetView<LookUpBHXHController> {
   const LookUpBHXH({super.key});
 
   @override
+  LookUpBHXHController get controller => Get.put(LookUpBHXHController());
+
+  @override
   Widget build(BuildContext context) {
     return PageScaffold(
+        showAppBar: true,
+        title: TextBuild(
+          title: LookUpOnlineString.lookUpCodeBHXH,
+          fontSize: AppDimens.sizeTextLarge,
+        ),
+        showBackButton: true,
         child: SingleChildScrollView(
-      child: Column(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const TextBuild(
-                title: LookUpOnlineString.provinceAndCity,
-              ),
-              UtilWidget.sizedBox10,
-              CardBuilder(
-                radiusModel: const RadiusModel(radiusAll: AppDimens.radius8),
-                paddingModel: const PaddingModel(
-                  paddingHorizontal: AppDimens.defaultPadding,
-                  paddingVerical: AppDimens.paddingSmall,
+          child: Obx(
+            () => Column(
+              children: [
+                SelectDialog(
+                  valueSelected: controller.cityIdSelected.value?.values.first,
+                  showListOptionsDialog: controller.selecteCityId,
+                  hintText: LookUpOnlineString.selectProvince,
+                  lable: LookUpOnlineString.provinceAndCity,
                 ),
-                isBorder: true,
-                alignment: Alignment.centerLeft,
-                borderColor: Colors.black.withOpacity(0.5),
-                child: TextBuild(
-                  title: LookUpOnlineString.selectProvince,
-                  textColor: context.onSurfaceColor,
+                UtilWidget.sizedBoxPadding,
+                TextFormField(
+                  controller: controller.fullNameController,
+                  decoration: const InputDecoration(
+                      label: TextBuild(title: LookUpOnlineString.fullName),
+                      suffixIcon: Icon(Icons.edit)),
+                  cursorColor: context.onSurfaceColor,
                 ),
-              ),
-            ],
-          )
-        ],
-      ).paddingAll(AppDimens.defaultPadding),
-    ));
+                UtilWidget.sizedBoxPadding,
+                SelectDialog(
+                  valueSelected:
+                      controller.provinceSelected.value?.values.first,
+                  showListOptionsDialog: controller.getProvinceId,
+                  hintText: LookUpOnlineString.provinceAndCity,
+                ),
+                UtilWidget.sizedBoxPadding,
+                CardBuilder(
+                    borderColor: context.onSurfaceColor,
+                    isBorder: true,
+                    radiusModel:
+                        const RadiusModel(radiusAll: AppDimens.radius8),
+                    paddingModel: const PaddingModel(
+                      paddingHorizontal: AppDimens.defaultPadding,
+                      paddingVerical: AppDimens.paddingSmall,
+                    ),
+                    onTap: () => controller.search(),
+                    child: const TextBuild(
+                      title: LookUpOnlineString.search,
+                    ))
+              ],
+            ).paddingAll(AppDimens.defaultPadding),
+          ),
+        ));
   }
 }

@@ -17,4 +17,10 @@ class LookUpOnlineString {
   static const String provinceAndCity = "Tỉnh - TP";
 
   static const String selectProvince = "-- Chọn tỉnh --";
+
+  static const String fullName = "Họ và tên";
+
+  static const String search = "Tìm kiếm";
+
+  static const String pleaseSelectCityId = "Vui lòng chọn tỉnh/thành phố";
 }

@@ -8,4 +8,9 @@ class LookUpOrganBHXHController extends LookUpOnlineController {
   void onInit() {
     super.onInit();
   }
+  
+  @override
+  void search() {
+    // TODO: implement search
+  }
 }

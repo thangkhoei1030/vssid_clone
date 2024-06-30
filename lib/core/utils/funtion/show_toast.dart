@@ -7,6 +7,7 @@ enum ToastStatus { error, success, warning }
 Future<void> showToast(String message,
     {Toast toastLength = Toast.LENGTH_SHORT,
     ToastGravity gravity = ToastGravity.BOTTOM,
+    Color? textColor,
     required ToastStatus toastStatus}) async {
   // ignore: no_leading_underscores_for_local_identifiers
   Color? _getBackgroundColorToast() {
@@ -25,7 +26,7 @@ Future<void> showToast(String message,
   await Fluttertoast.showToast(
     msg: FunctionUtils.unicodeDecode(message),
     backgroundColor: _getBackgroundColorToast(),
-    textColor: Colors.white,
+    textColor: textColor ?? Colors.white,
     fontSize: AppDimens.sizeTextDefault,
     toastLength: toastLength,
     gravity: gravity,

@@ -22,4 +22,6 @@ class ParticipationProcessString {
   static const String factory = "Đơn vị";
 
   static const String job = "Chức vụ";
+
+  static const String share = "Chia sẻ";
 }

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/pages/src_pages.dart';
 
 class TableData extends GetView<ParticipationProcessController> {
   final TabProcessType tabType;
@@ -94,7 +95,12 @@ class TableData extends GetView<ParticipationProcessController> {
                   title: item.job ?? "",
                 ),
               ),
-            const Icon(Icons.remove_red_eye)
+            SimpleButton(
+                onPressed: () => Get.toNamed(
+                      AppRoutes.processDetail,
+                      arguments: item.id,
+                    ),
+                child: const Icon(Icons.remove_red_eye))
           ])
       ],
     );

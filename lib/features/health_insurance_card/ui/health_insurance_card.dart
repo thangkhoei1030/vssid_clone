@@ -16,10 +16,10 @@ class HealthInsuranceCardPage
       showBackButton: true,
       title: TextBuild(
         title: HealthInsuranceCard.cardBHYT.toUpperCase(),
-        textColor: Colors.white,
+        // textColor: Colors.white,
         fontSize: AppDimens.sizeTextMedium,
       ),
-      backgroundColorAppBar: Colors.blue,
+      // backgroundColorAppBar: Colors.blue,
       child: Column(
         children: [
           Expanded(

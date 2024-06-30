@@ -71,6 +71,7 @@ class PageScaffold extends StatelessWidget {
     this.backgroundColor,
     this.backgroundColorAppBar,
     this.resizeToAvoidBottomInset = true,
+    this.customAppBar,
   });
 
   final bool showBackButton;
@@ -97,6 +98,8 @@ class PageScaffold extends StatelessWidget {
 
   final bool resizeToAvoidBottomInset;
 
+  final PreferredSize? customAppBar;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -106,24 +109,25 @@ class PageScaffold extends StatelessWidget {
         backgroundColor: backgroundColor,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         appBar: showAppBar
-            ? AppBar(
-                backgroundColor: backgroundColorAppBar,
-                automaticallyImplyLeading: false,
-                leading: showBackButton
-                    ? SimpleButton(
-                        onPressed: overrideBackFunction ?? () => Get.back(),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                      )
-                    : null,
-                title: title,
-                centerTitle: true,
-                actions: action,
-                titleTextStyle: titleTextStyle,
-                // toolbarHeight: height ?? kToolbarHeight,
-              )
+            ? customAppBar ??
+                AppBar(
+                  backgroundColor: backgroundColorAppBar,
+                  automaticallyImplyLeading: false,
+                  leading: showBackButton
+                      ? SimpleButton(
+                          onPressed: overrideBackFunction ?? () => Get.back(),
+                          child: const Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          ),
+                        )
+                      : null,
+                  title: title,
+                  centerTitle: true,
+                  actions: action,
+                  titleTextStyle: titleTextStyle,
+                  // toolbarHeight: height ?? kToolbarHeight,
+                )
             : null,
         floatingActionButton: showFloatingButton
             ? floatingActionButton ??

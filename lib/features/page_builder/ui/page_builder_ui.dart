@@ -10,7 +10,6 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
   @override
   Widget buildWidgets(BuildContext context) {
     return LoadingOverlayWidget(
-      
       child: SafeArea(
         top: false,
         bottom: false,

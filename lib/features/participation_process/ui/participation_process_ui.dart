@@ -10,73 +10,72 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
     return DefaultTabController(
       length: 5,
       initialIndex: 0,
-      child: Scaffold(
-        appBar: PreferredSize(
+      child: PageScaffold(
+        customAppBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight * 3),
-          child: SizedBox(
-            child: SafeArea(
-              child: Column(
-                children: [
-                  Container(
-                    color: Colors.blue,
-                    height: kToolbarHeight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SimpleButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Icon(
-                            Icons.arrow_back_ios,
-                            color: Colors.white,
-                          ),
+          child: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                  // color: Colors.blue,
+                  height: kToolbarHeight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SimpleButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          // color: Colors.white,
                         ),
-                        TextBuild(
-                          title: ParticipationProcessString.processTitle
-                              .toUpperCase(),
-                          fontSize: AppDimens.sizeTextLarge,
-                          textColor: Colors.white,
-                        ),
-                        const SizedBox.shrink()
-                      ],
-                    ).paddingSymmetric(
-                      horizontal: AppDimens.defaultPadding,
-                    ),
-                  ),
-                  UtilWidget.sizedBoxPadding,
-                  TabBar(
-                    controller: controller.tabController,
-                    // automaticIndicatorColorAdjustment: true,
-                    indicatorColor: Colors.transparent,
-                    dividerColor: Colors.transparent,
-                    indicator: const BoxDecoration(),
-                    indicatorWeight: 1,
-                    onTap: (index) {
-                      controller.tabController.animateTo(index);
-                    },
-                    // isScrollable: true,
-
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.blue,
-                    labelPadding: const EdgeInsets.symmetric(
-                        vertical: AppDimens.paddingVerySmall),
-                    tabs: [
-                      _tabItem(Icons.list, ParticipationProcessString.bhxh),
-                      _tabItem(Icons.rotate_left_rounded,
-                          ParticipationProcessString.bhtn),
-                      _tabItem(Icons.list, ParticipationProcessString.bhtnld),
-                      _tabItem(Icons.rotate_left_rounded,
-                          ParticipationProcessString.bhyt),
-                      _tabItem(Icons.list, PublicServiceString.service),
+                      ),
+                      TextBuild(
+                        title: ParticipationProcessString.processTitle
+                            .toUpperCase(),
+                        fontSize: AppDimens.sizeTextLarge,
+                        // textColor: Colors.white,
+                      ),
+                      const SizedBox.shrink()
                     ],
+                  ).paddingSymmetric(
+                    horizontal: AppDimens.defaultPadding,
                   ),
-                ],
-              ),
+                ),
+                UtilWidget.sizedBoxPadding,
+                TabBar(
+                  controller: controller.tabController,
+                  // automaticIndicatorColorAdjustment: true,
+                  indicatorColor: Colors.transparent,
+                  dividerColor: Colors.transparent,
+                  indicator: const BoxDecoration(),
+                  indicatorWeight: 1,
+                  onTap: (index) {
+                    controller.tabController.animateTo(index);
+                  },
+                  // isScrollable: true,
+
+                  unselectedLabelColor: Colors.black,
+                  labelColor: Colors.blue,
+                  labelPadding: const EdgeInsets.symmetric(
+                      vertical: AppDimens.paddingVerySmall),
+                  tabs: [
+                    _tabItem(Icons.list, ParticipationProcessString.bhxh),
+                    _tabItem(Icons.rotate_left_rounded,
+                        ParticipationProcessString.bhtn),
+                    _tabItem(Icons.list, ParticipationProcessString.bhtnld),
+                    _tabItem(Icons.rotate_left_rounded,
+                        ParticipationProcessString.bhyt),
+                    _tabItem(Icons.list, PublicServiceString.service),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
-        body: TabBarView(controller: controller.tabController, children: const [
+        child:
+            TabBarView(controller: controller.tabController, children: const [
           BHXHPage(),
           BHTNPage(),
           BHTNLDPage(),

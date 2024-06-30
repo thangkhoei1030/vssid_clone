@@ -7,7 +7,7 @@ class ApiUrl {
   //Quá trình
   static const String processList = "api/progres/list";
   //Chi tiết quá trình
-  static const String process = "api/progres/detail";
+  static const String processDetail = "api/progres/detail";
   //Chi tiết sổ khám chữa bệnh
   static const String healthDetail = "api/health/detail";
   //Thông tin hưởng
@@ -15,5 +15,9 @@ class ApiUrl {
   //Thông tin chi tiết hưởng
   static const String benefitDetail = "api/benefit/detail";
   //Thông tin thẻ bhyt
-  static const String memberInfomation = "/api/member/infomation";
+  static const String memberInfomation = "api/member/infomation";
+  //Danh sách thành phố
+  static const String listCity = "api/city";
+  
+  static const String listProvince = "api/district";
 }

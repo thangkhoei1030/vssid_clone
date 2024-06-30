@@ -1,4 +1,5 @@
 import 'package:animations/animations.dart';
+import 'package:vssid/features/health_record/controller/bindings.dart';
 import 'package:vssid/features/src_feature.dart';
 // import 'package:vssid/feature/src_feature.dart';
 import 'package:vssid/pages/src_pages.dart';
@@ -60,10 +61,15 @@ class PageRoutes {
       page: () => const BenefitInfomationPage(),
       binding: BenefitInfomationBindings(),
     ),
-    // GetPage(
-    //   name: AppRoutes.congratulationQuiz,
-    //   page: () => const CongratulationsPage(),
-    // ),
+    GetPage(
+      name: AppRoutes.processDetail,
+      page: () => const ProcessDetailPage(),
+    ),
+    GetPage(
+      name: AppRoutes.healthRecord,
+      page: () => const HealthRecordPage(),
+      binding: HealthRecordControllerBindings(),
+    ),
     // GetPage(
     //   name: AppRoutes.profileEdit,
     //   page: () => const ProfileEditPage(),
