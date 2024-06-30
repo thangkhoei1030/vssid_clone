@@ -70,11 +70,10 @@ class PageRoutes {
       page: () => const HealthRecordPage(),
       binding: HealthRecordControllerBindings(),
     ),
-    // GetPage(
-    //   name: AppRoutes.profileEdit,
-    //   page: () => const ProfileEditPage(),
-    //   binding: ProfileEditControllerBinding(),
-    // ),
+    GetPage(
+      name: AppRoutes.setting,
+      page: () => const SettingPage(),
+    ),
     // GetPage(
     //   name: AppRoutes.changePassword,
     //   page: () => const ChangePasswordPage(),

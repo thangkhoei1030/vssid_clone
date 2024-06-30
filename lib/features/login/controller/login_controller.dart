@@ -5,7 +5,7 @@ import 'package:vssid/features/src_feature.dart';
 
 abstract class LoginController extends BaseGetxController {
   final TextEditingController codeBHXH =
-      TextEditingController(text: "dvtruongbk");
+      TextEditingController(text: APP_DATA.get(AppConst.keyUserName) ?? "");
 
   final TextEditingController password =
       TextEditingController(text: "12345678");

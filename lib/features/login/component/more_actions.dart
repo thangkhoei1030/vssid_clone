@@ -27,7 +27,7 @@ class MoreAction extends StatelessWidget {
   Widget _buildIcon(BuildContext context, IconData iconData) {
     return Icon(
       iconData,
-      size: AppDimens.sizeIconMedium,
+      size: AppDimens.sizeIconLarge,
       color: context.onSurfaceColor,
     ).paddingSymmetric(horizontal: AppDimens.paddingVerySmall);
   }

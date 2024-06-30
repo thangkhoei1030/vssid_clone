@@ -9,3 +9,4 @@ export 'health_insurance_card/src_health_insurance_card.dart';
 export 'participation_process/src_participation_process.dart';
 export 'benefit_infomation/src_benefit_infomation.dart';
 export 'health_record/src_health_record.dart';
+export 'settings/src_setting.dart';

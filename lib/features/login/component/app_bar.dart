@@ -10,14 +10,14 @@ class LoginAppBar extends StatelessWidget {
       children: [
         Icon(
           Icons.notifications_active,
-          color: context.onPrimaryColor,
-          size: AppDimens.sizeIconMedium,
+          color: context.onSurfaceColor,
+          size: AppDimens.sizeIconLarge,
         ),
         const Spacer(),
         Icon(
           Icons.flag,
-          color: context.onPrimaryColor,
-          size: AppDimens.sizeIconMedium,
+          color: context.onSurfaceColor,
+          size: AppDimens.sizeIconLarge,
         )
       ],
     );

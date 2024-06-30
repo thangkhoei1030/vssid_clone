@@ -20,12 +20,12 @@ class LoginPage extends BaseGetWidget<LoginController> {
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
-                  children: const [
-                    UserInputComponent(),
+                  children: [
+                    const UserInputComponent(),
                     UtilWidget.sizedBoxPadding,
-                    ForgotAndRegisterButton(),
-                    UtilWidget.sizedBoxPadding,
-                    LoginButton(),
+                    const ForgotAndRegisterButton(),
+                    UtilWidget.sizedBoxPaddingHuge,
+                    const LoginButton(),
                     UtilWidget.sizedBoxPaddingMedium,
                   ],
                 ),

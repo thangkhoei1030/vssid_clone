@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/pages/routes.dart';
 
 class MenuActionDrawer extends GetView<PageBuilderController> {
   const MenuActionDrawer({super.key});
@@ -42,7 +43,7 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             title: PageBuilderString.support,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => {Get.back(), Get.toNamed(AppRoutes.setting)},
             icon: Icons.settings,
             title: PageBuilderString.settings,
           ),
