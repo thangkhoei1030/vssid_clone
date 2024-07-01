@@ -4,7 +4,7 @@ import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
-class SupportPage extends StatelessWidget {
+class SupportPage extends GetView<SupportController> {
   const SupportPage({super.key});
 
   @override
@@ -19,13 +19,13 @@ class SupportPage extends StatelessWidget {
                 horizontal: AppDimens.defaultPadding,
                 vertical: AppDimens.paddingSmall,
               ),
-              itemCount: SupportValueConst.listComponent.length,
+              itemCount: controller.listComponent.length,
               separatorBuilder: (context, index) {
                 return UtilWidget.sizedBoxPadding;
               },
               itemBuilder: (context, index) {
                 return SupportItem(
-                    item: SupportValueConst.listComponent[index]);
+                    item: controller.listComponent[index],);
               }),
         ),
       ],

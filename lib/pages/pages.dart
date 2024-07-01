@@ -44,6 +44,7 @@ class PageRoutes {
         PageBuilderBindings(),
         ProfileManageBindings(),
         LookUpOnlineBindings(),
+        SupportControllerBindings(),
       ],
     ),
     GetPage(
