@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
@@ -13,7 +14,7 @@ class UserInputComponent extends GetView<LoginController> {
       child: Column(
         children: [
           _buildInput(
-            Icons.account_box,
+            Iconsax.user,
             InputTextModel(
               controller: controller.codeBHXH,
               hintText: LoginStr.codeBHXH,
@@ -25,7 +26,7 @@ class UserInputComponent extends GetView<LoginController> {
           ),
           UtilWidget.sizedBoxPadding,
           _buildInput(
-            Icons.key,
+            Iconsax.key,
             InputTextModel(
               obscureText: true,
               controller: controller.password,
@@ -53,7 +54,7 @@ class UserInputComponent extends GetView<LoginController> {
             child: Icon(
               iconData,
               color: Colors.white,
-              size: AppDimens.sizeIconLarge,
+              size: AppDimens.sizeIconMedium,
             ),
           ),
           Expanded(child: BuildInputText(inputTextModel))

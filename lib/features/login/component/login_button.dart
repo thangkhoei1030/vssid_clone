@@ -33,7 +33,7 @@ class LoginButton extends GetView<LoginController> {
             child: Icon(
               Icons.fingerprint,
               size: AppDimens.sizeIconVeryLarge,
-              color: context.onSurfaceColor,
+              color: context.primaryColor,
             ).paddingSymmetric(horizontal: AppDimens.paddingSmall),
           )
         ],

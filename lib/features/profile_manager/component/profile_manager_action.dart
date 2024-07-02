@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
@@ -13,34 +14,38 @@ class ProfileManagerAction extends StatelessWidget {
       children: [
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.healthInsuranceCard),
-          icon: Icons.card_membership,
+          icon: Iconsax.personalcard,
           title: ProfileManagerString.healthInsuranceCard,
           iconColor: Colors.blue,
           textColor: Colors.black,
+          iconSize: AppDimens.sizeIconLarge,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.participationProcess),
-          icon: Icons.rotate_left_sharp,
+          icon: Iconsax.calendar_tick,
           title: ProfileManagerString.participationProcess,
           iconColor: Colors.blue,
           textColor: Colors.black,
+          iconSize: AppDimens.sizeIconLarge,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.benefitInfomation),
-          icon: Icons.account_circle,
+          icon: Iconsax.user_search,
           title: ProfileManagerString.beneficiaryInformation,
           iconColor: Colors.blue,
           textColor: Colors.black,
+          iconSize: AppDimens.sizeIconLarge,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.healthRecord),
-          icon: Icons.medical_services,
+          icon: Iconsax.health,
           title: ProfileManagerString.healthRecords,
           iconColor: Colors.blue,
           textColor: Colors.black,
+          iconSize: AppDimens.sizeIconLarge,
         ),
         UtilWidget.sizedBoxPadding,
       ],

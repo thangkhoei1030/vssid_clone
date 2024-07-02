@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class PublicServicePage extends BaseGetWidget<PublicServiceController> {
   const PublicServicePage({super.key});
@@ -27,18 +29,17 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                     dividerColor: Colors.black.withOpacity(0.2),
                     indicator: const BoxDecoration(),
                     indicatorWeight: 1,
-                    onTap: (index) {
-                      controller.tabController.animateTo(index);
-                    },
+                    onTap: controller.onTabChange,
                     unselectedLabelColor: Colors.black,
                     labelColor: Colors.blue,
+
                     labelPadding: const EdgeInsets.symmetric(
                         vertical: AppDimens.paddingVerySmall),
                     tabs: [
                       Column(
                         children: const [
                           Icon(
-                            Icons.list,
+                            Iconsax.archive_book,
                             size: AppDimens.sizeIconLarge,
                           ),
                           Text(
@@ -46,14 +47,19 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                           )
                         ],
                       ),
-                      Column(
-                        children: const [
-                          Icon(
-                            Icons.rotate_left_rounded,
-                            size: AppDimens.sizeIconLarge,
-                          ),
-                          Text(PublicServiceString.service)
-                        ],
+                      Obx(
+                        () => Column(
+                          children: [
+                            Assets.svg.history.svg(
+                              height: AppDimens.sizeIconLarge,
+                              width: AppDimens.sizeIconLarge,
+                              color: controller.currentTabIndex.value == 1
+                                  ? Colors.blue
+                                  : Colors.black,
+                            ),
+                            const Text(PublicServiceString.history)
+                          ],
+                        ),
                       ),
                     ],
                   ),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
@@ -50,25 +51,25 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
                       CustomBottomBar(
                         label: PageBuilderString.profileManagerShort,
                         // activeIcon: Icons.account_circle_rounded,
-                        icon: Icons.account_circle_outlined,
+                        icon: Iconsax.user_octagon,
                         index: 0,
                       ),
                       CustomBottomBar(
                         label: PageBuilderString.publicServiceShort,
                         // activeIcon: Icons.list_alt_sharp,
-                        icon: Icons.list,
+                        icon: Iconsax.archive_book,
                         index: 1,
                       ),
                       CustomBottomBar(
                         label: PageBuilderString.lookUpOnlineShort,
                         // activeIcon: IconAsset.ASSET_ICON_BELL_BING_BOLD_SVG,
-                        icon: Icons.search,
+                        icon: Iconsax.global_search,
                         index: 2,
                       ),
                       CustomBottomBar(
                         label: PageBuilderString.supportShort,
                         // activeIcon: IconAsset.ASSET_ICON_PROPERTY_36_BOLD_SVG,
-                        icon: Icons.support_agent_outlined,
+                        icon: Iconsax.call_calling,
                         index: 3,
                       ),
                       // if (isVipMember.isFalse) Container(width: 0,height: 0,)
@@ -113,6 +114,7 @@ class CustomBottomBar extends GetView<PageBuilderController> {
           Obx(
             () => Icon(
               icon,
+              size: AppDimens.sizeIconMedium,
               color: index == controller.currentIndexPage.value
                   ? context.onSurfaceColor
                   : null,

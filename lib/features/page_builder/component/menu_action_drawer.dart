@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
@@ -14,37 +15,37 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
         children: [
           MenuActionItem(
             funcion: () {},
-            icon: Icons.notifications_active_outlined,
+            icon: Iconsax.notification_bing,
             title: PageBuilderString.notification,
           ),
           MenuActionItem(
             funcion: () {},
-            icon: Icons.newspaper_outlined,
+            icon: Iconsax.book,
             title: PageBuilderString.news,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(0)},
-            icon: Icons.account_circle_outlined,
+            icon: Iconsax.user_octagon,
             title: PageBuilderString.profileManager,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(1)},
-            icon: Icons.list,
+            icon: Iconsax.archive_book,
             title: PageBuilderString.publicService,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(2)},
-            icon: Icons.search,
+            icon: Iconsax.global_search,
             title: PageBuilderString.lookUpOnline,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(3)},
-            icon: Icons.support_agent_sharp,
+            icon: Iconsax.call_calling,
             title: PageBuilderString.support,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), Get.toNamed(AppRoutes.setting)},
-            icon: Icons.settings,
+            icon: Iconsax.setting,
             title: PageBuilderString.settings,
           ),
           UtilWidget.sizedBoxPaddingHuge,
@@ -52,7 +53,7 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
           UtilWidget.sizedBoxPaddingHuge,
           MenuActionItem(
             funcion: () {},
-            icon: Icons.lock_open_rounded,
+            icon: Iconsax.lock,
             title: PageBuilderString.changePassword,
             isNeedIconSuffix: false,
           ),
@@ -77,6 +78,7 @@ class MenuActionItem extends StatelessWidget {
     this.isNeedIconSuffix = true,
     this.textColor = Colors.white,
     this.iconColor = Colors.white,
+    this.iconSize = AppDimens.sizeIconMedium,
   });
 
   final Function() funcion;
@@ -91,6 +93,8 @@ class MenuActionItem extends StatelessWidget {
 
   final Color iconColor;
 
+  final double iconSize;
+
   @override
   Widget build(BuildContext context) {
     return SimpleButton(
@@ -102,7 +106,7 @@ class MenuActionItem extends StatelessWidget {
             Icon(
               icon,
               color: iconColor,
-              size: AppDimens.sizeIconMedium,
+              size: iconSize,
             ),
             UtilWidget.sizedBoxWidthPadding,
             Expanded(

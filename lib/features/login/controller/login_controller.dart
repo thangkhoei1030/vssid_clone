@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 abstract class LoginController extends BaseGetxController {
-  final TextEditingController codeBHXH =
-      TextEditingController(text: APP_DATA.get(AppConst.keyUserName) ?? "");
+  final TextEditingController codeBHXH = TextEditingController(
+      text: APP_DATA.get(AppConst.keyUserName) ?? "dvtruongbk");
 
   final TextEditingController password =
       TextEditingController(text: "12345678");

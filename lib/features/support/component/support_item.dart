@@ -23,8 +23,8 @@ class SupportItem extends StatelessWidget {
       child: Row(
         children: [
           CardBuilder(
-            height: 50.h,
-            width: 50.h,
+            height: 45.h,
+            width: 45.h,
             backgroundColor: Colors.transparent,
             paddingModel:
                 const PaddingModel(paddingAll: AppDimens.paddingVerySmall),
@@ -33,6 +33,8 @@ class SupportItem extends StatelessWidget {
             borderColor: context.onSurfaceColor,
             child: Icon(
               item.iconData,
+              color: context.onSurfaceColor,
+              size: AppDimens.sizeIconMedium,
             ),
           ),
           UtilWidget.sizedBoxWidthPadding,

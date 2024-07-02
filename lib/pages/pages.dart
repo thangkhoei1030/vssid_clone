@@ -18,7 +18,6 @@ class PageRoutes {
       () => page,
       arguments: arguments,
       preventDuplicates: preventDuplicates,
-      //transition: Transition.circularReveal,
     )?.then((value) => functionResult?.call(value));
   }
 
@@ -75,16 +74,6 @@ class PageRoutes {
       name: AppRoutes.setting,
       page: () => const SettingPage(),
     ),
-    // GetPage(
-    //   name: AppRoutes.changePassword,
-    //   page: () => const ChangePasswordPage(),
-    //   binding: ChangePasswordControllerBinding(),
-    // ),
-    // GetPage(
-    //   name: AppRoutes.changeInfoAccount,
-    //   page: () => const ChangeInfoAccountPage(),
-    //   binding: ChangeInfoAccountControllerBinding(),
-    // ),
   ];
 }
 

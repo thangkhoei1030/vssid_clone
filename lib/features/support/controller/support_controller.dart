@@ -1,43 +1,43 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
-import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class SupportController extends GetxController {
   final List<SupportComponentItemModel> listComponent = [
     SupportComponentItemModel(
         content: SupportString.tutorial,
-        iconData: Icons.edit_document,
+        iconData: Iconsax.book,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.chatBot,
-        iconData: Icons.edit_document,
+        iconData: Iconsax.safe_home,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.hotline,
-        iconData: Icons.engineering,
+        iconData: Iconsax.call_calling,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.email,
-        iconData: Icons.email,
+        iconData: Iconsax.sms,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.question,
-        iconData: Icons.question_answer,
+        iconData: Iconsax.message,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.feedback,
-        iconData: Icons.feedback,
+        iconData: Iconsax.sms_tracking,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),

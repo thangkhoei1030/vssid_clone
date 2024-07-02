@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class LookUpOnline extends StatelessWidget {
@@ -16,13 +17,13 @@ class LookUpOnline extends StatelessWidget {
                 function: () => Get.to(
                   () => const LookUpBHXH(),
                 ),
-                iconData: Icons.qr_code_scanner,
+                iconData: Iconsax.scan_barcode,
                 serviceName: LookUpOnlineString.lookUpCodeBHXH,
               ),
             ),
             Expanded(
               child: LookUpItem(
-                iconData: Icons.location_on,
+                iconData: Iconsax.star,
                 serviceName: LookUpOnlineString.lookUpOrganBHXH,
               ),
             ),
@@ -32,13 +33,13 @@ class LookUpOnline extends StatelessWidget {
           children: [
             Expanded(
               child: LookUpItem(
-                iconData: Icons.qr_code_scanner,
+                iconData: Iconsax.medal_star4,
                 serviceName: LookUpOnlineString.lookUpCSKCBQuitJob,
               ),
             ),
             Expanded(
               child: LookUpItem(
-                iconData: Icons.location_on,
+                iconData: Iconsax.health,
                 serviceName: LookUpOnlineString.lookUpCSKCBHeadling,
               ),
             ),
@@ -48,13 +49,13 @@ class LookUpOnline extends StatelessWidget {
           children: [
             Expanded(
               child: LookUpItem(
-                iconData: Icons.qr_code_scanner,
+                iconData: Iconsax.send_2,
                 serviceName: LookUpOnlineString.lookUpMemberJoinBHXH,
               ),
             ),
             Expanded(
               child: LookUpItem(
-                iconData: Icons.location_on,
+                iconData: Iconsax.medal,
                 serviceName: LookUpOnlineString.lookUpMemberReceiverBHXH,
               ),
             ),

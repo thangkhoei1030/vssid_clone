@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 
 class LoginAppBar extends StatelessWidget {
@@ -9,14 +10,14 @@ class LoginAppBar extends StatelessWidget {
     return Row(
       children: [
         Icon(
-          Icons.notifications_active,
-          color: context.onSurfaceColor,
+          Iconsax.notification_bing,
+          color: context.primaryColor,
           size: AppDimens.sizeIconLarge,
         ),
         const Spacer(),
         Icon(
-          Icons.flag,
-          color: context.onSurfaceColor,
+          Iconsax.language_circle,
+          color: context.primaryColor,
           size: AppDimens.sizeIconLarge,
         )
       ],

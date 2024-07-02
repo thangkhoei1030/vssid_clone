@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,10 @@ class MoreAction extends StatelessWidget {
         Expanded(
           child: Row(
             children: [
-              _buildIcon(context, Icons.newspaper),
-              _buildIcon(context, Icons.support_agent_outlined),
-              _buildIcon(context, Icons.search),
-              _buildIcon(context, Icons.video_settings_sharp),
+              _buildIcon(context, Iconsax.book),
+              _buildIcon(context, Iconsax.call_calling),
+              _buildIcon(context, Iconsax.global_search),
+              _buildIcon(context, Iconsax.video_square),
             ],
           ),
         ),
@@ -27,8 +28,9 @@ class MoreAction extends StatelessWidget {
   Widget _buildIcon(BuildContext context, IconData iconData) {
     return Icon(
       iconData,
-      size: AppDimens.sizeIconLarge,
-      color: context.onSurfaceColor,
-    ).paddingSymmetric(horizontal: AppDimens.paddingVerySmall);
+      size: AppDimens.sizeIconMedium,
+      color: context.primaryColor,
+      // color: context.onSurfaceColor,
+    ).paddingSymmetric(horizontal: AppDimens.paddingSmall);
   }
 }
