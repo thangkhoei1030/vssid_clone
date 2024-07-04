@@ -1,0 +1,51 @@
+{
+	"hello": "Xin chào",
+	"login": "Đăng nhập",
+	"register": "Đăng kí tài khoản",
+	"help": "Trợ giúp",
+	"help_center": "Trung tâm trợ giúp",
+	"news": "Tin tức",
+	"notification": "Thông báo",
+	"setting": "Cài đặt",
+	"version": "Phiên bản",
+	"@version": {
+		"placeholders": {
+			"a": {
+				"type": "String"
+			}
+		}
+	},
+	"license": "Bản quyền thuộc về Bảo hiểm xã hội Việt Nam",
+	"monthly": "Hàng tháng",
+	"ODTS": "ODTS",
+	"unemployment": "Thất nghiệp",
+	"adjustmentForm": "Phiếu điều chỉnh",
+	"benefitInfomation": "Thông tin hưởng",
+	"biometricAuthenticateFail": "Xác thực vân tay thất bại",
+	"biometricNotEnable": "Bạn chưa bật tính năng này. Vui lòng đăng nhập và bật ở trong phần cài đặt",
+	"changePassword": "Đổi mật khẩu",
+	"codeBHXH": "Mã số BHXH",
+	"forgotPassword": "Quên mật khẩu",
+	"headerMonthly": "Thông tin hưởng lương hưu, trợ cấp BHXH",
+	"headerODTS": "Thông tin hưởng chế độ ốm đau thai sản",
+	"headerOneTime": "Thông tin hưởng BHXH 1 lần",
+	"headerUnemployment": "Thông tin hưởng BH thất nghiệp",
+	"loginSuccess": "Đăng nhập thành công",
+	"logOut": "Đăng xuất",
+	"lookUpOnline": "Tra cứu trực tuyến",
+	"lookUpOnlineShort": "Tra cứu TT",
+	"oneTime": "Một lần",
+	"profileManager": "Quản lý cá nhân",
+	"profileManagerShort": "QL cá nhân",
+	"publicService": "Dịch vụ công",
+	"publicServiceShort": "DV công",
+	"chedo": "Chế độ",
+	"ngayQDHuonng": "Ngày QĐ hưởng",
+	"soQDHuong": "Số QĐ hưởng",
+	"sotaikhoan": "Số tài khoản",
+	"sotien": "Số tiền",
+	"tendonvi": "Tên đơn vị",
+	"tennganhang": "Tên ngân hàng",
+	"email": "Email",
+	"send": "Gửi"
+}
