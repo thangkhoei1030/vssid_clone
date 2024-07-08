@@ -71,7 +71,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
         children: [
           TextBuild(
             title: endTimeTile,
-            style: Get.textTheme.subtitle1,
+            style: Get.textTheme.bodySmall,
           ),
           _buildTimeInfo(hours),
           _buildTimeInfo(minutes),
@@ -89,7 +89,7 @@ class _CountdownTimerState extends State<CountdownTimer> {
       color: Colors.black,
       child: TextBuild(
         title: time.toString(),
-        style: Get.textTheme.subtitle1!.copyWith(color: Colors.white),
+        style: Get.textTheme.bodySmall!.copyWith(color: Colors.white),
       ),
     );
   }

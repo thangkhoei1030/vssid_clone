@@ -1,37 +1,32 @@
 import 'dart:io';
 
-import 'package:easy_localization/easy_localization.dart';
+// import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:vssid/pages/pages.dart';
 import 'package:vssid/pages/routes.dart';
-import 'package:vssid/service/src_service.dart';
 import 'core/src_core.dart';
-import 'service/language/localization_manager.dart';
 
 String applicationPath = "";
 final AppLocalAuth localAuth = AppLocalAuth();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
+  // await EasyLocalization.ensureInitialized();
   applicationPath =
       (await path_provider.getApplicationDocumentsDirectory()).path;
   if (Platform.isIOS) {
     showBarNotificationIOS();
   }
   _errorWidgetBuilder();
-  runApp(
-    EasyLocalization(
-        supportedLocales: LocalizationManager.instance.supportedLocales,
-        path: LocalizationManager.instance
-            .localePath!, // <-- change the path of the translation files
-        fallbackLocale: const Locale('vi', 'VN'),
-        startLocale: LocalizationEnum.vietnamese.translate,
-        child: const MyApp()),
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (_) => )
+  ],child: const MyApp(), )
+  
   );
 }
 

@@ -6,3 +6,4 @@ export 'values/src_values.dart';
 export 'base_models/src_base_models.dart';
 export 'app/src_app.dart';
 export 'controller_tags_manager/src_controller_tags_manager.dart';
+export 'common/api_client.dart';
