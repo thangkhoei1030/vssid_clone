@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.web4s.vssid100">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.web4s.vssid">
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <!-- Provide required visibility configuration for API level 30 and above -->

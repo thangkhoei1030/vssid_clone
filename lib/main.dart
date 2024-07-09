@@ -1,6 +1,7 @@
 import 'dart:io';
-
+import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,13 +26,10 @@ void main() async {
   }
   _errorWidgetBuilder();
   runApp(
-    EasyLocalization(
-        supportedLocales: LocalizationManager.instance.supportedLocales,
-        path: LocalizationManager.instance
-            .localePath!, // <-- change the path of the translation files
-        fallbackLocale: const Locale('vi', 'VN'),
-        startLocale: LocalizationEnum.vietnamese.translate,
-        child: const MyApp()),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
   );
 }
 
@@ -73,25 +71,25 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         designSize: const Size(412.4, 916.5),
         builder: (context, child) => GetMaterialApp(
-          // locale: DevicePreview.locale(context),
-          locale: const Locale('vi', 'VN'),
+          locale: DevicePreview.locale(context),
+          // locale: const Locale('vi', 'VN'),
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoutes.splashPage,
           getPages: PageRoutes.pageRoutes,
           useInheritedMediaQuery: false,
-          // builder: DevicePreview.appBuilder,
-          builder: (context, child) => ScrollConfiguration(
-            behavior: MyBehavior(),
-            child: MediaQuery(
-              data:
-                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
-              child: GestureDetector(
-                  onTap: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                  },
-                  child: child ?? Container()),
-            ),
-          ),
+          builder: DevicePreview.appBuilder,
+          // builder: (context, child) => ScrollConfiguration(
+          //   behavior: MyBehavior(),
+          //   child: MediaQuery(
+          //     data:
+          //         MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          //     child: GestureDetector(
+          //         onTap: () {
+          //           FocusManager.instance.primaryFocus?.unfocus();
+          //         },
+          //         child: child ?? Container()),
+          //   ),
+          // ),
           title: AppStr.appName,
           theme: AppTheme().getThemeByAppTheme(),
           navigatorObservers: [

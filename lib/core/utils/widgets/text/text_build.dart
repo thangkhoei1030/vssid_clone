@@ -38,7 +38,7 @@ class TextBuild extends StatelessWidget {
           ? AutoSizeText(
               title,
               style: style ??
-                  Theme.of(context).textTheme.bodyText1!.copyWith(
+                  Theme.of(context).textTheme.bodySmall!.copyWith(
                         decoration: decoration,
                         color: textColor,
                         fontSize: (fontSize ?? AppDimens.sizeTextDefault),

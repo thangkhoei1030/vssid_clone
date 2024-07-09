@@ -7,6 +7,8 @@ class ParticipationProcessString {
 
   static const String bhyt = "BHYT";
 
+  static const String C14TS = "C14-TS";
+
   static const String process = "Quá trình tham gia Bảo hiểm xã hội";
 
   static const String totalTimeJoin = "Tông thời gian tham gia";

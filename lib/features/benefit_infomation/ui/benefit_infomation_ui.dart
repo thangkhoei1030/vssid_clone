@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
   const BenefitInfomationPage({super.key});
@@ -63,13 +64,23 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                     labelPadding: const EdgeInsets.symmetric(
                         vertical: AppDimens.paddingVerySmall),
                     tabs: [
-                      _tabItem(Icons.list, BenefitInfomationString.oneTime),
+                      _tabItem(
+                        BenefitInfomationString.oneTime,
+                        svg: Assets.svg.note1,
+                      ),
 
-                      _tabItem(Icons.list, BenefitInfomationString.ODTS),
-                      _tabItem(Icons.rotate_left_rounded,
-                          BenefitInfomationString.monthly),
-                      _tabItem(Icons.rotate_left_rounded,
-                          BenefitInfomationString.unemployment),
+                      _tabItem(
+                        BenefitInfomationString.ODTS,
+                        svg: Assets.svg.note2,
+                      ),
+                      _tabItem(
+                        BenefitInfomationString.monthly,
+                        svg: Assets.svg.hangthang,
+                      ),
+                      _tabItem(
+                        BenefitInfomationString.unemployment,
+                        svg: Assets.svg.thatnghiep,
+                      ),
                       // _tabItem(Icons.list, PublicServiceString.service),
                     ],
                   ),
@@ -91,9 +102,10 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
   }
 
   Widget _tabItem(
-    IconData icon,
-    String title,
-  ) {
+    String title, {
+    IconData? icon,
+    SvgGenImage? svg,
+  }) {
     return Column(
       children: [
         CardBuilder(
@@ -102,10 +114,15 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
           radiusModel: const RadiusModel(radiusAll: 50),
           isBorder: true,
           borderColor: Colors.blue,
-          child: Icon(
-            icon,
-            size: AppDimens.sizeIconLarge,
-          ),
+          child: svg != null
+              ? svg.svg(
+                  height: AppDimens.sizeIconLarge,
+                  width: AppDimens.sizeIconLarge,
+                )
+              : Icon(
+                  icon,
+                  size: AppDimens.sizeIconLarge,
+                ),
         ),
         UtilWidget.sizedBox5,
         Text(

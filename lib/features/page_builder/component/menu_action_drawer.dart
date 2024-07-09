@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 import 'package:vssid/pages/routes.dart';
 
 class MenuActionDrawer extends GetView<PageBuilderController> {
@@ -35,12 +36,12 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(2)},
-            icon: Iconsax.global_search,
+            svg: Assets.svg.searchScan,
             title: PageBuilderString.lookUpOnline,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(3)},
-            icon: Iconsax.call_calling,
+            icon: Iconsax.message_question,
             title: PageBuilderString.support,
           ),
           MenuActionItem(
@@ -73,17 +74,20 @@ class MenuActionItem extends StatelessWidget {
   const MenuActionItem({
     super.key,
     required this.funcion,
-    required this.icon,
+    this.icon,
     required this.title,
     this.isNeedIconSuffix = true,
     this.textColor = Colors.white,
     this.iconColor = Colors.white,
     this.iconSize = AppDimens.sizeIconMedium,
+    this.svg,
   });
 
   final Function() funcion;
 
-  final IconData icon;
+  final SvgGenImage? svg;
+
+  final IconData? icon;
 
   final String title;
 
@@ -103,11 +107,17 @@ class MenuActionItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(
-              icon,
-              color: iconColor,
-              size: iconSize,
-            ),
+            svg != null
+                ? svg!.svg(
+                    color: iconColor,
+                    height: iconSize,
+                    width: iconSize,
+                  )
+                : Icon(
+                    icon,
+                    color: iconColor,
+                    size: iconSize,
+                  ),
             UtilWidget.sizedBoxWidthPadding,
             Expanded(
               child: Column(

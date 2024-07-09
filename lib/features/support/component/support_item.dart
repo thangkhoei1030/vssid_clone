@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class SupportItem extends StatelessWidget {
   const SupportItem({
@@ -31,16 +32,22 @@ class SupportItem extends StatelessWidget {
             radiusModel: const RadiusModel(radiusAll: 50),
             isBorder: true,
             borderColor: context.onSurfaceColor,
-            child: Icon(
-              item.iconData,
-              color: context.onSurfaceColor,
-              size: AppDimens.sizeIconMedium,
-            ),
+            child: item.pathSVG != null
+                ? item.pathSVG!.svg()
+                : Icon(
+                    item.iconData,
+                    color: context.onSurfaceColor,
+                    size: AppDimens.sizeIconMedium,
+                  ),
           ),
           UtilWidget.sizedBoxWidthPadding,
-          TextBuild(
-            title: item.content.toUpperCase(),
-            fontSize: AppDimens.sizeTextLarge,
+          Expanded(
+            child: TextBuild(
+              textAlign: TextAlign.start,
+              isAutoSizeText: true,
+              title: item.content.toUpperCase(),
+              fontSize: AppDimens.sizeTextLarge,
+            ),
           )
         ],
       ),

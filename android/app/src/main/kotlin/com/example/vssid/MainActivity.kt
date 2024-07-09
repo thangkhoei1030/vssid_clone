@@ -1,4 +1,4 @@
-package com.web4s.vssid100
+package com.web4s.vssid
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 

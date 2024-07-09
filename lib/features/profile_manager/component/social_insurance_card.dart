@@ -104,10 +104,12 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
             TextBuild(
               title: key,
             ),
+            UtilWidget.sizedBoxWidth10,
             Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
                 child: TextBuild(
+                  textAlign: TextAlign.right,
                   title: value,
                 ),
               ),

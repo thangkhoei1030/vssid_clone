@@ -38,7 +38,7 @@ class BuildInputTextWithLabel extends StatelessWidget {
                 Flexible(
                   child: AutoSizeText(
                     label,
-                    style: (textStyle ?? Get.textTheme.bodyText2)!.copyWith(
+                    style: (textStyle ?? Get.textTheme.bodySmall)!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: labelColor ?? Colors.black,
                     ),
@@ -48,7 +48,7 @@ class BuildInputTextWithLabel extends StatelessWidget {
                 ),
                 AutoSizeText(
                   labelRequired ?? "",
-                  style: Get.textTheme.bodyText1?.copyWith(
+                  style: Get.textTheme.bodySmall?.copyWith(
                     color: Colors.red,
                   ),
                 ),

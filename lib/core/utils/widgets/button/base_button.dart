@@ -62,7 +62,7 @@ class BaseButton extends StatelessWidget {
               ),
               TextBuild(
                 title: titleButton,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
                       fontSize: fontSize ?? AppDimens.fontMedium(),
                       color: colorText,
                     ),

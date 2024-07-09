@@ -41,7 +41,7 @@ class ProfileManagerAction extends StatelessWidget {
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.healthRecord),
-          icon: Iconsax.health,
+          icon: Iconsax.book_square,
           title: ProfileManagerString.healthRecords,
           iconColor: Colors.blue,
           textColor: Colors.black,

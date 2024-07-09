@@ -33,8 +33,8 @@ class TableData extends GetView<ParticipationProcessController> {
       // },
       children: [
         TableRow(
-            decoration: BoxDecoration(
-              color: context.onSurfaceColor,
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(56, 101, 155, 1),
             ),
             children: [
               if (tabType.getColumnView().fromDate)
@@ -69,7 +69,7 @@ class TableData extends GetView<ParticipationProcessController> {
                 ),
               const SizedBox.shrink(),
             ]),
-        for (ProcessItemResponse item in controller.listProcess.value)
+        for (ProcessItemResponse item in controller.listProcess)
           TableRow(children: [
             if (tabType.getColumnView().fromDate)
               _buildCeil(

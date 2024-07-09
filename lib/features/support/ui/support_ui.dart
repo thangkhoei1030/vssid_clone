@@ -25,7 +25,8 @@ class SupportPage extends GetView<SupportController> {
               },
               itemBuilder: (context, index) {
                 return SupportItem(
-                    item: controller.listComponent[index],);
+                  item: controller.listComponent[index],
+                );
               }),
         ),
       ],

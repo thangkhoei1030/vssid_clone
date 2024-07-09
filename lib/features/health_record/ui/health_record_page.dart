@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
   const HealthRecordPage({super.key});
@@ -63,10 +64,13 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                   labelPadding: const EdgeInsets.symmetric(
                       vertical: AppDimens.paddingVerySmall),
                   tabs: [
-                    _tabItem(Icons.list, HealthRecordStr.history),
                     _tabItem(
-                      Icons.rotate_left_rounded,
+                      HealthRecordStr.history,
+                      svg: Assets.svg.history,
+                    ),
+                    _tabItem(
                       HealthRecordStr.giaycap,
+                      svg: Assets.svg.history,
                     ),
                   ],
                 ),
@@ -85,19 +89,24 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
   }
 
   Widget _tabItem(
-    IconData icon,
-    String title,
-  ) {
+    String title, {
+    SvgGenImage? svg,
+    IconData? icon,
+  }) {
     return SizedBox(
       width: 100.h,
       height: 100.h,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(
-            icon,
-            size: AppDimens.sizeIconLarge,
-          ),
+          svg != null
+              ? svg.svg(
+                  height: AppDimens.sizeIconLarge,
+                  width: AppDimens.sizeIconLarge)
+              : Icon(
+                  icon,
+                  size: AppDimens.sizeIconLarge,
+                ),
           TextBuild(
             title: title,
             isAutoSizeText: true,

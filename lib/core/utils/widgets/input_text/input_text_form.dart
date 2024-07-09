@@ -137,7 +137,7 @@ class BuildInputTextState extends State<BuildInputText> {
         cursorColor: context.onPrimaryColor,
         textInputAction: widget.inputTextFormModel.iconNextTextInputAction,
         style: widget.inputTextFormModel.style ??
-            Get.textTheme.bodyText1?.copyWith(
+            Get.textTheme.bodySmall?.copyWith(
                 fontSize:
                     widget.inputTextFormModel.textSize ?? AppDimens.fontSmall(),
                 color: widget.inputTextFormModel.textColor

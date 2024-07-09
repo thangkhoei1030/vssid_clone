@@ -995,7 +995,7 @@ class DropdownButtonCustom<T> extends StatefulWidget {
   /// ```
   /// {@end-tool}
   ///
-  /// Defaults to the [TextTheme.subtitle1] value of the current
+  /// Defaults to the [TextTheme.bodySmall] value of the current
   /// [ThemeData.textTheme] of the current [Theme].
   final TextStyle? style;
 
@@ -1258,7 +1258,7 @@ class _DropdownButtonState<T> extends State<DropdownButtonCustom<T>>
   // would be clipped.
   double get _denseButtonHeight {
     final double fontSize = _textStyle!.fontSize ??
-        Theme.of(context).textTheme.subtitle1!.fontSize!;
+        Theme.of(context).textTheme.bodySmall!.fontSize!;
     return math.max(fontSize, math.max(widget.iconSize, _kDenseButtonHeight));
   }
 
@@ -1493,7 +1493,7 @@ class DropdownButtonFormField<T> extends FormField<T> {
       'behaviour related to auto validation. '
       'This feature was deprecated after v1.19.0.',
     )
-        bool autovalidate = false,
+    bool autovalidate = false,
     AutovalidateMode? autovalidateMode,
     double? menuMaxHeight,
   })  : assert(

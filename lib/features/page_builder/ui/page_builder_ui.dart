@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class PageBuilder extends BaseGetWidget<PageBuilderController> {
   const PageBuilder({super.key});
@@ -47,14 +48,14 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
               children: [
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: const [
-                      CustomBottomBar(
+                    children: [
+                      const CustomBottomBar(
                         label: PageBuilderString.profileManagerShort,
                         // activeIcon: Icons.account_circle_rounded,
                         icon: Iconsax.user_octagon,
                         index: 0,
                       ),
-                      CustomBottomBar(
+                      const CustomBottomBar(
                         label: PageBuilderString.publicServiceShort,
                         // activeIcon: Icons.list_alt_sharp,
                         icon: Iconsax.archive_book,
@@ -63,13 +64,14 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
                       CustomBottomBar(
                         label: PageBuilderString.lookUpOnlineShort,
                         // activeIcon: IconAsset.ASSET_ICON_BELL_BING_BOLD_SVG,
-                        icon: Iconsax.global_search,
+                        svg: Assets.svg.searchScan,
                         index: 2,
                       ),
-                      CustomBottomBar(
+                      const CustomBottomBar(
                         label: PageBuilderString.supportShort,
+
                         // activeIcon: IconAsset.ASSET_ICON_PROPERTY_36_BOLD_SVG,
-                        icon: Iconsax.call_calling,
+                        icon: Iconsax.message_question,
                         index: 3,
                       ),
                       // if (isVipMember.isFalse) Container(width: 0,height: 0,)
@@ -90,15 +92,16 @@ class CustomBottomBar extends GetView<PageBuilderController> {
     super.key,
     required this.label,
     // required this.activeIcon,
-    required this.icon,
+    this.icon,
     required this.index,
+    this.svg,
   });
 
   final String label;
 
-  // final IconData activeIcon;
+  final SvgGenImage? svg;
 
-  final IconData icon;
+  final IconData? icon;
 
   final int index;
 
@@ -112,13 +115,19 @@ class CustomBottomBar extends GetView<PageBuilderController> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Obx(
-            () => Icon(
-              icon,
-              size: AppDimens.sizeIconMedium,
-              color: index == controller.currentIndexPage.value
-                  ? context.onSurfaceColor
-                  : null,
-            ),
+            () => svg != null
+                ? svg!.svg(
+                    color: index == controller.currentIndexPage.value
+                        ? context.onSurfaceColor
+                        : context.onPrimaryColor,
+                  )
+                : Icon(
+                    icon,
+                    size: AppDimens.sizeIconMedium,
+                    color: index == controller.currentIndexPage.value
+                        ? context.onSurfaceColor
+                        : context.onPrimaryColor,
+                  ),
           ),
           UtilWidget.sizedBox10,
           TextBuild(

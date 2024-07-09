@@ -41,9 +41,8 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                 columnWidths: tabType.columnWidth,
                 children: [
                   TableRow(
-                      decoration: BoxDecoration(
-                        color: context.onSurfaceColor,
-                      ),
+                      decoration: const BoxDecoration(
+                          color: Color.fromRGBO(56, 101, 155, 1)),
                       children: [
                         if (tabType.getColumnView().ngayvao)
                           _buildCeil(

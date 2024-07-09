@@ -27,7 +27,7 @@ class AppTheme {
         labelStyle: Get.textTheme.bodyMedium!.copyWith(
           color: primaryColor,
         ),
-        hintStyle: base.textTheme.bodyText1,
+        hintStyle: base.textTheme.bodySmall,
       );
     }
 
@@ -36,42 +36,47 @@ class AppTheme {
       final TextTheme textTheme = base.textTheme;
       // Color subTextColor = isDarkMode ? Colors.white : Colors.white;
       return TextTheme(
-        // headline
-        headline1: textTheme.headline1!.copyWith(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-            color: onBackgroundColor),
-        headline2: textTheme.headline2!.copyWith(
-            fontSize: 32,
-            fontWeight: FontWeight.bold,
-            color: onBackgroundColor),
-        headline3: textTheme.headline3!.copyWith(
-            fontSize: 26,
-            fontWeight: FontWeight.bold,
-            color: onBackgroundColor),
-        headline4: textTheme.headline4!.copyWith(
+        bodySmall: textTheme.bodySmall!.copyWith(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: onBackgroundColor),
-        headline5: textTheme.headline5!
-            .copyWith(fontSize: 22, color: onBackgroundColor),
-        headline6: textTheme.headline6!
-            .copyWith(fontSize: 20, color: onBackgroundColor),
-        // subtitle
-        subtitle1: TextStyle(fontSize: 14, color: onBackgroundColor),
-        subtitle2: textTheme.subtitle2!
-            .copyWith(fontSize: 12, color: onBackgroundColor),
-        // body
-        bodyText1: textTheme.bodyText1!
-            .copyWith(fontSize: 16, color: onBackgroundColor),
-        bodyText2: textTheme.bodyText2!
-            .copyWith(fontSize: 14, color: onBackgroundColor),
-        // caption - chú thích trong app
-        caption:
-            textTheme.caption!.copyWith(fontSize: 12, color: onBackgroundColor),
-        // button
-        button:
-            textTheme.button!.copyWith(fontSize: 14, color: onBackgroundColor),
+
+        // headline
+        // headline1: textTheme.headline1!.copyWith(
+        //     fontSize: 36,
+        //     fontWeight: FontWeight.bold,
+        //     color: onBackgroundColor),
+        // headline2: textTheme.headline2!.copyWith(
+        //     fontSize: 32,
+        //     fontWeight: FontWeight.bold,
+        //     color: onBackgroundColor),
+        // headline3: textTheme.headline3!.copyWith(
+        //     fontSize: 26,
+        //     fontWeight: FontWeight.bold,
+        //     color: onBackgroundColor),
+        // headline4: textTheme.headline4!.copyWith(
+        //     fontSize: 24,
+        //     fontWeight: FontWeight.bold,
+        //     color: onBackgroundColor),
+        // headline5: textTheme.headline5!
+        //     .copyWith(fontSize: 22, color: onBackgroundColor),
+        // headline6: textTheme.headline6!
+        //     .copyWith(fontSize: 20, color: onBackgroundColor),
+        // // subtitle
+        // bodySmall: TextStyle(fontSize: 14, color: onBackgroundColor),
+        // subtitle2: textTheme.subtitle2!
+        //     .copyWith(fontSize: 12, color: onBackgroundColor),
+        // // body
+        // bodySmall: textTheme.bodySmall!
+        //     .copyWith(fontSize: 16, color: onBackgroundColor),
+        // bodySmall: textTheme.bodySmall!
+        //     .copyWith(fontSize: 14, color: onBackgroundColor),
+        // // caption - chú thích trong app
+        // caption:
+        //     textTheme.caption!.copyWith(fontSize: 12, color: onBackgroundColor),
+        // // button
+        // button:
+        //     textTheme.button!.copyWith(fontSize: 14, color: onBackgroundColor),
       ).apply(
         fontFamily: 'URW DIN',
       );

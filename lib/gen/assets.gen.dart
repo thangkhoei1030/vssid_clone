@@ -8,8 +8,9 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
@@ -33,14 +34,93 @@ class $AssetsImagesGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/Search scan.svg
+  SvgGenImage get searchScan => const SvgGenImage('assets/svg/Search scan.svg');
+
+  /// File path: assets/svg/bhld.svg
+  SvgGenImage get bhld => const SvgGenImage('assets/svg/bhld.svg');
+
+  /// File path: assets/svg/bhtn.svg
+  SvgGenImage get bhtn => const SvgGenImage('assets/svg/bhtn.svg');
+
+  /// File path: assets/svg/bhxh.svg
+  SvgGenImage get bhxh => const SvgGenImage('assets/svg/bhxh.svg');
+
+  /// File path: assets/svg/bhyt.svg
+  SvgGenImage get bhyt => const SvgGenImage('assets/svg/bhyt.svg');
+
+  /// File path: assets/svg/bhyt_2.svg
+  SvgGenImage get bhyt2 => const SvgGenImage('assets/svg/bhyt_2.svg');
+
+  /// File path: assets/svg/certification.svg
+  SvgGenImage get certification =>
+      const SvgGenImage('assets/svg/certification.svg');
+
   /// File path: assets/svg/chatbot.svg
   SvgGenImage get chatbot => const SvgGenImage('assets/svg/chatbot.svg');
+
+  /// File path: assets/svg/company.svg
+  SvgGenImage get company => const SvgGenImage('assets/svg/company.svg');
+
+  /// File path: assets/svg/hangthang.svg
+  SvgGenImage get hangthang => const SvgGenImage('assets/svg/hangthang.svg');
 
   /// File path: assets/svg/history.svg
   SvgGenImage get history => const SvgGenImage('assets/svg/history.svg');
 
+  /// File path: assets/svg/messages.svg
+  SvgGenImage get messages => const SvgGenImage('assets/svg/messages.svg');
+
+  /// File path: assets/svg/note.svg
+  SvgGenImage get note => const SvgGenImage('assets/svg/note.svg');
+
+  /// File path: assets/svg/note_1.svg
+  SvgGenImage get note1 => const SvgGenImage('assets/svg/note_1.svg');
+
+  /// File path: assets/svg/note_2.svg
+  SvgGenImage get note2 => const SvgGenImage('assets/svg/note_2.svg');
+
+  /// File path: assets/svg/organization.svg
+  SvgGenImage get organization =>
+      const SvgGenImage('assets/svg/organization.svg');
+
+  /// File path: assets/svg/periodic.svg
+  SvgGenImage get periodic => const SvgGenImage('assets/svg/periodic.svg');
+
+  /// File path: assets/svg/scan-barcode.svg
+  SvgGenImage get scanBarcode =>
+      const SvgGenImage('assets/svg/scan-barcode.svg');
+
+  /// File path: assets/svg/state agencies.svg
+  SvgGenImage get stateAgencies =>
+      const SvgGenImage('assets/svg/state agencies.svg');
+
+  /// File path: assets/svg/thatnghiep.svg
+  SvgGenImage get thatnghiep => const SvgGenImage('assets/svg/thatnghiep.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [chatbot, history];
+  List<SvgGenImage> get values => [
+        searchScan,
+        bhld,
+        bhtn,
+        bhxh,
+        bhyt,
+        bhyt2,
+        certification,
+        chatbot,
+        company,
+        hangthang,
+        history,
+        messages,
+        note,
+        note1,
+        note2,
+        organization,
+        periodic,
+        scanBarcode,
+        stateAgencies,
+        thatnghiep
+      ];
 }
 
 class Assets {
@@ -51,9 +131,16 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,
@@ -125,9 +212,22 @@ class AssetGenImage {
 }
 
 class SvgGenImage {
-  const SvgGenImage(this._assetName);
+  const SvgGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = false;
+
+  const SvgGenImage.vec(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  }) : _isVecFormat = true;
 
   final String _assetName;
+  final Size? size;
+  final Set<String> flavors;
+  final bool _isVecFormat;
 
   SvgPicture svg({
     Key? key,
@@ -142,19 +242,32 @@ class SvgGenImage {
     WidgetBuilder? placeholderBuilder,
     String? semanticsLabel,
     bool excludeFromSemantics = false,
-    SvgTheme theme = const SvgTheme(),
+    SvgTheme? theme,
     ColorFilter? colorFilter,
     Clip clipBehavior = Clip.hardEdge,
     @deprecated Color? color,
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
     @deprecated bool cacheColorFilter = false,
   }) {
-    return SvgPicture.asset(
-      _assetName,
+    final BytesLoader loader;
+    if (_isVecFormat) {
+      loader = AssetBytesLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+      );
+    } else {
+      loader = SvgAssetLoader(
+        _assetName,
+        assetBundle: bundle,
+        packageName: package,
+        theme: theme,
+      );
+    }
+    return SvgPicture(
+      loader,
       key: key,
       matchTextDirection: matchTextDirection,
-      bundle: bundle,
-      package: package,
       width: width,
       height: height,
       fit: fit,
@@ -163,10 +276,8 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      theme: theme,
-      colorFilter: colorFilter,
-      color: color,
-      colorBlendMode: colorBlendMode,
+      colorFilter: colorFilter ??
+          (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,
     );

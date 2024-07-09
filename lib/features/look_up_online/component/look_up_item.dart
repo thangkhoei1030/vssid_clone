@@ -3,15 +3,19 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class LookUpItem extends StatelessWidget {
   const LookUpItem(
       {super.key,
-      required this.iconData,
+      this.iconData,
       required this.serviceName,
+      this.svg,
       this.function});
 
-  final IconData iconData;
+  final IconData? iconData;
+
+  final SvgGenImage? svg;
 
   final String serviceName;
 
@@ -31,11 +35,13 @@ class LookUpItem extends StatelessWidget {
             radiusModel: const RadiusModel(radiusAll: 50),
             isBorder: true,
             borderColor: context.onSurfaceColor,
-            child: Icon(
-              iconData,
-              size: 50,
-              color: context.onSurfaceColor,
-            ),
+            child: svg != null
+                ? svg!.svg(height: 50, width: 50, color: context.onSurfaceColor)
+                : Icon(
+                    iconData,
+                    size: 50,
+                    color: context.onSurfaceColor,
+                  ),
           ),
           UtilWidget.sizedBoxPadding,
           TextBuild(

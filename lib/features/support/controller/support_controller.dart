@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class SupportController extends GetxController {
   final List<SupportComponentItemModel> listComponent = [
@@ -13,7 +14,7 @@ class SupportController extends GetxController {
         }),
     SupportComponentItemModel(
         content: SupportString.chatBot,
-        iconData: Iconsax.safe_home,
+        pathSVG: Assets.svg.chatbot,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),
@@ -31,7 +32,7 @@ class SupportController extends GetxController {
         }),
     SupportComponentItemModel(
         content: SupportString.question,
-        iconData: Iconsax.message,
+        pathSVG: Assets.svg.messages,
         function: () {
           UrlService().launchUrl(UriType.tutorial);
         }),

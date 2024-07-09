@@ -1,7 +1,9 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class ParticipationProcessPage extends GetView<ParticipationProcessController> {
   const ParticipationProcessPage({super.key});
@@ -61,13 +63,16 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                   labelPadding: const EdgeInsets.symmetric(
                       vertical: AppDimens.paddingVerySmall),
                   tabs: [
-                    _tabItem(Icons.list, ParticipationProcessString.bhxh),
-                    _tabItem(Icons.rotate_left_rounded,
-                        ParticipationProcessString.bhtn),
-                    _tabItem(Icons.list, ParticipationProcessString.bhtnld),
-                    _tabItem(Icons.rotate_left_rounded,
-                        ParticipationProcessString.bhyt),
-                    _tabItem(Icons.list, PublicServiceString.service),
+                    _tabItem(ParticipationProcessString.bhxh,
+                        svg: Assets.svg.bhxh),
+                    _tabItem(ParticipationProcessString.bhtn,
+                        svg: Assets.svg.bhtn),
+                    _tabItem(ParticipationProcessString.bhtnld,
+                        svg: Assets.svg.bhtn),
+                    _tabItem(ParticipationProcessString.bhyt,
+                        svg: Assets.svg.bhyt),
+                    _tabItem(ParticipationProcessString.C14TS,
+                        svg: Assets.svg.note),
                   ],
                 ),
               ],
@@ -88,17 +93,27 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
   }
 
   Widget _tabItem(
-    IconData icon,
-    String title,
-  ) {
+    String title, {
+    SvgGenImage? svg,
+    IconData? icon,
+  }) {
     return Column(
       children: [
-        Icon(
-          icon,
-          size: AppDimens.sizeIconLarge,
-        ),
-        Text(
-          title,
+        svg != null
+            ? svg.svg(
+                height: AppDimens.sizeIconLarge,
+                width: AppDimens.sizeIconLarge,
+              )
+            : Icon(
+                icon,
+                size: AppDimens.sizeIconLarge,
+              ),
+        SizedBox(
+          height: 30.h,
+          child: TextBuild(
+            isAutoSizeText: true,
+            title: title,
+          ),
         )
       ],
     );
