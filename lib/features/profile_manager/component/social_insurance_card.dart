@@ -10,6 +10,7 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
   @override
   Widget build(BuildContext context) {
     return CardBuilder(
+      backgroundColor: context.primaryColor,
       paddingModel: const PaddingModel(paddingAll: AppDimens.paddingSmall),
       linearGradient: LinearGradient(
         colors: [Colors.white.withOpacity(0.3), Colors.blue.withOpacity(0.1)],

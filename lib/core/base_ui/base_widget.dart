@@ -37,22 +37,18 @@ abstract class BaseGetWidget<T extends BaseGetxController> extends GetView<T>
     WidgetCallback child, {
     bool isLoadingPage = true,
   }) {
-    return Obx(
-      () => controller.isShowLoading.value
-          ? isLoadingPage
-              ? PageScaffold(
-                  child: loadingWidget(
-                    isShowLoading: controller.isShowLoading,
-                    child: child,
-                    isShowTitleLoading: true,
-                  ),
-                )
-              : loadingWidget(
-                  isShowLoading: controller.isShowLoading,
-                  child: child,
-                  isShowTitleLoading: true)
-          : child(),
-    );
+    return isLoadingPage
+        ? PageScaffold(
+            child: loadingWidget(
+              isShowLoading: controller.isShowLoading,
+              child: child,
+              isShowTitleLoading: true,
+            ),
+          )
+        : loadingWidget(
+            isShowLoading: controller.isShowLoading,
+            child: child,
+            isShowTitleLoading: true);
   }
 }
 

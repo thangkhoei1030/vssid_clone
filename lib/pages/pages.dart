@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:vssid/features/health_record/controller/bindings.dart';
+import 'package:vssid/features/health_record_detail/controller/bindings.dart';
 import 'package:vssid/features/src_feature.dart';
 // import 'package:vssid/feature/src_feature.dart';
 import 'package:vssid/pages/src_pages.dart';
@@ -73,6 +74,11 @@ class PageRoutes {
     GetPage(
       name: AppRoutes.setting,
       page: () => const SettingPage(),
+    ),
+    GetPage(
+      name: AppRoutes.healthRecordDetail,
+      page: () => const HealthRecordDetailPage(),
+      binding: HealthRecordDetailControllerBindings(),
     ),
   ];
 }

@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/pages/src_pages.dart';
 
 class BodyContent<T extends HealthRecordTabController> extends GetView<T>
     with GetViewLoading {
@@ -141,11 +142,11 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                             title: item.trangThai ?? "",
                           ),
                         ),
-                      const SimpleButton(
-                          // onPressed: () => Get.toNamed(
-                          //       AppRoutes.processDetail,
-                          //       arguments: item.id,
-                          //     ),
+                      SimpleButton(
+                          onPressed: () => Get.toNamed(
+                                AppRoutes.healthRecordDetail,
+                                arguments: item.id.toString(),
+                              ),
                           child: const Icon(Icons.remove_red_eye))
                     ])
                 ],
