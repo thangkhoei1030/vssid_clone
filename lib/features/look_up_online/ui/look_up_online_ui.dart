@@ -25,6 +25,7 @@ class LookUpOnline extends StatelessWidget {
               ),
               Expanded(
                 child: LookUpItem(
+                  function: () => Get.to(() => const LookUpOrganBHXH()),
                   svg: Assets.svg.stateAgencies,
                   serviceName: LookUpOnlineString.lookUpOrganBHXH,
                 ),
@@ -35,12 +36,18 @@ class LookUpOnline extends StatelessWidget {
             children: [
               Expanded(
                 child: LookUpItem(
+                  function: () => Get.to(
+                    () => const LookUpCskcbQuitJob(),
+                  ),
                   svg: Assets.svg.certification,
                   serviceName: LookUpOnlineString.lookUpCSKCBQuitJob,
                 ),
               ),
               Expanded(
                 child: LookUpItem(
+                  function: () => Get.to(
+                    () => const LookUpCskcbBhyt(),
+                  ),
                   svg: Assets.svg.periodic,
                   serviceName: LookUpOnlineString.lookUpCSKCBHeadling,
                 ),
@@ -51,12 +58,18 @@ class LookUpOnline extends StatelessWidget {
             children: [
               Expanded(
                 child: LookUpItem(
+                  function: () => Get.to(
+                    () => const LookUpOrganJoin(),
+                  ),
                   svg: Assets.svg.company,
                   serviceName: LookUpOnlineString.lookUpMemberJoinBHXH,
                 ),
               ),
               Expanded(
                 child: LookUpItem(
+                  function: () => Get.to(
+                    () => const LookUpReceiveBhxhBhyt(),
+                  ),
                   svg: Assets.svg.organization,
                   serviceName: LookUpOnlineString.lookUpMemberReceiverBHXH,
                 ),
