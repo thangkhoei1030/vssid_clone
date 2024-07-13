@@ -16,11 +16,26 @@ class LookUpOnlineString {
 
   static const String provinceAndCity = "Tỉnh - TP";
 
+  static const String district = "Quận - Huyện";
+
   static const String selectProvince = "-- Chọn tỉnh --";
+
+  static const String selectDistrict = "-- Chọn Huyện --";
 
   static const String fullName = "Họ và tên";
 
   static const String search = "Tìm kiếm";
 
   static const String pleaseSelectCityId = "Vui lòng chọn tỉnh/thành phố";
+
+  static const String organBHXH = "Cơ quan BHXH";
+  
+  static const String selectOrganBHXH = "-- chọn Cơ quan BHXH --";
+
+  static const String nameOrgan = "Tên đơn vị";
+
+  static const String codeOrgan = "Mã đơn vị";
+
+
+
 }
