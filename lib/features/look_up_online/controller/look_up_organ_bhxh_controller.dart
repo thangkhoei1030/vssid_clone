@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class LookUpOrganBHXHController extends LookUpOnlineController {
+
+  final TextEditingController fullNameController = TextEditingController();
+
   @override
   void onInit() {
     super.onInit();
