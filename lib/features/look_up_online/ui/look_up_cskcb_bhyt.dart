@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import '../../src_feature.dart';
 
-class LookUpCskcbBhyt extends StatelessWidget {
+class LookUpCskcbBhyt extends GetView<LookUpCSKCBBHYTController> {
   const LookUpCskcbBhyt({super.key});
 
   @override
@@ -12,23 +12,27 @@ class LookUpCskcbBhyt extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
+      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpCSKCBHeadling,
         fontSize: AppDimens.sizeTextLarge,
+        textColor: Colors.white,
+        isBoldText: true,
+        isAutoSizeText: true,
       ),
       showBackButton: true,
       child: SingleChildScrollView(
         child: Obx(() => Column(
-          children: [
-            SelectDialog(
-              valueSelected: controller.cityIdSelected.value?.values.first,
-              showListOptionsDialog: controller.selecteCityId,
-              hintText: LookUpOnlineString.selectProvince,
-              lable: LookUpOnlineString.provinceAndCity,
-            ),
-            UtilWidget.sizedBoxPadding,
-            SelectDialog(
+              children: [
+                SelectDialog(
+                  valueSelected: controller.cityIdSelected.value?.values.first,
+                  showListOptionsDialog: controller.selecteCityId,
+                  hintText: LookUpOnlineString.selectProvince,
+                  lable: LookUpOnlineString.provinceAndCity,
+                ),
+                UtilWidget.sizedBoxPadding,
+                SelectDialog(
                   valueSelected:
                       controller.provinceSelected.value?.values.first,
                   showListOptionsDialog: controller.getProvinceId,
@@ -49,8 +53,8 @@ class LookUpCskcbBhyt extends StatelessWidget {
                     child: const TextBuild(
                       title: LookUpOnlineString.search,
                     )),
-          ],
-        ).paddingAll(AppDimens.defaultPadding)),
+              ],
+            ).paddingAll(AppDimens.defaultPadding)),
       ),
     );
   }

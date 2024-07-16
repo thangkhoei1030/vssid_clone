@@ -13,34 +13,44 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
       length: 2,
       initialIndex: 0,
       child: PageScaffold(
+        backgroundColorAppBar: Colors.blue,
         customAppBar: PreferredSize(
           preferredSize: Size.fromHeight(Get.height * 0.3),
           child: SafeArea(
+            top: false,
             child: Column(
               children: [
-                SizedBox(
-                  height: kToolbarHeight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(
+                  color: Colors.blue,
+                  height:
+                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SimpleButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: const Icon(
-                          Icons.arrow_back_ios,
-                          // color: Colors.white,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SimpleButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                            ),
+                          ),
+                          TextBuild(
+                            title: HealthRecordStr.healthRecord.toUpperCase(),
+                            fontSize: AppDimens.sizeTextLarge,
+                            isBoldText: true,
+                            textColor: Colors.white,
+                          ),
+                          const SizedBox.shrink()
+                        ],
                       ),
-                      TextBuild(
-                        title: HealthRecordStr.healthRecord.toUpperCase(),
-                        fontSize: AppDimens.sizeTextLarge,
-                        isBoldText: true,
-                        // textColor: Colors.white,
-                      ),
-                      const SizedBox.shrink()
                     ],
                   ).paddingSymmetric(
+                    vertical: AppDimens.defaultPadding,
                     horizontal: AppDimens.defaultPadding,
                   ),
                 ),

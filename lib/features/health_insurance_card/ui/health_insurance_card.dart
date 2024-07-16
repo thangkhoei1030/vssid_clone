@@ -17,10 +17,10 @@ class HealthInsuranceCardPage
       title: TextBuild(
         isBoldText: true,
         title: HealthInsuranceCard.cardBHYT.toUpperCase(),
-        // textColor: Colors.white,
-        fontSize: AppDimens.sizeTextMedium,
+        textColor: Colors.white,
+        fontSize: AppDimens.sizeTextLarge,
       ),
-      // backgroundColorAppBar: Colors.blue,
+      backgroundColorAppBar: Colors.blue,
       child: Column(
         children: [
           Expanded(

@@ -14,9 +14,10 @@ class HealthRecordDetailPage extends BaseGetWidget<HealthRecordDetailController>
       title: TextBuild(
         title: HealthRecordDetailStr.healthRecord,
         fontSize: AppDimens.sizeTextLarge,
+        textColor: Colors.white,
       ),
       showBackButton: true,
-      backgroundColor: context.primaryColor,
+      backgroundColorAppBar: Colors.blue,
       child: loadingWidget(
         child: () => Obx(
           () => SimpleListView(

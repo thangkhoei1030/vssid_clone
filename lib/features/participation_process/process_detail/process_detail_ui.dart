@@ -13,14 +13,15 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
+        backgroundColorAppBar: Colors.blue,
         showAppBar: true,
         showBackButton: true,
         title: TextBuild(
           title: "Chi tiết",
-          // textColor: Colors.white,
-          fontSize: AppDimens.sizeTextMedium,
+          textColor: Colors.white,
+          fontSize: AppDimens.sizeTextLarge,
+          isBoldText: true,
         ),
-        // backgroundColorAppBar: Colors.blue,
         child: loadingWidget(
           isShowLoading: controller.isShowLoading,
           child: () => SingleChildScrollView(

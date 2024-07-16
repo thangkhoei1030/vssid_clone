@@ -13,10 +13,13 @@ class LookUpBHXH extends GetView<LookUpBHXHController> {
   Widget build(BuildContext context) {
     return PageScaffold(
         showAppBar: true,
+        backgroundColorAppBar: Colors.blue,
         title: TextBuild(
           title: LookUpOnlineString.lookUpCodeBHXH,
           fontSize: AppDimens.sizeTextLarge,
           isBoldText: true,
+          textColor: Colors.white,
+          isAutoSizeText: true,
         ),
         showBackButton: true,
         child: SingleChildScrollView(

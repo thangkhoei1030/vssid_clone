@@ -18,74 +18,80 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight * 3),
-          child: SizedBox(
-            child: SafeArea(
-              child: Column(
-                children: [
-                  SizedBox(
-                    // color: Colors.blue,
-                    height: kToolbarHeight,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SimpleButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          child: const Icon(
-                            Icons.arrow_back_ios,
-                            // color: Colors.white,
+          child: SafeArea(
+            top: false,
+            child: Column(
+              children: [
+                Container(
+                  color: Colors.blue,
+                  height:
+                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SimpleButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),
-                        TextBuild(
-                          title: ParticipationProcessString.processTitle
-                              .toUpperCase(),
-                          fontSize: AppDimens.sizeTextLarge,
-                          // textColor: Colors.white,
-                        ),
-                        const SizedBox.shrink()
-                      ],
-                    ).paddingSymmetric(
-                      horizontal: AppDimens.defaultPadding,
-                    ),
-                  ),
-                  UtilWidget.sizedBoxPadding,
-                  TabBar(
-                    controller: controller.tabController,
-                    indicatorColor: Colors.transparent,
-                    dividerColor: Colors.transparent,
-                    indicator: const BoxDecoration(),
-                    indicatorWeight: 1,
-                    onTap: (index) {
-                      controller.tabController.animateTo(index);
-                    },
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.blue,
-                    labelPadding: const EdgeInsets.symmetric(
-                        vertical: AppDimens.paddingVerySmall),
-                    tabs: [
-                      _tabItem(
-                        BenefitInfomationString.oneTime,
-                        svg: Assets.svg.note1,
+                          TextBuild(
+                            title: BenefitInfomationString.benefitInfomation
+                                .toUpperCase(),
+                            isBoldText: true,
+                            fontSize: AppDimens.sizeTextLarge,
+                            textColor: Colors.white,
+                          ),
+                          const SizedBox.shrink()
+                        ],
                       ),
-
-                      _tabItem(
-                        BenefitInfomationString.ODTS,
-                        svg: Assets.svg.note2,
-                      ),
-                      _tabItem(
-                        BenefitInfomationString.monthly,
-                        svg: Assets.svg.hangthang,
-                      ),
-                      _tabItem(
-                        BenefitInfomationString.unemployment,
-                        svg: Assets.svg.thatnghiep,
-                      ),
-                      // _tabItem(Icons.list, PublicServiceString.service),
                     ],
+                  ).paddingSymmetric(
+                    vertical: AppDimens.defaultPadding,
+                    horizontal: AppDimens.defaultPadding,
                   ),
-                ],
-              ),
+                ),
+                TabBar(
+                  controller: controller.tabController,
+                  indicatorColor: Colors.transparent,
+                  dividerColor: Colors.transparent,
+                  indicator: const BoxDecoration(),
+                  indicatorWeight: 1,
+                  onTap: (index) {
+                    controller.tabController.animateTo(index);
+                  },
+                  unselectedLabelColor: Colors.black,
+                  labelColor: Colors.blue,
+                  labelPadding: const EdgeInsets.symmetric(
+                      vertical: AppDimens.paddingVerySmall),
+                  tabs: [
+                    _tabItem(
+                      BenefitInfomationString.oneTime,
+                      svg: Assets.svg.note1,
+                    ),
+
+                    _tabItem(
+                      BenefitInfomationString.ODTS,
+                      svg: Assets.svg.note2,
+                    ),
+                    _tabItem(
+                      BenefitInfomationString.monthly,
+                      svg: Assets.svg.hangthang,
+                    ),
+                    _tabItem(
+                      BenefitInfomationString.unemployment,
+                      svg: Assets.svg.thatnghiep,
+                    ),
+                    // _tabItem(Icons.list, PublicServiceString.service),
+                  ],
+                ),
+              ],
             ),
           ),
         ),

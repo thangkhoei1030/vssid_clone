@@ -16,80 +16,91 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
         customAppBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight * 3),
           child: SafeArea(
+            top: false,
             child: Column(
               children: [
-                SizedBox(
-                  // color: Colors.blue,
-                  height: kToolbarHeight,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(
+                  color: Colors.blue,
+                  height:
+                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SimpleButton(
-                        onPressed: () {
-                          Get.back();
-                        },
-                        child: const Icon(
-                          Icons.arrow_back_ios,
-                          // color: Colors.white,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SimpleButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: const Icon(
+                              Icons.arrow_back_ios,
+                              color: Colors.white,
+                            ),
+                          ),
+                          TextBuild(
+                            title: ParticipationProcessString.processTitle
+                                .toUpperCase(),
+                            fontSize: AppDimens.sizeTextLarge,
+                            isBoldText: true,
+                            textColor: Colors.white,
+                          ),
+                          const SizedBox.shrink()
+                        ],
                       ),
-                      TextBuild(
-                        title: ParticipationProcessString.processTitle
-                            .toUpperCase(),
-                        fontSize: AppDimens.sizeTextLarge,
-                        isBoldText: true,
-                        // textColor: Colors.white,
-                      ),
-                      const SizedBox.shrink()
                     ],
                   ).paddingSymmetric(
+                    vertical: AppDimens.defaultPadding,
                     horizontal: AppDimens.defaultPadding,
                   ),
                 ),
                 UtilWidget.sizedBoxPadding,
-                TabBar(
-                  controller: controller.tabController,
-                  indicatorColor: Colors.transparent,
-                  dividerColor: Colors.transparent,
-                  indicator: const BoxDecoration(),
-                  indicatorWeight: 1,
-                  onTap: (index) {
-                    controller.tabController.animateTo(index);
-                    controller.indexTab.value = index;
-                  },
-                  // isScrollable: true,
+                Container(
+                  color: Colors.white,
+                  child: TabBar(
+                    controller: controller.tabController,
+                    indicatorColor: Colors.transparent,
+                    dividerColor: Colors.transparent,
+                    indicator: const BoxDecoration(),
+                    indicatorWeight: 1,
+                    onTap: (index) {
+                      controller.tabController.animateTo(index);
+                      controller.indexTab.value = index;
+                    },
+                    // isScrollable: true,
 
-                  unselectedLabelColor: Colors.black,
-                  labelColor: Colors.blue,
-                  labelPadding: const EdgeInsets.symmetric(
-                      vertical: AppDimens.paddingVerySmall),
-                  tabs: [
-                    _tabItem(
-                      ParticipationProcessString.bhxh,
-                      0,
-                      svg: Assets.svg.bhxh,
-                    ),
-                    _tabItem(
-                      ParticipationProcessString.bhtn,
-                      1,
-                      svg: Assets.svg.bhtn,
-                    ),
-                    _tabItem(
-                      ParticipationProcessString.bhtnld,
-                      2,
-                      svg: Assets.svg.bhtn,
-                    ),
-                    _tabItem(
-                      ParticipationProcessString.bhyt,
-                      3,
-                      svg: Assets.svg.bhyt,
-                    ),
-                    _tabItem(
-                      ParticipationProcessString.C14TS,
-                      4,
-                      svg: Assets.svg.note,
-                    ),
-                  ],
+                    unselectedLabelColor: Colors.black,
+                    labelColor: Colors.blue,
+                    labelPadding: const EdgeInsets.symmetric(
+                        vertical: AppDimens.paddingVerySmall),
+                    tabs: [
+                      _tabItem(
+                        ParticipationProcessString.bhxh,
+                        0,
+                        svg: Assets.svg.bhxh,
+                      ),
+                      _tabItem(
+                        ParticipationProcessString.bhtn,
+                        1,
+                        svg: Assets.svg.bhtn,
+                      ),
+                      _tabItem(
+                        ParticipationProcessString.bhtnld,
+                        2,
+                        svg: Assets.svg.bhtn,
+                      ),
+                      _tabItem(
+                        ParticipationProcessString.bhyt,
+                        3,
+                        svg: Assets.svg.bhyt,
+                      ),
+                      _tabItem(
+                        ParticipationProcessString.C14TS,
+                        4,
+                        svg: Assets.svg.note,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

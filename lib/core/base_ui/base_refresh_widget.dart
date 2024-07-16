@@ -39,6 +39,7 @@ abstract class BaseRefreshWidget<T extends BaseRefreshGetxController>
       titleTextStyle: titleTextStyle,
       showFloatingButton: showFloatingButton,
       overrideBackFunction: overrideBackFunction,
+      backgroundColor: backgroundColor,
       child: Column(
         children: [
           if (headerPinned != null) headerPinned,

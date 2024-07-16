@@ -12,11 +12,13 @@ class SettingPage extends GetView<SettingController> {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
+        backgroundColorAppBar: Colors.blue,
         showAppBar: true,
         title: TextBuild(
           title: SettingStr.setting,
           fontSize: AppDimens.sizeTextLarge,
           isBoldText: true,
+          textColor: Colors.white,
         ),
         showBackButton: true,
         child: Column(

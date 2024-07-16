@@ -21,12 +21,25 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
             child: PageBuilderDrawer(),
           ),
           appBar: AppBar(
+            leading: Builder(
+              builder: (ctx) => SimpleButton(
+                onPressed: () {
+                  Scaffold.of(ctx).openDrawer();
+                },
+                child: const Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            backgroundColor: Colors.blue,
             title: StreamBuilder(
               stream: controller.currentIndexPage.stream,
               builder: (context, snapshot) => TextBuild(
                 title: controller.titleAppBar.toUpperCase(),
-                fontSize: AppDimens.sizeTextMedium,
+                fontSize: AppDimens.sizeTextLarge,
                 isBoldText: true,
+                textColor: Colors.white,
               ),
             ),
             centerTitle: true,

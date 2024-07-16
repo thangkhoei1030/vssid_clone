@@ -21,6 +21,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
           child: SizedBox(
             child: SafeArea(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   const Expanded(child: SizedBox.shrink()),
                   TabBar(

@@ -5,7 +5,7 @@ import 'package:vssid/core/utils/src_utils.dart';
 
 import '../../src_feature.dart';
 
-class LookUpOrganBHXH extends StatelessWidget {
+class LookUpOrganBHXH extends GetView<LookUpOrganBHXHController> {
   const LookUpOrganBHXH({super.key});
 
   @override
@@ -15,32 +15,36 @@ class LookUpOrganBHXH extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
+      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpOrganBHXH,
         fontSize: AppDimens.sizeTextLarge,
+        textColor: Colors.white,
+        isBoldText: true,
+        isAutoSizeText: true,
       ),
       showBackButton: true,
       child: SingleChildScrollView(
         child: Obx(() => Column(
-          children: [
-            SelectDialog(
-              valueSelected: controller.cityIdSelected.value?.values.first,
-              showListOptionsDialog: controller.selecteCityId,
-              hintText: LookUpOnlineString.selectProvince,
-              lable: LookUpOnlineString.provinceAndCity,
-            ),
-            UtilWidget.sizedBoxPadding,
-            TextFormField(
-              controller: controller.fullNameController,
-              decoration: const InputDecoration(
-                label: TextBuild(title: LookUpOnlineString.fullName),
-                suffixIcon: Icon(Icons.edit),
-              ),
-              cursorColor: context.onSurfaceColor,
-            ),
-            UtilWidget.sizedBoxPadding,
-            SelectDialog(
+              children: [
+                SelectDialog(
+                  valueSelected: controller.cityIdSelected.value?.values.first,
+                  showListOptionsDialog: controller.selecteCityId,
+                  hintText: LookUpOnlineString.selectProvince,
+                  lable: LookUpOnlineString.provinceAndCity,
+                ),
+                UtilWidget.sizedBoxPadding,
+                TextFormField(
+                  controller: controller.fullNameController,
+                  decoration: const InputDecoration(
+                    label: TextBuild(title: LookUpOnlineString.fullName),
+                    suffixIcon: Icon(Icons.edit),
+                  ),
+                  cursorColor: context.onSurfaceColor,
+                ),
+                UtilWidget.sizedBoxPadding,
+                SelectDialog(
                   valueSelected:
                       controller.provinceSelected.value?.values.first,
                   showListOptionsDialog: controller.getProvinceId,
@@ -60,8 +64,8 @@ class LookUpOrganBHXH extends StatelessWidget {
                     child: const TextBuild(
                       title: LookUpOnlineString.search,
                     )),
-          ],
-        ).paddingAll(AppDimens.defaultPadding)),
+              ],
+            ).paddingAll(AppDimens.defaultPadding)),
       ),
     );
   }

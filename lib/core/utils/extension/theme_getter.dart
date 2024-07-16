@@ -22,7 +22,7 @@ extension ThemeGetter on BuildContext {
             color: Colors.black.withOpacity(0.2),
             spreadRadius: 2,
             blurRadius: 3,
-            offset: Offset(0, 1),
+            offset: const Offset(0, 1),
           ),
         ]
       : [

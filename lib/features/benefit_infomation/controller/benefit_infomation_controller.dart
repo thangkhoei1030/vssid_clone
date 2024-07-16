@@ -15,6 +15,8 @@ class BenefitInfomationController extends BaseRefreshGetxController
 
   final RxList<BenefitInfomation> listBenefitInfomationn = RxList.empty();
 
+  final RxInt indexTab = 0.obs;
+
   @override
   void onInit() async {
     try {
