@@ -8,12 +8,7 @@ class PublicServiceController extends BaseGetxController
   late final TabController tabController =
       TabController(length: 2, vsync: this);
 
-  RxInt currentTabIndex = 0.obs;
-
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  final RxInt currentTabIndex = 0.obs;
 
   void onTabChange(int index) {
     currentTabIndex.value = index;

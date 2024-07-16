@@ -1,16 +1,15 @@
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/features/src_feature.dart';
 
 class HistoryItemComponent extends StatelessWidget {
-  const HistoryItemComponent(
-      {super.key, required this.title, required this.content, this.dateTime});
+  const HistoryItemComponent({
+    super.key,
+    required this.response,
+  });
 
-  final String title;
-
-  final String content;
-
-  final DateTime? dateTime;
+  final PublicServiceResponse response;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class HistoryItemComponent extends StatelessWidget {
                   children: [
                     TextBuild(
                       textAlign: TextAlign.start,
-                      title: title,
+                      title: response.name ?? "",
                       isBoldText: true,
                       fontSize: AppDimens.sizeTextMedium,
                       textColor: context.onSurfaceColor,
@@ -42,20 +41,19 @@ class HistoryItemComponent extends StatelessWidget {
                     UtilWidget.sizedBoxPadding,
                     TextBuild(
                       textAlign: TextAlign.start,
-                      title: content,
+                      title: response.content ?? "",
                     ),
                     UtilWidget.sizedBoxPadding,
                     Row(
                       children: [
                         TextBuild(
-                          title: DateTimeFormat().convertToString(
-                            DateTime.now(),
-                            DateTimePattern.PATTERN_1,
-                          ),
+                          title: response.created ?? "",
                         ),
                         const Spacer(),
-                        const TextBuild(
-                          title: "Đã tiếp nhận hồ sơ",
+                        TextBuild(
+                          title: response.status == 1
+                              ? PublicServiceString.statusSuccess
+                              : PublicServiceString.statusFail,
                           textColor: Colors.green,
                         ),
                       ],

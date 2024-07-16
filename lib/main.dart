@@ -9,9 +9,7 @@ import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:vssid/pages/pages.dart';
 import 'package:vssid/pages/routes.dart';
-import 'package:vssid/service/src_service.dart';
 import 'core/src_core.dart';
-import 'service/language/localization_manager.dart';
 
 String applicationPath = "";
 final AppLocalAuth localAuth = AppLocalAuth();

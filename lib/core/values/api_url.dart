@@ -18,6 +18,8 @@ class ApiUrl {
   static const String memberInfomation = "api/member/infomation";
   //Danh sách thành phố
   static const String listCity = "api/city";
-  
+  //Danh sách tỉnh
   static const String listProvince = "api/district";
+  //Danh sách dịch vụ
+  static const String service = "api/article/list";
 }

@@ -11,3 +11,4 @@ export 'benefit_infomation/src_benefit_infomation.dart';
 export 'health_record/src_health_record.dart';
 export 'settings/src_setting.dart';
 export 'health_record_detail/src_health_record_detail.dart';
+export 'news/src_news.dart';

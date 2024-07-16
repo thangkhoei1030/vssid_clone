@@ -1,14 +1,12 @@
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/features/src_feature.dart';
 
 class ServiceItemComponent extends StatelessWidget {
-  const ServiceItemComponent(
-      {super.key, required this.title, required this.content});
+  const ServiceItemComponent({super.key, required this.response});
 
-  final String title;
-
-  final String content;
+  final PublicServiceResponse response;
 
   @override
   Widget build(BuildContext context) {
@@ -32,17 +30,17 @@ class ServiceItemComponent extends StatelessWidget {
                   children: [
                     TextBuild(
                       textAlign: TextAlign.start,
-                      title: title,
+                      title: response.name ?? "",
                       isBoldText: true,
                       fontSize: AppDimens.sizeTextMedium,
                       textColor: context.onSurfaceColor,
                     ),
                     TextBuild(
                       textAlign: TextAlign.start,
-                      title: content,
+                      title: response.description ?? "",
                     ),
                     UtilWidget.sizedBoxPadding,
-                   UtilWidget.buildDivider(),
+                    UtilWidget.buildDivider(),
                   ],
                 ).paddingSymmetric(horizontal: AppDimens.paddingSmall),
               )

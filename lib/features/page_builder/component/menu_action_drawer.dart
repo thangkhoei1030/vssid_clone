@@ -20,7 +20,7 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             title: PageBuilderString.notification,
           ),
           MenuActionItem(
-            funcion: () {},
+            funcion: () => {Get.back(), Get.toNamed(AppRoutes.news)},
             icon: Iconsax.book,
             title: PageBuilderString.news,
           ),

@@ -10,4 +10,5 @@ class AppRoutes {
   static const String healthRecord = "/health-record";
   static const String setting = "/setting";
   static const String healthRecordDetail = "/health-record-detail";
+  static const String news = "/news";
 }

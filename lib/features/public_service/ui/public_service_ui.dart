@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
@@ -16,7 +17,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
       initialIndex: 0,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 1.5),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 1.75),
           child: SizedBox(
             child: SafeArea(
               child: Column(
@@ -24,7 +25,6 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                   const Expanded(child: SizedBox.shrink()),
                   TabBar(
                     controller: controller.tabController,
-                    // automaticIndicatorColorAdjustment: true,
                     indicatorColor: Colors.black.withOpacity(0.2),
                     dividerColor: Colors.black.withOpacity(0.2),
                     indicator: const BoxDecoration(),
@@ -32,34 +32,18 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                     onTap: controller.onTabChange,
                     unselectedLabelColor: Colors.black,
                     labelColor: Colors.blue,
-
                     labelPadding: const EdgeInsets.symmetric(
                         vertical: AppDimens.paddingVerySmall),
                     tabs: [
-                      Column(
-                        children: const [
-                          Icon(
-                            Iconsax.archive_book,
-                            size: AppDimens.sizeIconLarge,
-                          ),
-                          Text(
-                            PublicServiceString.service,
-                          )
-                        ],
+                      _tabItem(
+                        PublicServiceString.service,
+                        0,
+                        icon: Iconsax.archive_book,
                       ),
-                      Obx(
-                        () => Column(
-                          children: [
-                            Assets.svg.history.svg(
-                              height: AppDimens.sizeIconLarge,
-                              width: AppDimens.sizeIconLarge,
-                              color: controller.currentTabIndex.value == 1
-                                  ? Colors.blue
-                                  : Colors.black,
-                            ),
-                            const Text(PublicServiceString.history)
-                          ],
-                        ),
+                      _tabItem(
+                        PublicServiceString.history,
+                        1,
+                        svg: Assets.svg.history,
                       ),
                     ],
                   ),
@@ -75,5 +59,41 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
         ]),
       ),
     );
+  }
+
+  Widget _tabItem(
+    String title,
+    int indexTab, {
+    SvgGenImage? svg,
+    IconData? icon,
+  }) {
+    return Obx(() {
+      final color = controller.currentTabIndex.value == indexTab
+          ? Colors.blue
+          : Colors.black;
+      return Column(
+        children: [
+          svg != null
+              ? svg.svg(
+                  height: AppDimens.sizeIconLarge,
+                  width: AppDimens.sizeIconLarge,
+                  color: color,
+                )
+              : Icon(
+                  icon,
+                  size: AppDimens.sizeIconLarge,
+                ),
+          UtilWidget.sizedBox5,
+          SizedBox(
+            height: 30.h,
+            child: TextBuild(
+              fontSize: AppDimens.sizeTextSmall,
+              title: title,
+              textColor: color,
+            ),
+          )
+        ],
+      );
+    });
   }
 }

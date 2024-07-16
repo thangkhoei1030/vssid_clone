@@ -80,6 +80,11 @@ class PageRoutes {
       page: () => const HealthRecordDetailPage(),
       binding: HealthRecordDetailControllerBindings(),
     ),
+    GetPage(
+      name: AppRoutes.news,
+      page: () => const NewsPage(),
+      binding: NewsControllerBindings(),
+    ),
   ];
 }
 
