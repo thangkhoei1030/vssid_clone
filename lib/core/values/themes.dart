@@ -37,9 +37,9 @@ class AppTheme {
       // Color subTextColor = isDarkMode ? Colors.white : Colors.white;
       return TextTheme(
         bodySmall: textTheme.bodySmall!.copyWith(
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-            color: onBackgroundColor),
+          fontSize: 24,
+          color: onBackgroundColor,
+        ),
 
         // headline
         // headline1: textTheme.headline1!.copyWith(

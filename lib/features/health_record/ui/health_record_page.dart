@@ -19,7 +19,6 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
             child: Column(
               children: [
                 SizedBox(
-                  // color: Colors.blue,
                   height: kToolbarHeight,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,6 +35,7 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                       TextBuild(
                         title: HealthRecordStr.healthRecord.toUpperCase(),
                         fontSize: AppDimens.sizeTextLarge,
+                        isBoldText: true,
                         // textColor: Colors.white,
                       ),
                       const SizedBox.shrink()
@@ -56,6 +56,7 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                   indicatorWeight: 1,
                   onTap: (index) {
                     controller.tabController.animateTo(index);
+                    controller.indexTab.value = index;
                   },
                   // isScrollable: true,
 
@@ -66,10 +67,12 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                   tabs: [
                     _tabItem(
                       HealthRecordStr.history,
+                      0,
                       svg: Assets.svg.history,
                     ),
                     _tabItem(
                       HealthRecordStr.giaycap,
+                      1,
                       svg: Assets.svg.history,
                     ),
                   ],
@@ -89,31 +92,39 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
   }
 
   Widget _tabItem(
-    String title, {
+    String title,
+    int indexTab, {
     SvgGenImage? svg,
     IconData? icon,
   }) {
-    return SizedBox(
-      width: 100.h,
-      height: 100.h,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          svg != null
-              ? svg.svg(
-                  height: AppDimens.sizeIconLarge,
-                  width: AppDimens.sizeIconLarge)
-              : Icon(
-                  icon,
-                  size: AppDimens.sizeIconLarge,
-                ),
-          TextBuild(
-            title: title,
-            isAutoSizeText: true,
-            fontSize: AppDimens.sizeTextVerySmall,
-          )
-        ],
-      ),
-    );
+    return Obx(() {
+      final color =
+          controller.indexTab.value == indexTab ? Colors.blue : Colors.black;
+      return SizedBox(
+        width: 100.h,
+        height: 100.h,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            svg != null
+                ? svg.svg(
+                    height: AppDimens.sizeIconLarge,
+                    width: AppDimens.sizeIconLarge,
+                    color: color)
+                : Icon(
+                    icon,
+                    size: AppDimens.sizeIconLarge,
+                    color: color,
+                  ),
+            TextBuild(
+              title: title,
+              isAutoSizeText: true,
+              fontSize: AppDimens.sizeTextVerySmall,
+              textColor: color,
+            )
+          ],
+        ),
+      );
+    });
   }
 }

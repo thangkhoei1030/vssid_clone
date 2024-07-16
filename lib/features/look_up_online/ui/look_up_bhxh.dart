@@ -16,6 +16,7 @@ class LookUpBHXH extends GetView<LookUpBHXHController> {
         title: TextBuild(
           title: LookUpOnlineString.lookUpCodeBHXH,
           fontSize: AppDimens.sizeTextLarge,
+          isBoldText: true,
         ),
         showBackButton: true,
         child: SingleChildScrollView(

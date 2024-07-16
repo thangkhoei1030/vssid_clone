@@ -37,6 +37,7 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                         title: ParticipationProcessString.processTitle
                             .toUpperCase(),
                         fontSize: AppDimens.sizeTextLarge,
+                        isBoldText: true,
                         // textColor: Colors.white,
                       ),
                       const SizedBox.shrink()
@@ -48,13 +49,13 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                 UtilWidget.sizedBoxPadding,
                 TabBar(
                   controller: controller.tabController,
-                  // automaticIndicatorColorAdjustment: true,
                   indicatorColor: Colors.transparent,
                   dividerColor: Colors.transparent,
                   indicator: const BoxDecoration(),
                   indicatorWeight: 1,
                   onTap: (index) {
                     controller.tabController.animateTo(index);
+                    controller.indexTab.value = index;
                   },
                   // isScrollable: true,
 
@@ -63,16 +64,31 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                   labelPadding: const EdgeInsets.symmetric(
                       vertical: AppDimens.paddingVerySmall),
                   tabs: [
-                    _tabItem(ParticipationProcessString.bhxh,
-                        svg: Assets.svg.bhxh),
-                    _tabItem(ParticipationProcessString.bhtn,
-                        svg: Assets.svg.bhtn),
-                    _tabItem(ParticipationProcessString.bhtnld,
-                        svg: Assets.svg.bhtn),
-                    _tabItem(ParticipationProcessString.bhyt,
-                        svg: Assets.svg.bhyt),
-                    _tabItem(ParticipationProcessString.C14TS,
-                        svg: Assets.svg.note),
+                    _tabItem(
+                      ParticipationProcessString.bhxh,
+                      0,
+                      svg: Assets.svg.bhxh,
+                    ),
+                    _tabItem(
+                      ParticipationProcessString.bhtn,
+                      1,
+                      svg: Assets.svg.bhtn,
+                    ),
+                    _tabItem(
+                      ParticipationProcessString.bhtnld,
+                      2,
+                      svg: Assets.svg.bhtn,
+                    ),
+                    _tabItem(
+                      ParticipationProcessString.bhyt,
+                      3,
+                      svg: Assets.svg.bhyt,
+                    ),
+                    _tabItem(
+                      ParticipationProcessString.C14TS,
+                      4,
+                      svg: Assets.svg.note,
+                    ),
                   ],
                 ),
               ],
@@ -93,29 +109,37 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
   }
 
   Widget _tabItem(
-    String title, {
+    String title,
+    int indexTab, {
     SvgGenImage? svg,
     IconData? icon,
   }) {
-    return Column(
-      children: [
-        svg != null
-            ? svg.svg(
-                height: AppDimens.sizeIconLarge,
-                width: AppDimens.sizeIconLarge,
-              )
-            : Icon(
-                icon,
-                size: AppDimens.sizeIconLarge,
-              ),
-        SizedBox(
-          height: 30.h,
-          child: TextBuild(
-            isAutoSizeText: true,
-            title: title,
-          ),
-        )
-      ],
-    );
+    return Obx(() {
+      final color =
+          controller.indexTab.value == indexTab ? Colors.blue : Colors.black;
+      return Column(
+        children: [
+          svg != null
+              ? svg.svg(
+                  height: AppDimens.sizeIconLarge,
+                  width: AppDimens.sizeIconLarge,
+                  color: color,
+                )
+              : Icon(
+                  icon,
+                  size: AppDimens.sizeIconLarge,
+                ),
+          UtilWidget.sizedBox5,
+          SizedBox(
+            height: 30.h,
+            child: TextBuild(
+              fontSize: AppDimens.sizeTextSmall,
+              title: title,
+              textColor: color,
+            ),
+          )
+        ],
+      );
+    });
   }
 }

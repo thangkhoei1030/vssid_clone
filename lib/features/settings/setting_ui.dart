@@ -16,6 +16,7 @@ class SettingPage extends GetView<SettingController> {
         title: TextBuild(
           title: SettingStr.setting,
           fontSize: AppDimens.sizeTextLarge,
+          isBoldText: true,
         ),
         showBackButton: true,
         child: Column(

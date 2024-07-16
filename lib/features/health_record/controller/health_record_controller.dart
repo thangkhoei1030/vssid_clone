@@ -13,6 +13,8 @@ class HealthRecordController extends BaseGetxController
 
   final RxList<HealthRecordItem> listRecord = RxList.empty();
 
+  final RxInt indexTab = 0.obs;
+
   final PageBuilderController pageBuilderController = Get.find();
   @override
   Future<void> onInit() async {

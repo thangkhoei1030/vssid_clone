@@ -16,6 +16,10 @@ class TableData extends GetView<ParticipationProcessController> {
 
   const TableData.bhyt({super.key}) : tabType = TabProcessType.bhyt;
 
+  TextStyle textStyleValue() => Get.textTheme.bodySmall!.copyWith(
+        fontSize: AppDimens.sizeTextSmall,
+      );
+
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -75,24 +79,28 @@ class TableData extends GetView<ParticipationProcessController> {
               _buildCeil(
                 TextBuild(
                   title: item.fromdate ?? "",
+                  style: textStyleValue(),
                 ),
               ),
             if (tabType.getColumnView().toDate)
               _buildCeil(
                 TextBuild(
                   title: item.todate ?? "",
+                  style: textStyleValue(),
                 ),
               ),
             if (tabType.getColumnView().unit)
               _buildCeil(
                 TextBuild(
                   title: item.workUnit ?? "",
+                  style: textStyleValue(),
                 ),
               ),
             if (tabType.getColumnView().nameJob)
               _buildCeil(
                 TextBuild(
                   title: item.job ?? "",
+                  style: textStyleValue(),
                 ),
               ),
             SimpleButton(

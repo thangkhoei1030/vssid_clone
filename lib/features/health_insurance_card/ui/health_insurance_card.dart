@@ -15,6 +15,7 @@ class HealthInsuranceCardPage
       showAppBar: true,
       showBackButton: true,
       title: TextBuild(
+        isBoldText: true,
         title: HealthInsuranceCard.cardBHYT.toUpperCase(),
         // textColor: Colors.white,
         fontSize: AppDimens.sizeTextMedium,
@@ -24,7 +25,7 @@ class HealthInsuranceCardPage
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
+              child: const Column(
                 children: const [
                   HealthInsuranceCardInfo(),
                   UtilWidget.sizedBoxPadding,

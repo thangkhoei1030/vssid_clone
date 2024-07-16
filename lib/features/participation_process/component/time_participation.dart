@@ -23,16 +23,19 @@ class TimeParticipation extends StatelessWidget {
               title: ParticipationProcessString.process,
               isBoldText: true,
               fontSize: AppDimens.sizeTextMedium,
+              textAlign: TextAlign.start,
             ),
             UtilWidget.sizedBox5,
             const TextBuild(
               title:
                   "${ParticipationProcessString.totalTimeJoin}: 1 năm 2 tháng",
+              textAlign: TextAlign.start,
             ),
             UtilWidget.sizedBox5,
             const TextBuild(
               title: "${ParticipationProcessString.totalTimeDebt}: 0 tháng",
               textColor: Colors.red,
+              textAlign: TextAlign.start,
             ),
           ],
         ),
