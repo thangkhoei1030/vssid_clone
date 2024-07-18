@@ -14,9 +14,11 @@ class BHTNPage extends GetView<BHTNController> with GetViewLoading {
       child: loadingWidget(
           isShowLoading: controller.isShowLoading,
           child: () {
-            return Column(
-              children: const [
-                TimeParticipation(),
+            return const Column(
+              children: [
+                TimeParticipation(
+                  title: ParticipationProcessString.tnProcess,
+                ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: TableData.bhtn(),

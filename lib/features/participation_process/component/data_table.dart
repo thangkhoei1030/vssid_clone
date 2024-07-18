@@ -43,8 +43,9 @@ class TableData extends GetView<ParticipationProcessController> {
             children: [
               if (tabType.getColumnView().fromDate)
                 _buildCeil(
-                  const TextBuild(
+                  TextBuild(
                     isAutoSizeText: true,
+                    fontSize: AppDimens.sizeTextSmall,
                     title: ParticipationProcessString.fromDate,
                     textColor: Colors.white,
                     maxLines: 5,
@@ -52,23 +53,26 @@ class TableData extends GetView<ParticipationProcessController> {
                 ),
               if (tabType.getColumnView().toDate)
                 _buildCeil(
-                  const TextBuild(
+                  TextBuild(
                     title: ParticipationProcessString.toDate,
                     textColor: Colors.white,
+                    fontSize: AppDimens.sizeTextSmall,
                   ),
                 ),
               if (tabType.getColumnView().unit)
                 _buildCeil(
-                  const TextBuild(
+                  TextBuild(
                     title: ParticipationProcessString.factory,
                     textColor: Colors.white,
+                    fontSize: AppDimens.sizeTextSmall,
                   ),
                 ),
               if (tabType.getColumnView().nameJob)
                 _buildCeil(
-                  const TextBuild(
+                  TextBuild(
                     title: ParticipationProcessString.job,
                     textColor: Colors.white,
+                    fontSize: AppDimens.sizeTextSmall,
                   ),
                 ),
               const SizedBox.shrink(),

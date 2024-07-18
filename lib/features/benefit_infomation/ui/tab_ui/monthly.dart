@@ -8,15 +8,25 @@ class MonthlyBenefitUI extends TabUI<MonthlyBenefitController> {
 
   @override
   Widget buildBody() {
-    return Obx(
-      () => SimpleListView(
-          scrollPhysics: const NeverScrollableScrollPhysics(),
-          data: controller.listResponse.value,
-          separatorWidget: UtilWidget.sizedBox8,
-          itemBuilder: (context, index) {
-            return BenefitInfomationItems.monthly(
-                controller.listResponse[index]);
-          }),
+    return Column(
+      children: [
+        const HeaderPageComponent(
+          headerTitle: BenefitInfomationString.headerMonthly,
+        ),
+        UtilWidget.sizedBoxPadding,
+        Expanded(
+          child: Obx(
+            () => SimpleListView(
+                scrollPhysics: const NeverScrollableScrollPhysics(),
+                data: controller.listResponse.value,
+                separatorWidget: UtilWidget.sizedBox8,
+                itemBuilder: (context, index) {
+                  return BenefitInfomationItems.monthly(
+                      controller.listResponse[index]);
+                }),
+          ),
+        ),
+      ],
     );
   }
 }

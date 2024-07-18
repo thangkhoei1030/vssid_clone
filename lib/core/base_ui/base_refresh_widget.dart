@@ -20,6 +20,7 @@ abstract class BaseRefreshWidget<T extends BaseRefreshGetxController>
     bool showBackButton = false,
     List<Widget> action = const [],
     Color? backgroundColor,
+    Color? backgroundColorAppBar,
     TextStyle? titleTextStyle,
     Widget? title,
     Widget? floatingActionButton,
@@ -40,6 +41,7 @@ abstract class BaseRefreshWidget<T extends BaseRefreshGetxController>
       showFloatingButton: showFloatingButton,
       overrideBackFunction: overrideBackFunction,
       backgroundColor: backgroundColor,
+      backgroundColorAppBar: backgroundColorAppBar,
       child: Column(
         children: [
           if (headerPinned != null) headerPinned,

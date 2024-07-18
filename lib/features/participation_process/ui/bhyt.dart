@@ -13,9 +13,11 @@ class BHYTPage extends GetView<BHYTController> with GetViewLoading {
       child: loadingWidget(
           isShowLoading: controller.isShowLoading,
           child: () {
-            return Column(
-              children: const [
-                TimeParticipation(),
+            return const Column(
+              children: [
+                TimeParticipation(
+                  title: ParticipationProcessString.bhytProcess,
+                ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: TableData.bhyt(),

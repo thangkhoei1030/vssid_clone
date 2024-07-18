@@ -8,15 +8,25 @@ class UnemploymentBenefitUI extends TabUI<UnemploymentBenefitController> {
 
   @override
   Widget buildBody() {
-    return Obx(
-      () => SimpleListView(
-          scrollPhysics: const NeverScrollableScrollPhysics(),
-          data: controller.listResponse.value,
-          separatorWidget: UtilWidget.sizedBox8,
-          itemBuilder: (context, index) {
-            return BenefitInfomationItems.unemployment(
-                controller.listResponse[index]);
-          }),
+    return Column(
+      children: [
+        const HeaderPageComponent(
+          headerTitle: BenefitInfomationString.headerUnemployment,
+        ),
+        UtilWidget.sizedBoxPadding,
+        Expanded(
+          child: Obx(
+            () => SimpleListView(
+                scrollPhysics: const NeverScrollableScrollPhysics(),
+                data: controller.listResponse.value,
+                separatorWidget: UtilWidget.sizedBox8,
+                itemBuilder: (context, index) {
+                  return BenefitInfomationItems.unemployment(
+                      controller.listResponse[index]);
+                }),
+          ),
+        ),
+      ],
     );
   }
 }

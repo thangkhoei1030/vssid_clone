@@ -23,137 +23,146 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
       enablePullDown: true,
       child: loadingWidget(
         isShowLoading: controller.isShowLoading,
-        child: () => Column(
-          children: [
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextBuild(
-                isBoldText: true,
-                title: controller.yearSelected.value.toString(),
-                textColor: context.onSurfaceColor,
-                decoration: TextDecoration.underline,
+        child: () => SingleChildScrollView(
+          child: Column(
+            children: [
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextBuild(
+                  isBoldText: true,
+                  title: controller.yearSelected.value.toString(),
+                  textColor: context.onSurfaceColor,
+                  decoration: TextDecoration.underline,
+                ),
               ),
-            ),
-            UtilWidget.sizedBoxPadding,
-            Obx(
-              () => Table(
-                border: TableBorder.all(color: Colors.white),
-                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                columnWidths: tabType.columnWidth,
-                children: [
-                  TableRow(
-                      decoration: const BoxDecoration(
-                          color: Color.fromRGBO(56, 101, 155, 1)),
-                      children: [
+              UtilWidget.sizedBoxPadding,
+              Obx(
+                () => Table(
+                  border: TableBorder.all(color: Colors.white),
+                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                  columnWidths: tabType.columnWidth,
+                  children: [
+                    TableRow(
+                        decoration: const BoxDecoration(
+                            color: Color.fromRGBO(56, 101, 155, 1)),
+                        children: [
+                          if (tabType.getColumnView().ngayvao)
+                            _buildCeil(
+                              TextBuild(
+                                isAutoSizeText: true,
+                                title: HealthRecordStr.ngayvao,
+                                textColor: Colors.white,
+                                maxLines: 5,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().ngayra)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.ngayra,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().tenbenh)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.tenbenh,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().soseri)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.seriNumber,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().loaichungtu)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.loaichungtu,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().ngaycap)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.ngaycap,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          if (tabType.getColumnView().trangthai)
+                            _buildCeil(
+                              TextBuild(
+                                title: HealthRecordStr.trangthai,
+                                textColor: Colors.white,
+                                fontSize: AppDimens.sizeTextSmall,
+                              ),
+                            ),
+                          const SizedBox.shrink(),
+                        ]),
+                    for (HealthRecordItem item in controller.listResponse.value)
+                      TableRow(children: [
                         if (tabType.getColumnView().ngayvao)
                           _buildCeil(
-                            const TextBuild(
-                              isAutoSizeText: true,
-                              title: HealthRecordStr.ngayvao,
-                              textColor: Colors.white,
-                              maxLines: 5,
+                            TextBuild(
+                              title: item.ngayVao ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().ngayra)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.ngayra,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.ngayRa ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().tenbenh)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.tenbenh,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.tenBenh ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().soseri)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.seriNumber,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.soSeri ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().loaichungtu)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.loaichungtu,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.loaiChungTu ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().ngaycap)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.ngaycap,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.ngayCap ?? "",
                             ),
                           ),
                         if (tabType.getColumnView().trangthai)
                           _buildCeil(
-                            const TextBuild(
-                              title: HealthRecordStr.trangthai,
-                              textColor: Colors.white,
+                            TextBuild(
+                              title: item.trangThai ?? "",
                             ),
                           ),
-                        const SizedBox.shrink(),
-                      ]),
-                  for (HealthRecordItem item in controller.listResponse.value)
-                    TableRow(children: [
-                      if (tabType.getColumnView().ngayvao)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.ngayVao ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().ngayra)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.ngayRa ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().tenbenh)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.tenBenh ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().soseri)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.soSeri ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().loaichungtu)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.loaiChungTu ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().ngaycap)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.ngayCap ?? "",
-                          ),
-                        ),
-                      if (tabType.getColumnView().trangthai)
-                        _buildCeil(
-                          TextBuild(
-                            title: item.trangThai ?? "",
-                          ),
-                        ),
-                      SimpleButton(
-                          onPressed: () => Get.toNamed(
-                                AppRoutes.healthRecordDetail,
-                                arguments: item.id.toString(),
-                              ),
-                          child: const Icon(Icons.remove_red_eye))
-                    ])
-                ],
+                        SimpleButton(
+                            onPressed: () => Get.toNamed(
+                                  AppRoutes.healthRecordDetail,
+                                  arguments: item.id.toString(),
+                                ),
+                            child: const Icon(Icons.remove_red_eye))
+                      ])
+                  ],
+                ),
               ),
-            ),
-          ],
-        ).paddingAll(AppDimens.defaultPadding),
+            ],
+          ).paddingAll(AppDimens.defaultPadding),
+        ),
       ),
     );
   }

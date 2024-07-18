@@ -44,7 +44,6 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                           TextBuild(
                             title: BenefitInfomationString.benefitInfomation
                                 .toUpperCase(),
-                            isBoldText: true,
                             fontSize: AppDimens.sizeTextLarge,
                             textColor: Colors.white,
                           ),
@@ -65,6 +64,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                   indicatorWeight: 1,
                   onTap: (index) {
                     controller.tabController.animateTo(index);
+                    controller.indexTab.value = index;
                   },
                   unselectedLabelColor: Colors.black,
                   labelColor: Colors.blue,
@@ -73,19 +73,23 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                   tabs: [
                     _tabItem(
                       BenefitInfomationString.oneTime,
+                      0,
                       svg: Assets.svg.note1,
                     ),
 
                     _tabItem(
                       BenefitInfomationString.ODTS,
+                      1,
                       svg: Assets.svg.note2,
                     ),
                     _tabItem(
                       BenefitInfomationString.monthly,
+                      2,
                       svg: Assets.svg.hangthang,
                     ),
                     _tabItem(
                       BenefitInfomationString.unemployment,
+                      3,
                       svg: Assets.svg.thatnghiep,
                     ),
                     // _tabItem(Icons.list, PublicServiceString.service),
@@ -95,46 +99,62 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
             ),
           ),
         ),
-        body: TabBarView(controller: controller.tabController, children: const [
-          OneTimeBenefitUI(),
-          ODSTBenefitUI(),
-          MonthlyBenefitUI(),
-          UnemploymentBenefitUI(),
-          // C14TS(),
-          // const Service(),
-        ]),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: controller.tabController,
+          children: const [
+            OneTimeBenefitUI(),
+            ODSTBenefitUI(),
+            MonthlyBenefitUI(),
+            UnemploymentBenefitUI(),
+          ],
+        ),
       ),
     );
   }
 
   Widget _tabItem(
-    String title, {
+    String title,
+    int indexTab, {
     IconData? icon,
     SvgGenImage? svg,
   }) {
-    return Column(
-      children: [
-        CardBuilder(
-          height: 50.h,
-          width: 50.w,
-          radiusModel: const RadiusModel(radiusAll: 50),
-          isBorder: true,
-          borderColor: Colors.blue,
-          child: svg != null
-              ? svg.svg(
-                  height: AppDimens.sizeIconLarge,
-                  width: AppDimens.sizeIconLarge,
-                )
-              : Icon(
-                  icon,
-                  size: AppDimens.sizeIconLarge,
-                ),
-        ),
-        UtilWidget.sizedBox5,
-        Text(
-          title,
-        )
-      ],
-    );
+    return Obx(() {
+      final color =
+          controller.indexTab.value == indexTab ? Colors.blue : Colors.black;
+      return Column(
+        children: [
+          CardBuilder(
+            height: 50.h,
+            width: 50.w,
+            radiusModel: const RadiusModel(radiusAll: 50),
+            isBorder: true,
+            borderColor: color,
+            child: svg != null
+                ? svg.svg(
+                    height: AppDimens.sizeIconLarge,
+                    width: AppDimens.sizeIconLarge,
+                    color: color,
+                  )
+                : Icon(
+                    icon,
+                    size: AppDimens.sizeIconLarge,
+                    color: color,
+                  ),
+          ),
+          UtilWidget.sizedBox5,
+          SizedBox(
+            height: 30.h,
+            child: TextBuild(
+              isAutoSizeText: true,
+              fontSize: AppDimens.sizeTextSmall,
+              title: title,
+              textColor: color,
+              maxLines: 2,
+            ),
+          )
+        ],
+      );
+    });
   }
 }

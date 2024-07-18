@@ -12,13 +12,11 @@ class LookUpOrganJoin extends GetView<LookUpOrganJoinController> {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
-      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpMemberJoinBHXH,
         fontSize: AppDimens.sizeTextLarge,
         textColor: Colors.white,
-        isBoldText: true,
         isAutoSizeText: true,
       ),
       showBackButton: true,

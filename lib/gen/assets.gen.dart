@@ -15,6 +15,10 @@ import 'package:vector_graphics/vector_graphics.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/app_icon_1.png
+  AssetGenImage get appIcon1 =>
+      const AssetGenImage('assets/images/app_icon_1.png');
+
   /// File path: assets/images/login_background_image.png
   AssetGenImage get loginBackgroundImage =>
       const AssetGenImage('assets/images/login_background_image.png');
@@ -26,9 +30,22 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
+  /// File path: assets/images/support_banner.png
+  AssetGenImage get supportBanner =>
+      const AssetGenImage('assets/images/support_banner.png');
+
+  /// File path: assets/images/vneid.webp
+  AssetGenImage get vneid => const AssetGenImage('assets/images/vneid.webp');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [loginBackgroundImage, loginBackgroundImage2, splash];
+  List<AssetGenImage> get values => [
+        appIcon1,
+        loginBackgroundImage,
+        loginBackgroundImage2,
+        splash,
+        supportBanner,
+        vneid
+      ];
 }
 
 class $AssetsSvgGen {
@@ -98,6 +115,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/thatnghiep.svg
   SvgGenImage get thatnghiep => const SvgGenImage('assets/svg/thatnghiep.svg');
 
+  /// File path: assets/svg/vneid.svg
+  SvgGenImage get vneid => const SvgGenImage('assets/svg/vneid.svg');
+
   /// List of all assets
   List<SvgGenImage> get values => [
         searchScan,
@@ -119,7 +139,8 @@ class $AssetsSvgGen {
         periodic,
         scanBarcode,
         stateAgencies,
-        thatnghiep
+        thatnghiep,
+        vneid
       ];
 }
 

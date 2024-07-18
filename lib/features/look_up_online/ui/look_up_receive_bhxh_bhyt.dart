@@ -12,13 +12,11 @@ class LookUpReceiveBhxhBhyt extends GetView<LookUpReceiveBHXHBHYTController> {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
-      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpMemberReceiverBHXH,
         fontSize: AppDimens.sizeTextLarge,
         textColor: Colors.white,
-        isBoldText: true,
         isAutoSizeText: true,
       ),
       showBackButton: true,

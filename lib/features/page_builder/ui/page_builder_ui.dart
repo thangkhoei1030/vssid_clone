@@ -38,7 +38,6 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
               builder: (context, snapshot) => TextBuild(
                 title: controller.titleAppBar.toUpperCase(),
                 fontSize: AppDimens.sizeTextLarge,
-                isBoldText: true,
                 textColor: Colors.white,
               ),
             ),

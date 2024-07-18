@@ -8,15 +8,25 @@ class OneTimeBenefitUI extends TabUI<OneTimeBenefitController> {
 
   @override
   Widget buildBody() {
-    return Obx(
-      () => SimpleListView(
-          scrollPhysics: const NeverScrollableScrollPhysics(),
-          data: controller.listResponse.value,
-          separatorWidget: UtilWidget.sizedBox8,
-          itemBuilder: (context, index) {
-            return BenefitInfomationItems.onetime(
-                controller.listResponse[index]);
-          }),
+    return Column(
+      children: [
+        const HeaderPageComponent(
+          headerTitle: BenefitInfomationString.headerOneTime,
+        ),
+        UtilWidget.sizedBoxPadding,
+        Expanded(
+          child: Obx(
+            () => SimpleListView(
+                scrollPhysics: const NeverScrollableScrollPhysics(),
+                data: controller.listResponse.value,
+                separatorWidget: UtilWidget.sizedBox8,
+                itemBuilder: (context, index) {
+                  return BenefitInfomationItems.onetime(
+                      controller.listResponse[index]);
+                }),
+          ),
+        ),
+      ],
     );
   }
 }

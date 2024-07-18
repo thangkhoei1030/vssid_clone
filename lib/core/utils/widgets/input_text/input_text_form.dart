@@ -169,6 +169,7 @@ class BuildInputTextState extends State<BuildInputText> {
             widget.inputTextFormModel.submitFunc?.call(v);
           }
         },
+
         showCursor: widget.inputTextFormModel.showCursor,
         decoration: InputDecoration(
           counterText: widget.inputTextFormModel.isShowCounterText ? null : '',
@@ -188,7 +189,6 @@ class BuildInputTextState extends State<BuildInputText> {
           // ),
           floatingLabelBehavior: FloatingLabelBehavior.always,
           floatingLabelAlignment: FloatingLabelAlignment.start,
-          errorStyle: const TextStyle(color: Colors.red),
           prefixIcon: widget.inputTextFormModel.prefixIcon ??
               (widget.inputTextFormModel.iconLeading != null
                   ? Icon(widget.inputTextFormModel.iconLeading,
@@ -201,6 +201,7 @@ class BuildInputTextState extends State<BuildInputText> {
           prefixStyle: const TextStyle(
             color: Colors.red,
           ),
+
           // ?? OutlineInputBorder(
           //         borderRadius: BorderRadius.circular(AppDimens.radius8),
           //         borderSide: BorderSide(color: AppColors.colorBorderInput)

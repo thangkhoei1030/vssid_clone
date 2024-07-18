@@ -17,7 +17,7 @@ class NewsControllerImp extends NewsController {
         showLoading();
       }
 
-      await repository.getData(RequestType.tintuc).then((value) {
+      await repository.getData(RequestType.dichvu).then((value) {
         if (value.data.isNotEmpty) {
           listNews.assignAll(value.data);
         }

@@ -13,7 +13,6 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
       length: 2,
       initialIndex: 0,
       child: PageScaffold(
-        backgroundColorAppBar: Colors.blue,
         customAppBar: PreferredSize(
           preferredSize: Size.fromHeight(Get.height * 0.3),
           child: SafeArea(
@@ -42,7 +41,6 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                           TextBuild(
                             title: HealthRecordStr.healthRecord.toUpperCase(),
                             fontSize: AppDimens.sizeTextLarge,
-                            isBoldText: true,
                             textColor: Colors.white,
                           ),
                           const SizedBox.shrink()
@@ -91,12 +89,14 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
             ),
           ),
         ),
-        child:
-            TabBarView(controller: controller.tabController, children: const [
-          BodyContent<HealthRecordHistoryTabController>.lichsu(),
-          BodyContent<HealthRecordReleaseDocumentController>.giaycap(),
-          // const Service(),
-        ]),
+        child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: controller.tabController,
+            children: const [
+              BodyContent<HealthRecordHistoryTabController>.lichsu(),
+              BodyContent<HealthRecordReleaseDocumentController>.giaycap(),
+              // const Service(),
+            ]),
       ),
     );
   }

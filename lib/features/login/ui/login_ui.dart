@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
@@ -16,24 +17,24 @@ class LoginPage extends BaseGetWidget<LoginController> {
         child: Stack(
           children: [
             Assets.images.loginBackgroundImage2.image(
-                fit: BoxFit.fill,
-                height: double.infinity,
-                width: double.infinity),
+              fit: BoxFit.fill,
+              height: double.infinity,
+              width: double.infinity,
+            ),
             Column(
               children: [
                 Expanded(
-                    child: Column(
-                  children: [
-                    UtilWidget.sizedBoxPaddingHuge,
-                    const LoginAppBar(),
-                    const SizedBox(
-                      height: 100,
-                    ),
-                  ],
-                )),
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      UtilWidget.sizedBoxPaddingHuge,
+                      const LoginAppBar(),
+                    ],
+                  ),
+                ),
                 UtilWidget.sizedBoxPaddingHuge,
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
@@ -48,6 +49,7 @@ class LoginPage extends BaseGetWidget<LoginController> {
                   ),
                 ),
                 const Expanded(
+                  flex: 2,
                   child: MoreAction(),
                 )
               ],

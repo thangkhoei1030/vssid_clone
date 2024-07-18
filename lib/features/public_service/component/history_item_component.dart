@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
@@ -21,10 +22,17 @@ class HistoryItemComponent extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.topCenter,
-                child: Icon(
-                  Icons.account_circle_outlined,
-                  color: context.onSurfaceColor,
-                  size: AppDimens.sizeIconLarge,
+                child: NetworkImageWidget(
+                  urlImage: response.imageAvatar.toUrlCDN(),
+                  widgetImageBuilder: (ctx, imageProvider) => Container(
+                    height: 50.h,
+                    width: 50.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      image: DecorationImage(
+                          image: imageProvider, fit: BoxFit.cover),
+                    ),
+                  ),
                 ),
               ),
               Expanded(

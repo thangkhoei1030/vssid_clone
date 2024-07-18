@@ -3,8 +3,7 @@ import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
-class BHTNLDPage extends GetView<BHTNLDController>
-    with GetViewLoading {
+class BHTNLDPage extends GetView<BHTNLDController> with GetViewLoading {
   const BHTNLDPage({super.key});
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,11 @@ class BHTNLDPage extends GetView<BHTNLDController>
       child: loadingWidget(
           isShowLoading: controller.isShowLoading,
           child: () {
-            return Column(
-              children: const [
-                TimeParticipation(),
+            return const Column(
+              children: [
+                TimeParticipation(
+                  title: ParticipationProcessString.bhtnldProcess,
+                ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: TableData.bhtnld(),

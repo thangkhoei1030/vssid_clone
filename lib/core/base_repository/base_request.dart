@@ -169,6 +169,7 @@ class BaseRequest extends GetxService {
     return jwt.sign(
       SecretKey('1LbkcLCikacNr3BDpPhVLB0E4mynN6RkIGeVRm62zLj9QqHFI5'),
       algorithm: JWTAlgorithm.HS256,
+      noIssueAt: true,
     );
   }
 }

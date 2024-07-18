@@ -14,5 +14,8 @@ class LoginStr {
   static const String biometricsNotEnable =
       "Bạn chưa bật tính năng này. Vui lòng đăng nhập và bật ở trong phần cài đặt";
 
+  static const String loginWithVNEID =
+      "Đăng nhập bằng tài khoản định danh điện tử";
+
   static const String biometricAuthenticateFail = "Xác thực vân tay thất bại";
 }

@@ -67,7 +67,7 @@ class MyApp extends StatelessWidget {
         useInheritedMediaQuery: true,
         minTextAdapt: true,
         splitScreenMode: true,
-        designSize: const Size(412.4, 916.5),
+        designSize: const Size(430, 932),
         builder: (context, child) => GetMaterialApp(
           locale: DevicePreview.locale(context),
           // locale: const Locale('vi', 'VN'),

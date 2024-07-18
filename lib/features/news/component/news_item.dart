@@ -12,24 +12,25 @@ class NewsItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextBuild(
-          title: response.name ?? "",
-          decoration: TextDecoration.underline,
-          textColor: context.onSurfaceColor,
-          textAlign: TextAlign.start,
-        ),
-        UtilWidget.sizedBoxPadding,
         NetworkImageWidget(
           widthImage: Get.width,
           heightImage: Get.width * 9 / 16,
           urlImage: response.imageAvatar.toUrlCDN(),
+          fit: BoxFit.cover,
+        ),
+        UtilWidget.sizedBox10,
+        TextBuild(
+          title: response.name ?? "",
+          textColor: context.onSurfaceColor,
+          textAlign: TextAlign.start,
+          isBoldText: true,
         ),
         UtilWidget.sizedBoxPadding,
         TextBuild(
-          title: response.content ?? "",
-          decoration: TextDecoration.underline,
-          textColor: context.onSurfaceColor,
+          title: response.description ?? "",
+          textColor: context.onPrimaryColor,
           textAlign: TextAlign.start,
+          fontSize: AppDimens.sizeTextSmall,
         ),
       ],
     );

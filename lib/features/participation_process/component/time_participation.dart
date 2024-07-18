@@ -4,7 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class TimeParticipation extends StatelessWidget {
-  const TimeParticipation({super.key});
+  const TimeParticipation({
+    super.key,
+    required this.title,
+    this.totalTime = "1 năm 2 tháng",
+    this.totalTimeDebt = "0 tháng",
+  });
+
+  final String title;
+
+  final String totalTime;
+
+  final String totalTimeDebt;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +31,20 @@ class TimeParticipation extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextBuild(
-              title: ParticipationProcessString.process,
-              isBoldText: true,
+              title: title,
               fontSize: AppDimens.sizeTextMedium,
               textAlign: TextAlign.start,
+              textColor: context.onSurfaceColor,
             ),
             UtilWidget.sizedBox5,
-            const TextBuild(
-              title:
-                  "${ParticipationProcessString.totalTimeJoin}: 1 năm 2 tháng",
+            TextBuild(
+              title: "${ParticipationProcessString.totalTimeJoin}: $totalTime",
               textAlign: TextAlign.start,
             ),
             UtilWidget.sizedBox5,
-            const TextBuild(
-              title: "${ParticipationProcessString.totalTimeDebt}: 0 tháng",
+            TextBuild(
+              title:
+                  "${ParticipationProcessString.totalTimeDebt}: $totalTimeDebt",
               textColor: Colors.red,
               textAlign: TextAlign.start,
             ),

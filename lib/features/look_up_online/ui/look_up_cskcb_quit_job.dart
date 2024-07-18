@@ -12,13 +12,11 @@ class LookUpCskcbQuitJob extends GetView<LookUpCSKCBBHYTController> {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
-      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpCSKCBQuitJob,
         fontSize: AppDimens.sizeTextLarge,
         textColor: Colors.white,
-        isBoldText: true,
         isAutoSizeText: true,
       ),
       showBackButton: true,

@@ -53,11 +53,14 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
             ),
           ),
         ),
-        body: TabBarView(controller: controller.tabController, children: const [
-          Service(),
-          History(),
-          // const Service(),
-        ]),
+        body: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: controller.tabController,
+            children: const [
+              Service(),
+              History(),
+              // const Service(),
+            ]),
       ),
     );
   }

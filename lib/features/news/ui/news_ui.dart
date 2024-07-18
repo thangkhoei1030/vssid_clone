@@ -9,10 +9,11 @@ class NewsPage extends BaseRefreshWidget<NewsController> {
   Widget buildWidgets(BuildContext context) {
     return buildPageReload(
       showBackButton: true,
+      backgroundColorAppBar: context.onSurfaceColor,
       title: TextBuild(
         title: NewsString.news.toUpperCase(),
-        isBoldText: true,
         fontSize: AppDimens.sizeTextLarge,
+        textColor: Colors.white,
       ),
       child: UtilWidget.buildErrorOccurred(
         controller,
@@ -25,12 +26,11 @@ class NewsPage extends BaseRefreshWidget<NewsController> {
                         NewsItem(
                           response: e,
                         ),
-                        UtilWidget.buildDivider(),
                         UtilWidget.sizedBoxPadding,
                       ],
                     ))
                 .toList(),
-          ),
+          ).paddingSymmetric(horizontal: AppDimens.defaultPadding),
         ),
         onReload: controller.getData,
         isHaveData: () => controller.listNews.isNotEmpty,

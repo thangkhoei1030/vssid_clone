@@ -15,13 +15,11 @@ class LookUpOrganBHXH extends GetView<LookUpOrganBHXHController> {
   @override
   Widget build(BuildContext context) {
     return PageScaffold(
-      backgroundColorAppBar: Colors.blue,
       showAppBar: true,
       title: TextBuild(
         title: LookUpOnlineString.lookUpOrganBHXH,
         fontSize: AppDimens.sizeTextLarge,
         textColor: Colors.white,
-        isBoldText: true,
         isAutoSizeText: true,
       ),
       showBackButton: true,

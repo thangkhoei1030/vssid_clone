@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
@@ -57,7 +58,10 @@ class UserInputComponent extends GetView<LoginController> {
               size: AppDimens.sizeIconMedium,
             ),
           ),
-          Expanded(child: BuildInputText(inputTextModel))
+          Expanded(
+              child: BuildInputText(
+            inputTextModel,
+          ))
         ],
       ),
     );

@@ -27,6 +27,10 @@ class AppTheme {
         labelStyle: Get.textTheme.bodyMedium!.copyWith(
           color: primaryColor,
         ),
+        errorStyle: base.textTheme.bodySmall!.copyWith(
+          fontSize: AppDimens.sizeTextSmall,
+          color: Colors.red,
+        ),
         hintStyle: base.textTheme.bodySmall,
       );
     }

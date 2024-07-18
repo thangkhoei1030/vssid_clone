@@ -26,7 +26,8 @@ class BenefitInfomationItems extends StatelessWidget {
     return CardBuilder(
       radiusModel: const RadiusModel(radiusAll: AppDimens.radius8),
       paddingModel: const PaddingModel(paddingAll: AppDimens.paddingSmall),
-      backgroundColor: Colors.blue,
+      backgroundColor: const Color.fromRGBO(83, 118, 176, 1),
+      alignment: Alignment.centerLeft,
       child: _buildBody(),
     );
   }
@@ -45,42 +46,36 @@ class BenefitInfomationItems extends StatelessWidget {
 
   Widget _oneTime() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        UtilWidget.rowInfo(
-          BenefitInfomationString.soQDHuong,
+        _textSpan(
+          "${BenefitInfomationString.soQDHuong}: ",
           "",
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.ngayQDHuonng,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.ngayQDHuonng}: ",
           "",
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.sotien,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.sotien}: ",
           CurrencyUtils.formatCurrencyForeign(benefitInfomation.soTien),
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.tendonvi,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.tendonvi}: ",
           benefitInfomation.donViDongbh.toString(),
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.sotaikhoan,
-          "",
-          showDivider: false,
-          textColor: Colors.white,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.sotaikhoan}: ",
+          benefitInfomation.cheDo ?? "",
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.tennganhang,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.tennganhang}: ",
           "",
-          showDivider: false,
-          textColor: Colors.white,
         ),
       ],
     );
@@ -88,35 +83,45 @@ class BenefitInfomationItems extends StatelessWidget {
 
   Widget _odts() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        UtilWidget.rowInfo(
-          BenefitInfomationString.chedo,
+        _textSpan(
+          "${BenefitInfomationString.chedo}: ",
           benefitInfomation.cheDo ?? "",
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
+        UtilWidget.sizedBox10,
+        _textSpan(
           BenefitInfomationString.fromDateToDate(
             benefitInfomation.fromdate ?? "",
             benefitInfomation.todate ?? "",
           ),
           "",
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.sotien,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.sotien}: ",
           CurrencyUtils.formatCurrencyForeign(benefitInfomation.soTien),
-          showDivider: false,
-          textColor: Colors.white,
         ),
-        UtilWidget.rowInfo(
-          BenefitInfomationString.tendonvi,
+        UtilWidget.sizedBox10,
+        _textSpan(
+          "${BenefitInfomationString.tendonvi}: ",
           benefitInfomation.donViDongbh.toString(),
-          showDivider: false,
-          textColor: Colors.white,
         ),
       ],
     );
+  }
+
+  Widget _textSpan(String text1, String text2) {
+    return RichText(
+        textAlign: TextAlign.left,
+        text: TextSpan(text: text1, children: [
+          TextSpan(
+              text: text2,
+              style: Get.textTheme.bodySmall!.copyWith(
+                fontWeight: FontWeight.w500,
+                color: Colors.white,
+                fontSize: AppDimens.sizeTextDefault,
+              ))
+        ]));
   }
 }

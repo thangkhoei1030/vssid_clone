@@ -42,7 +42,6 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                             title: ParticipationProcessString.processTitle
                                 .toUpperCase(),
                             fontSize: AppDimens.sizeTextLarge,
-                            isBoldText: true,
                             textColor: Colors.white,
                           ),
                           const SizedBox.shrink()
@@ -67,8 +66,6 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                       controller.tabController.animateTo(index);
                       controller.indexTab.value = index;
                     },
-                    // isScrollable: true,
-
                     unselectedLabelColor: Colors.black,
                     labelColor: Colors.blue,
                     labelPadding: const EdgeInsets.symmetric(
@@ -87,7 +84,7 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                       _tabItem(
                         ParticipationProcessString.bhtnld,
                         2,
-                        svg: Assets.svg.bhtn,
+                        svg: Assets.svg.bhld,
                       ),
                       _tabItem(
                         ParticipationProcessString.bhyt,
@@ -106,15 +103,17 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
             ),
           ),
         ),
-        child:
-            TabBarView(controller: controller.tabController, children: const [
-          BHXHPage(),
-          BHTNPage(),
-          BHTNLDPage(),
-          BHYTPage(),
-          C14TS(),
-          // const Service(),
-        ]),
+        child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: controller.tabController,
+            children: const [
+              BHXHPage(),
+              BHTNPage(),
+              BHTNLDPage(),
+              BHYTPage(),
+              C14TS(),
+              // const Service(),
+            ]),
       ),
     );
   }
@@ -144,9 +143,11 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
           SizedBox(
             height: 30.h,
             child: TextBuild(
+              isAutoSizeText: true,
               fontSize: AppDimens.sizeTextSmall,
               title: title,
               textColor: color,
+              maxLines: 2,
             ),
           )
         ],

@@ -14,7 +14,7 @@ class HeaderPageComponent extends StatelessWidget {
       paddingModel: const PaddingModel(
         paddingVerical: AppDimens.paddingVerySmall,
       ),
-      backgroundColor: Colors.black.withOpacity(0.2),
+      backgroundColor: const Color.fromRGBO(239, 238, 238, 1),
       child: TextBuild(
         title: headerTitle,
       ),

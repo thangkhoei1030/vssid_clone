@@ -12,12 +12,11 @@ class HealthRecordDetailPage extends BaseGetWidget<HealthRecordDetailController>
   Widget buildWidgets(BuildContext context) {
     return PageScaffold(
       title: TextBuild(
-        title: HealthRecordDetailStr.healthRecord,
+        title: HealthRecordDetailStr.healthRecord.toUpperCase(),
         fontSize: AppDimens.sizeTextLarge,
         textColor: Colors.white,
       ),
       showBackButton: true,
-      backgroundColorAppBar: Colors.blue,
       child: loadingWidget(
         child: () => Obx(
           () => SimpleListView(

@@ -8,14 +8,25 @@ class ODSTBenefitUI extends TabUI<ODTSBenefitController> {
 
   @override
   Widget buildBody() {
-    return Obx(
-      () => SimpleListView(
-          scrollPhysics: const NeverScrollableScrollPhysics(),
-          data: controller.listResponse.value,
-          separatorWidget: UtilWidget.sizedBox8,
-          itemBuilder: (context, index) {
-            return BenefitInfomationItems.odts(controller.listResponse[index]);
-          }),
+    return Column(
+      children: [
+        const HeaderPageComponent(
+          headerTitle: BenefitInfomationString.headerODTS,
+        ),
+        UtilWidget.sizedBoxPadding,
+        Expanded(
+          child: Obx(
+            () => SimpleListView(
+                scrollPhysics: const NeverScrollableScrollPhysics(),
+                data: controller.listResponse.value,
+                separatorWidget: UtilWidget.sizedBox8,
+                itemBuilder: (context, index) {
+                  return BenefitInfomationItems.odts(
+                      controller.listResponse[index]);
+                }),
+          ),
+        ),
+      ],
     );
   }
 }

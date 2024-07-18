@@ -129,12 +129,11 @@ class MenuActionItem extends StatelessWidget {
                         title: title,
                         textColor: textColor,
                         fontSize: AppDimens.sizeTextMedium,
-                        isBoldText: true,
                       ),
                       const Spacer(),
                       if (isNeedIconSuffix)
                         Icon(
-                          Icons.arrow_forward,
+                          Icons.arrow_forward_ios,
                           color: textColor,
                         ),
                     ],

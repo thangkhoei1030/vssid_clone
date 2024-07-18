@@ -107,7 +107,8 @@ class PageScaffold extends StatelessWidget {
         appBar: showAppBar
             ? customAppBar ??
                 AppBar(
-                  backgroundColor: backgroundColorAppBar,
+                  backgroundColor:
+                      backgroundColorAppBar ?? context.onSurfaceColor,
                   automaticallyImplyLeading: false,
                   leading: showBackButton
                       ? SimpleButton(
