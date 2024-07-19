@@ -1,8 +1,9 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class UserInfoShort extends GetView<HealthRecordController> {
   const UserInfoShort({super.key});
@@ -13,28 +14,37 @@ class UserInfoShort extends GetView<HealthRecordController> {
         child: Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        NetworkImageWidget(
-            widgetImageBuilder: (context, imageProvider) {
-              return CardBuilder(
-                  isBorder: true,
-                  borderColor: Colors.grey,
-                  width: 60.h,
-                  height: 60.h,
-                  radiusModel: const RadiusModel(radiusAll: 50),
-                  child: Container(
-                    height: 40.h,
-                    width: 40.h,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: imageProvider,
-                      ),
-                    ),
-                  ));
-            },
-            urlImage: controller
-                    .pageBuilderController.memberInfomation.value?.anhTheBhyt
-                    .toUrlCDN() ??
-                ""),
+        (controller.pageBuilderController.memberInfomation.value?.anhTheBhyt)
+                .isStringNotEmpty
+            ? NetworkImageWidget(
+                widgetImageBuilder: (context, imageProvider) {
+                  return ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Container(
+                        height: 40.ratioH,
+                        width: 40.ratioW,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: imageProvider,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ));
+                },
+                errorWidget: Assets.images.srcImagesAvatar.image(
+                  height: 40.ratioH,
+                  width: 40.ratioW,
+                  fit: BoxFit.cover,
+                ),
+                urlImage: controller.pageBuilderController.memberInfomation
+                        .value?.anhTheBhyt
+                        .toUrlCDN() ??
+                    "")
+            : Assets.images.srcImagesAvatar.image(
+                height: 40.ratioH,
+                width: 40.ratioW,
+                fit: BoxFit.cover,
+              ),
         UtilWidget.sizedBoxWidthPadding,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

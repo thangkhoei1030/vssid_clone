@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class LoginButton extends GetView<LoginController> {
   const LoginButton({super.key});
@@ -35,11 +36,12 @@ class LoginButton extends GetView<LoginController> {
               ),
               SimpleButton(
                 onPressed: controller.biometricsLogin,
-                child: Icon(
-                  Icons.fingerprint,
-                  size: AppDimens.sizeIconLarge,
-                  color: context.primaryColor,
-                ).paddingSymmetric(horizontal: AppDimens.paddingSmall),
+                child: Assets.images.srcImagesVantay
+                    .image(
+                      height: 40.h,
+                      width: 40.w,
+                    )
+                    .paddingSymmetric(horizontal: AppDimens.paddingSmall),
               )
             ],
           ),

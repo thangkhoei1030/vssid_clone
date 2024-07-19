@@ -33,7 +33,7 @@ class KeyBoard {
                       ),
                     ),
                   ),
-                  const Icon(
+                  Icon(
                     Icons.keyboard_hide_outlined,
                     size: AppDimens.sizeIconMedium,
                   )

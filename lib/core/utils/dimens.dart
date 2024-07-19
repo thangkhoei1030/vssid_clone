@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 
 class AppDimens {
   static double fontSize10() => 10.divSF;
@@ -12,12 +13,12 @@ class AppDimens {
   static double fontSize24() => 24.sp.divSF;
   static double fontSizeVerySmallest() => 8.divSF;
 
-  static const double sizeImageSmall = 30;
-  static const double sizeImage35 = 35;
-  static const double sizeImage = 50;
-  static const double sizeImageMedium = 70;
-  static const double sizeImageBig = 83;
-  static const double sizeImageLarge = 200;
+  static double sizeImageSmall = 30.ratioH;
+  static double sizeImage35 = 35.ratioH;
+  static double sizeImage = 50.ratioH;
+  static double sizeImageMedium = 70.ratioH;
+  static double sizeImageBig = 83.ratioH;
+  static double sizeImageLarge = 200.ratioH;
 
   static double sizeTextVerySmall = 8.sp;
   static double sizeTextSmall = 12.sp;
@@ -25,29 +26,29 @@ class AppDimens {
   static double sizeTextMedium = 16.sp;
   static double sizeTextLarge = 20.sp;
   static double sizeTextVeryLarge = 32.sp;
-  static const double btnSmall = 20;
-  static const double btnMedium = 50;
-  static const double btnDefault = 40;
-  static const double btnLarge = 70;
-  static const double btnQuickCreate = 73;
-  static const double btnRecommend = 30;
+  static double btnSmall = 20.ratioH;
+  static double btnMedium = 50.ratioH;
+  static double btnDefault = 40.ratioH;
+  static double btnLarge = 70.ratioH;
+  static double btnQuickCreate = 73.ratioH;
+  static double btnRecommend = 30.ratioH;
 
-  static const double sizeIconVerySmall = 12;
-  static const double sizeIconSmall = 16;
-  static const double sizeIcon = 20;
-  static const double sizeIconMedium = 24;
-  static const double sizeIconSpinner = 30;
-  static const double sizeIconLarge = 36;
-  static const double sizeIconVeryLarge = 48;
-  static const double sizeIconMoreLarge = 70;
-  static const double sizeIconMoreLargeWindow = 100;
-  static const double sizeIconExtraLarge = 200;
-  static const double sizeDialogNotiIcon = 40;
-  static const double sizeChartMin = 500;
-  static const double sizeChartBtn = 150;
+  static double sizeIconVerySmall = 12.ratioH;
+  static double sizeIconSmall = 16.ratioH;
+  static double sizeIcon = 20.ratioH;
+  static double sizeIconMedium = 24.ratioH;
+  static double sizeIconSpinner = 30.ratioH;
+  static double sizeIconLarge = 36.ratioH;
+  static double sizeIconVeryLarge = 48.ratioH;
+  static double sizeIconMoreLarge = 70.ratioH;
+  static double sizeIconMoreLargeWindow = 100.ratioH;
+  static double sizeIconExtraLarge = 200.ratioH;
+  static double sizeDialogNotiIcon = 40.ratioH;
+  static double sizeChartMin = 500.ratioH;
+  static double sizeChartBtn = 150.ratioH;
 
-  static const double heightChip = 30;
-  static const double widthChip = 100;
+  static double heightChip = 30.ratioH;
+  static double widthChip = 100.ratioW;
 
   static const int maxLengthDescription = 250;
 
@@ -63,10 +64,10 @@ class AppDimens {
   static const double paddingVerySmallest = 2;
 
   static const double showAppBarDetails = 200;
-  static const double sizeAppBarBig = 120;
-  static const double sizeAppBarMedium = 92;
-  static const double sizeAppBar = 72;
-  static const double sizeAppBarSmall = 44;
+  static double sizeAppBarBig = 120.ratioH;
+  static double sizeAppBarMedium = 92.ratioH;
+  static double sizeAppBar = 72.ratioH;
+  static double sizeAppBarSmall = 44.ratioH;
 
   static const double sizeGidView = 130;
   static const double sizeGidDesktop = 160;

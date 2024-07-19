@@ -1,8 +1,9 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class SocialInsuranceCard extends GetView<ProfileManagerController> {
   const SocialInsuranceCard({super.key});
@@ -13,7 +14,10 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
       backgroundColor: context.primaryColor,
       paddingModel: const PaddingModel(paddingAll: AppDimens.paddingSmall),
       linearGradient: LinearGradient(
-        colors: [Colors.white.withOpacity(0.3), Colors.blue.withOpacity(0.1)],
+        colors: [
+          Colors.white.withOpacity(0.3),
+          Colors.blue.withOpacity(0.1),
+        ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
@@ -24,24 +28,38 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  NetworkImageWidget(
-                      widgetImageBuilder: (context, imageProvider) {
-                        return CardBuilder(
-                            width: 50.h,
-                            height: 50.h,
-                            radiusModel: const RadiusModel(radiusAll: 100),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: imageProvider,
-                                ),
-                              ),
-                            ));
-                      },
-                      urlImage: controller.pageBuilderController
-                              .memberInfomation.value?.anhTheBhyt
-                              .toUrlCDN() ??
-                          ""),
+                  (controller.pageBuilderController.memberInfomation.value
+                              ?.anhTheBhyt)
+                          .isStringNotEmpty
+                      ? NetworkImageWidget(
+                          widgetImageBuilder: (context, imageProvider) {
+                            return ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Container(
+                                  height: 50.ratioH,
+                                  width: 50.ratioW,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                    ),
+                                  ),
+                                ));
+                          },
+                          errorWidget: Assets.images.srcImagesAvatar.image(
+                            width: 50.ratioW,
+                            height: 50.ratioH,
+                            fit: BoxFit.cover,
+                          ),
+                          urlImage: controller.pageBuilderController
+                                  .memberInfomation.value?.anhTheBhyt
+                                  .toUrlCDN() ??
+                              "",
+                        )
+                      : Assets.images.srcImagesAvatar.image(
+                          width: 50.ratioW,
+                          height: 50.ratioH,
+                          fit: BoxFit.cover,
+                        ),
                   UtilWidget.sizedBoxWidthPadding,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

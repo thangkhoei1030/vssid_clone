@@ -19,14 +19,14 @@ class LookUpOnline extends StatelessWidget {
                   function: () => Get.to(
                     () => const LookUpBHXH(),
                   ),
-                  iconData: Iconsax.scan_barcode,
+                  image: Assets.images.srcImagesNewTracuuMaso,
                   serviceName: LookUpOnlineString.lookUpCodeBHXH,
                 ),
               ),
               Expanded(
                 child: LookUpItem(
                   function: () => Get.to(() => const LookUpOrganBHXH()),
-                  svg: Assets.svg.stateAgencies,
+                  image: Assets.images.srcImagesNewTracuuCoquan,
                   serviceName: LookUpOnlineString.lookUpOrganBHXH,
                 ),
               ),
@@ -39,7 +39,7 @@ class LookUpOnline extends StatelessWidget {
                   function: () => Get.to(
                     () => const LookUpCskcbQuitJob(),
                   ),
-                  svg: Assets.svg.certification,
+                  image: Assets.images.srcImagesNewTracuuCskcb2,
                   serviceName: LookUpOnlineString.lookUpCSKCBQuitJob,
                 ),
               ),
@@ -48,7 +48,7 @@ class LookUpOnline extends StatelessWidget {
                   function: () => Get.to(
                     () => const LookUpCskcbBhyt(),
                   ),
-                  svg: Assets.svg.periodic,
+                  image: Assets.images.srcImagesNewTracuuCskcb,
                   serviceName: LookUpOnlineString.lookUpCSKCBHeadling,
                 ),
               ),
@@ -61,7 +61,7 @@ class LookUpOnline extends StatelessWidget {
                   function: () => Get.to(
                     () => const LookUpOrganJoin(),
                   ),
-                  svg: Assets.svg.company,
+                  image: Assets.images.srcImagesNewTracuuDonvi,
                   serviceName: LookUpOnlineString.lookUpMemberJoinBHXH,
                 ),
               ),
@@ -70,7 +70,7 @@ class LookUpOnline extends StatelessWidget {
                   function: () => Get.to(
                     () => const LookUpReceiveBhxhBhyt(),
                   ),
-                  svg: Assets.svg.organization,
+                  image: Assets.images.srcImagesNewTracuuDiemthu,
                   serviceName: LookUpOnlineString.lookUpMemberReceiverBHXH,
                 ),
               ),

@@ -23,18 +23,22 @@ class LoginPage extends BaseGetWidget<LoginController> {
             ),
             Column(
               children: [
-                Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      UtilWidget.sizedBoxPaddingHuge,
-                      const LoginAppBar(),
-                    ],
-                  ),
+                Column(
+                  children: [
+                    UtilWidget.sizedBoxPaddingHuge,
+                    const LoginAppBar(),
+                    UtilWidget.sizedBoxPaddingHuge,
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Assets.images.srcImagesNewLogo01.image(
+                        height: 125.h,
+                        width: 125.w,
+                      ),
+                    ),
+                    UtilWidget.sizedBoxPaddingHuge,
+                  ],
                 ),
-                UtilWidget.sizedBoxPaddingHuge,
                 Expanded(
-                  flex: 3,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
@@ -48,13 +52,14 @@ class LoginPage extends BaseGetWidget<LoginController> {
                     ),
                   ),
                 ),
-                const Expanded(
-                  flex: 2,
+                const Align(
+                  alignment: Alignment.bottomCenter,
                   child: MoreAction(),
                 )
               ],
-            ).paddingAll(
-              AppDimens.defaultPadding,
+            ).paddingSymmetric(
+              vertical: AppDimens.paddingHuge,
+              horizontal: AppDimens.defaultPadding,
             ),
           ],
         ),

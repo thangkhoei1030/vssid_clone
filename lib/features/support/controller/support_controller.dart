@@ -8,37 +8,37 @@ class SupportController extends GetxController {
   final List<SupportComponentItemModel> listComponent = [
     SupportComponentItemModel(
         content: SupportString.tutorial,
-        iconData: Iconsax.book,
+        image: Assets.images.srcImagesHotrohdsd,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.chatBot,
-        pathSVG: Assets.svg.chatbot,
+        image: Assets.images.srcImagesNewIconChatbot,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.hotline,
-        iconData: Iconsax.call_calling,
+        image: Assets.images.srcImagesNewIconTongdai,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.email,
-        iconData: Iconsax.sms,
+        image: Assets.images.srcImagesNewIconEmail,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.question,
-        pathSVG: Assets.svg.messages,
+        image: Assets.images.srcImagesNewIconCauhoi,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),
     SupportComponentItemModel(
         content: SupportString.feedback,
-        iconData: Iconsax.sms_tracking,
+        image: Assets.images.srcImagesPhananhkiennghi,
         function: () {
           // UrlService().launchUrl(UriType.tutorial);
         }),

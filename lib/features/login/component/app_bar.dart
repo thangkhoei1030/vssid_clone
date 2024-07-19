@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class LoginAppBar extends StatelessWidget {
   const LoginAppBar({super.key});
@@ -9,17 +10,15 @@ class LoginAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(
-          Iconsax.notification_bing,
-          color: context.primaryColor,
-          size: AppDimens.sizeIconLarge,
+        Assets.images.srcImagesTb3.image(
+          height: AppDimens.sizeIconMedium,
+          width: AppDimens.sizeIconMedium,
         ),
         const Spacer(),
-        Icon(
-          Iconsax.language_circle,
-          color: context.primaryColor,
-          size: AppDimens.sizeIconLarge,
-        )
+        Assets.images.srcImagesVn.image(
+          height: AppDimens.sizeIconMedium,
+          width: AppDimens.sizeIconMedium,
+        ),
       ],
     );
   }

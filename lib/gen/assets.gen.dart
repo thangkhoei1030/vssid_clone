@@ -30,6 +30,238 @@ class $AssetsImagesGen {
   /// File path: assets/images/splash.png
   AssetGenImage get splash => const AssetGenImage('assets/images/splash.png');
 
+  /// File path: assets/images/src_images_avatar.png
+  AssetGenImage get srcImagesAvatar =>
+      const AssetGenImage('assets/images/src_images_avatar.png');
+
+  /// File path: assets/images/src_images_c14ts1.png
+  AssetGenImage get srcImagesC14ts1 =>
+      const AssetGenImage('assets/images/src_images_c14ts1.png');
+
+  /// File path: assets/images/src_images_c14ts2.png
+  AssetGenImage get srcImagesC14ts2 =>
+      const AssetGenImage('assets/images/src_images_c14ts2.png');
+
+  /// File path: assets/images/src_images_dichvucongtab.png
+  AssetGenImage get srcImagesDichvucongtab =>
+      const AssetGenImage('assets/images/src_images_dichvucongtab.png');
+
+  /// File path: assets/images/src_images_dichvucongtabxanh.png
+  AssetGenImage get srcImagesDichvucongtabxanh =>
+      const AssetGenImage('assets/images/src_images_dichvucongtabxanh.png');
+
+  /// File path: assets/images/src_images_dvcongtrang.png
+  AssetGenImage get srcImagesDvcongtrang =>
+      const AssetGenImage('assets/images/src_images_dvcongtrang.png');
+
+  /// File path: assets/images/src_images_giay_chung_han_xanh.png
+  AssetGenImage get srcImagesGiayChungHanXanh =>
+      const AssetGenImage('assets/images/src_images_giay_chung_han_xanh.png');
+
+  /// File path: assets/images/src_images_giay_chung_nhan.png
+  AssetGenImage get srcImagesGiayChungNhan =>
+      const AssetGenImage('assets/images/src_images_giay_chung_nhan.png');
+
+  /// File path: assets/images/src_images_hotro1.png
+  AssetGenImage get srcImagesHotro1 =>
+      const AssetGenImage('assets/images/src_images_hotro1.png');
+
+  /// File path: assets/images/src_images_hotrohdsd.png
+  AssetGenImage get srcImagesHotrohdsd =>
+      const AssetGenImage('assets/images/src_images_hotrohdsd.png');
+
+  /// File path: assets/images/src_images_lock01.png
+  AssetGenImage get srcImagesLock01 =>
+      const AssetGenImage('assets/images/src_images_lock01.png');
+
+  /// File path: assets/images/src_images_new_icon_bhtn_d.png
+  AssetGenImage get srcImagesNewIconBhtnD =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhtn_d.png');
+
+  /// File path: assets/images/src_images_new_icon_bhtn_e.png
+  AssetGenImage get srcImagesNewIconBhtnE =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhtn_e.png');
+
+  /// File path: assets/images/src_images_new_icon_bhtnld_d.png
+  AssetGenImage get srcImagesNewIconBhtnldD =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhtnld_d.png');
+
+  /// File path: assets/images/src_images_new_icon_bhtnld_e.png
+  AssetGenImage get srcImagesNewIconBhtnldE =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhtnld_e.png');
+
+  /// File path: assets/images/src_images_new_icon_bhxh_d.png
+  AssetGenImage get srcImagesNewIconBhxhD =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhxh_d.png');
+
+  /// File path: assets/images/src_images_new_icon_bhxh_e.png
+  AssetGenImage get srcImagesNewIconBhxhE =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhxh_e.png');
+
+  /// File path: assets/images/src_images_new_icon_bhyt_d.png
+  AssetGenImage get srcImagesNewIconBhytD =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhyt_d.png');
+
+  /// File path: assets/images/src_images_new_icon_bhyt_e.png
+  AssetGenImage get srcImagesNewIconBhytE =>
+      const AssetGenImage('assets/images/src_images_new_icon_bhyt_e.png');
+
+  /// File path: assets/images/src_images_new_icon_cauhoi.png
+  AssetGenImage get srcImagesNewIconCauhoi =>
+      const AssetGenImage('assets/images/src_images_new_icon_cauhoi.png');
+
+  /// File path: assets/images/src_images_new_icon_cd_odts_d.png
+  AssetGenImage get srcImagesNewIconCdOdtsD =>
+      const AssetGenImage('assets/images/src_images_new_icon_cd_odts_d.png');
+
+  /// File path: assets/images/src_images_new_icon_cd_odts_e.png
+  AssetGenImage get srcImagesNewIconCdOdtsE =>
+      const AssetGenImage('assets/images/src_images_new_icon_cd_odts_e.png');
+
+  /// File path: assets/images/src_images_new_icon_cd_tn_d.png
+  AssetGenImage get srcImagesNewIconCdTnD =>
+      const AssetGenImage('assets/images/src_images_new_icon_cd_tn_d.png');
+
+  /// File path: assets/images/src_images_new_icon_cd_tn_e.png
+  AssetGenImage get srcImagesNewIconCdTnE =>
+      const AssetGenImage('assets/images/src_images_new_icon_cd_tn_e.png');
+
+  /// File path: assets/images/src_images_new_icon_chatbot.png
+  AssetGenImage get srcImagesNewIconChatbot =>
+      const AssetGenImage('assets/images/src_images_new_icon_chatbot.png');
+
+  /// File path: assets/images/src_images_new_icon_email.png
+  AssetGenImage get srcImagesNewIconEmail =>
+      const AssetGenImage('assets/images/src_images_new_icon_email.png');
+
+  /// File path: assets/images/src_images_new_icon_qttg.png
+  AssetGenImage get srcImagesNewIconQttg =>
+      const AssetGenImage('assets/images/src_images_new_icon_qttg.png');
+
+  /// File path: assets/images/src_images_new_icon_so_kcb.png
+  AssetGenImage get srcImagesNewIconSoKcb =>
+      const AssetGenImage('assets/images/src_images_new_icon_so_kcb.png');
+
+  /// File path: assets/images/src_images_new_icon_the_bhyt.png
+  AssetGenImage get srcImagesNewIconTheBhyt =>
+      const AssetGenImage('assets/images/src_images_new_icon_the_bhyt.png');
+
+  /// File path: assets/images/src_images_new_icon_tongdai.png
+  AssetGenImage get srcImagesNewIconTongdai =>
+      const AssetGenImage('assets/images/src_images_new_icon_tongdai.png');
+
+  /// File path: assets/images/src_images_new_icon_tt_huong.png
+  AssetGenImage get srcImagesNewIconTtHuong =>
+      const AssetGenImage('assets/images/src_images_new_icon_tt_huong.png');
+
+  /// File path: assets/images/src_images_new_logo01.png
+  AssetGenImage get srcImagesNewLogo01 =>
+      const AssetGenImage('assets/images/src_images_new_logo01.png');
+
+  /// File path: assets/images/src_images_new_menu_caidat.png
+  AssetGenImage get srcImagesNewMenuCaidat =>
+      const AssetGenImage('assets/images/src_images_new_menu_caidat.png');
+
+  /// File path: assets/images/src_images_new_menu_canhan.png
+  AssetGenImage get srcImagesNewMenuCanhan =>
+      const AssetGenImage('assets/images/src_images_new_menu_canhan.png');
+
+  /// File path: assets/images/src_images_new_menu_dangxuat.png
+  AssetGenImage get srcImagesNewMenuDangxuat =>
+      const AssetGenImage('assets/images/src_images_new_menu_dangxuat.png');
+
+  /// File path: assets/images/src_images_new_menu_hotro.png
+  AssetGenImage get srcImagesNewMenuHotro =>
+      const AssetGenImage('assets/images/src_images_new_menu_hotro.png');
+
+  /// File path: assets/images/src_images_new_menu_thongbao.png
+  AssetGenImage get srcImagesNewMenuThongbao =>
+      const AssetGenImage('assets/images/src_images_new_menu_thongbao.png');
+
+  /// File path: assets/images/src_images_new_menu_tintuc.png
+  AssetGenImage get srcImagesNewMenuTintuc =>
+      const AssetGenImage('assets/images/src_images_new_menu_tintuc.png');
+
+  /// File path: assets/images/src_images_new_menu_tracuu.png
+  AssetGenImage get srcImagesNewMenuTracuu =>
+      const AssetGenImage('assets/images/src_images_new_menu_tracuu.png');
+
+  /// File path: assets/images/src_images_new_tracuu_coquan.png
+  AssetGenImage get srcImagesNewTracuuCoquan =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_coquan.png');
+
+  /// File path: assets/images/src_images_new_tracuu_cskcb.png
+  AssetGenImage get srcImagesNewTracuuCskcb =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_cskcb.png');
+
+  /// File path: assets/images/src_images_new_tracuu_cskcb2.png
+  AssetGenImage get srcImagesNewTracuuCskcb2 =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_cskcb2.png');
+
+  /// File path: assets/images/src_images_new_tracuu_diemthu.png
+  AssetGenImage get srcImagesNewTracuuDiemthu =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_diemthu.png');
+
+  /// File path: assets/images/src_images_new_tracuu_donvi.png
+  AssetGenImage get srcImagesNewTracuuDonvi =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_donvi.png');
+
+  /// File path: assets/images/src_images_new_tracuu_maso.png
+  AssetGenImage get srcImagesNewTracuuMaso =>
+      const AssetGenImage('assets/images/src_images_new_tracuu_maso.png');
+
+  /// File path: assets/images/src_images_phananhkiennghi.png
+  AssetGenImage get srcImagesPhananhkiennghi =>
+      const AssetGenImage('assets/images/src_images_phananhkiennghi.png');
+
+  /// File path: assets/images/src_images_sokhamchuabenh.png
+  AssetGenImage get srcImagesSokhamchuabenh =>
+      const AssetGenImage('assets/images/src_images_sokhamchuabenh.png');
+
+  /// File path: assets/images/src_images_sokhamchuabenh_blu.png
+  AssetGenImage get srcImagesSokhamchuabenhBlu =>
+      const AssetGenImage('assets/images/src_images_sokhamchuabenh_blu.png');
+
+  /// File path: assets/images/src_images_splash_loading.png
+  AssetGenImage get srcImagesSplashLoading =>
+      const AssetGenImage('assets/images/src_images_splash_loading.png');
+
+  /// File path: assets/images/src_images_tab3.png
+  AssetGenImage get srcImagesTab3 =>
+      const AssetGenImage('assets/images/src_images_tab3.png');
+
+  /// File path: assets/images/src_images_tab3xanh.png
+  AssetGenImage get srcImagesTab3xanh =>
+      const AssetGenImage('assets/images/src_images_tab3xanh.png');
+
+  /// File path: assets/images/src_images_tab4.png
+  AssetGenImage get srcImagesTab4 =>
+      const AssetGenImage('assets/images/src_images_tab4.png');
+
+  /// File path: assets/images/src_images_tab4xanh.png
+  AssetGenImage get srcImagesTab4xanh =>
+      const AssetGenImage('assets/images/src_images_tab4xanh.png');
+
+  /// File path: assets/images/src_images_tab5.png
+  AssetGenImage get srcImagesTab5 =>
+      const AssetGenImage('assets/images/src_images_tab5.png');
+
+  /// File path: assets/images/src_images_tab5xanh.png
+  AssetGenImage get srcImagesTab5xanh =>
+      const AssetGenImage('assets/images/src_images_tab5xanh.png');
+
+  /// File path: assets/images/src_images_tb3.png
+  AssetGenImage get srcImagesTb3 =>
+      const AssetGenImage('assets/images/src_images_tb3.png');
+
+  /// File path: assets/images/src_images_vantay.png
+  AssetGenImage get srcImagesVantay =>
+      const AssetGenImage('assets/images/src_images_vantay.png');
+
+  /// File path: assets/images/src_images_vn.png
+  AssetGenImage get srcImagesVn =>
+      const AssetGenImage('assets/images/src_images_vn.png');
+
   /// File path: assets/images/support_banner.png
   AssetGenImage get supportBanner =>
       const AssetGenImage('assets/images/support_banner.png');
@@ -43,6 +275,64 @@ class $AssetsImagesGen {
         loginBackgroundImage,
         loginBackgroundImage2,
         splash,
+        srcImagesAvatar,
+        srcImagesC14ts1,
+        srcImagesC14ts2,
+        srcImagesDichvucongtab,
+        srcImagesDichvucongtabxanh,
+        srcImagesDvcongtrang,
+        srcImagesGiayChungHanXanh,
+        srcImagesGiayChungNhan,
+        srcImagesHotro1,
+        srcImagesHotrohdsd,
+        srcImagesLock01,
+        srcImagesNewIconBhtnD,
+        srcImagesNewIconBhtnE,
+        srcImagesNewIconBhtnldD,
+        srcImagesNewIconBhtnldE,
+        srcImagesNewIconBhxhD,
+        srcImagesNewIconBhxhE,
+        srcImagesNewIconBhytD,
+        srcImagesNewIconBhytE,
+        srcImagesNewIconCauhoi,
+        srcImagesNewIconCdOdtsD,
+        srcImagesNewIconCdOdtsE,
+        srcImagesNewIconCdTnD,
+        srcImagesNewIconCdTnE,
+        srcImagesNewIconChatbot,
+        srcImagesNewIconEmail,
+        srcImagesNewIconQttg,
+        srcImagesNewIconSoKcb,
+        srcImagesNewIconTheBhyt,
+        srcImagesNewIconTongdai,
+        srcImagesNewIconTtHuong,
+        srcImagesNewLogo01,
+        srcImagesNewMenuCaidat,
+        srcImagesNewMenuCanhan,
+        srcImagesNewMenuDangxuat,
+        srcImagesNewMenuHotro,
+        srcImagesNewMenuThongbao,
+        srcImagesNewMenuTintuc,
+        srcImagesNewMenuTracuu,
+        srcImagesNewTracuuCoquan,
+        srcImagesNewTracuuCskcb,
+        srcImagesNewTracuuCskcb2,
+        srcImagesNewTracuuDiemthu,
+        srcImagesNewTracuuDonvi,
+        srcImagesNewTracuuMaso,
+        srcImagesPhananhkiennghi,
+        srcImagesSokhamchuabenh,
+        srcImagesSokhamchuabenhBlu,
+        srcImagesSplashLoading,
+        srcImagesTab3,
+        srcImagesTab3xanh,
+        srcImagesTab4,
+        srcImagesTab4xanh,
+        srcImagesTab5,
+        srcImagesTab5xanh,
+        srcImagesTb3,
+        srcImagesVantay,
+        srcImagesVn,
         supportBanner,
         vneid
       ];

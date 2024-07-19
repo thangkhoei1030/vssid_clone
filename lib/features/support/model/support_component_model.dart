@@ -9,11 +9,14 @@ class SupportComponentItemModel {
 
   final SvgGenImage? pathSVG;
 
+  final AssetGenImage? image;
+
   final Function()? function;
   const SupportComponentItemModel({
     required this.content,
     this.iconData,
     this.function,
     this.pathSVG,
+    this.image,
   });
 }

@@ -56,6 +56,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                     horizontal: AppDimens.defaultPadding,
                   ),
                 ),
+                UtilWidget.sizedBoxPaddingMedium,
                 TabBar(
                   controller: controller.tabController,
                   indicatorColor: Colors.transparent,
@@ -64,7 +65,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                   indicatorWeight: 1,
                   onTap: (index) {
                     controller.tabController.animateTo(index);
-                    controller.indexTab.value = index;
+                    controller.currentIndexTab.value = index;
                   },
                   unselectedLabelColor: Colors.black,
                   labelColor: Colors.blue,
@@ -74,23 +75,27 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                     _tabItem(
                       BenefitInfomationString.oneTime,
                       0,
-                      svg: Assets.svg.note1,
+                      image: Assets.images.srcImagesNewIconBhxhD,
+                      imageSelected: Assets.images.srcImagesNewIconBhxhE,
                     ),
 
                     _tabItem(
                       BenefitInfomationString.ODTS,
                       1,
-                      svg: Assets.svg.note2,
+                      image: Assets.images.srcImagesNewIconCdOdtsD,
+                      imageSelected: Assets.images.srcImagesNewIconCdOdtsE,
                     ),
                     _tabItem(
                       BenefitInfomationString.monthly,
                       2,
-                      svg: Assets.svg.hangthang,
+                      image: Assets.images.srcImagesNewIconBhtnD,
+                      imageSelected: Assets.images.srcImagesNewIconBhtnE,
                     ),
                     _tabItem(
                       BenefitInfomationString.unemployment,
                       3,
-                      svg: Assets.svg.thatnghiep,
+                      image: Assets.images.srcImagesNewIconCdTnD,
+                      imageSelected: Assets.images.srcImagesNewIconCdTnE,
                     ),
                     // _tabItem(Icons.list, PublicServiceString.service),
                   ],
@@ -115,43 +120,51 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
 
   Widget _tabItem(
     String title,
-    int indexTab, {
+    int index, {
     IconData? icon,
     SvgGenImage? svg,
+    AssetGenImage? image,
+    AssetGenImage? imageSelected,
   }) {
+    assert(
+        (image == null && imageSelected == null) ||
+            (image != null && imageSelected != null),
+        "Image and image select same value");
     return Obx(() {
-      final color =
-          controller.indexTab.value == indexTab ? Colors.blue : Colors.black;
+      final color = controller.currentIndexTab.value == index
+          ? Colors.blue
+          : Colors.black.withOpacity(0.3);
       return Column(
         children: [
-          CardBuilder(
-            height: 50.h,
-            width: 50.w,
-            radiusModel: const RadiusModel(radiusAll: 50),
-            isBorder: true,
-            borderColor: color,
-            child: svg != null
-                ? svg.svg(
-                    height: AppDimens.sizeIconLarge,
-                    width: AppDimens.sizeIconLarge,
-                    color: color,
-                  )
-                : Icon(
-                    icon,
-                    size: AppDimens.sizeIconLarge,
-                    color: color,
-                  ),
-          ),
+          image != null && imageSelected != null
+              ? index == controller.currentIndexTab.value
+                  ? imageSelected.image(
+                      height: AppDimens.sizeIconLarge * 1.5,
+                      width: AppDimens.sizeIconLarge * 1.5,
+                      fit: BoxFit.cover,
+                    )
+                  : image.image(
+                      height: AppDimens.sizeIconLarge * 1.5,
+                      width: AppDimens.sizeIconLarge * 1.5,
+                    )
+              : svg != null
+                  ? svg.svg(
+                      height: AppDimens.sizeIconLarge,
+                      width: AppDimens.sizeIconLarge,
+                      color: color,
+                    )
+                  : Icon(
+                      icon,
+                      size: AppDimens.sizeIconLarge,
+                      color: color,
+                    ),
           UtilWidget.sizedBox5,
-          SizedBox(
-            height: 30.h,
-            child: TextBuild(
-              isAutoSizeText: true,
-              fontSize: AppDimens.sizeTextSmall,
-              title: title,
-              textColor: color,
-              maxLines: 2,
-            ),
+          TextBuild(
+            isAutoSizeText: true,
+            fontSize: AppDimens.sizeTextSmall,
+            title: title,
+            textColor: color,
+            maxLines: 2,
           )
         ],
       );

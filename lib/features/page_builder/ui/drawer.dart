@@ -8,15 +8,15 @@ class PageBuilderDrawer extends GetView<PageBuilderController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        UserInfoDrawer(),
+        const UserInfoDrawer(),
         UtilWidget.sizedBoxPadding,
-        Expanded(
+        const Expanded(
           child: MenuActionDrawer(),
         ),
         UtilWidget.sizedBoxPadding,
-        FooterDrawer(),
+        const FooterDrawer(),
       ],
     ).paddingAll(AppDimens.defaultPadding);
   }

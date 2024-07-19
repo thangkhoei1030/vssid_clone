@@ -67,14 +67,14 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
 
   Widget _tabItem(
     String title,
-    int indexTab, {
+    int index, {
     SvgGenImage? svg,
     IconData? icon,
   }) {
     return Obx(() {
-      final color = controller.currentTabIndex.value == indexTab
+      final color = controller.currentTabIndex.value == index
           ? Colors.blue
-          : Colors.black;
+          : Colors.black.withOpacity(0.3);
       return Column(
         children: [
           svg != null
@@ -86,6 +86,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
               : Icon(
                   icon,
                   size: AppDimens.sizeIconLarge,
+                  color: color,
                 ),
           UtilWidget.sizedBox5,
           SizedBox(

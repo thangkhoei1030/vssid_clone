@@ -12,6 +12,7 @@ class C14TS extends GetView<C14TSController> {
   @override
   Widget build(BuildContext context) {
     return CardBuilder(
+      backgroundColor: Colors.transparent,
       onTap: () {
         showToast("Chưa biết share gì ", toastStatus: ToastStatus.success);
       },

@@ -13,7 +13,7 @@ class ParticipationProcessController extends BaseRefreshGetxController
 
   final RxList<ProcessItemResponse> listProcess = RxList.empty();
 
-  final RxInt indexTab = 0.obs;
+  final RxInt currentIndexTab = 0.obs;
 
   @override
   void onInit() async {

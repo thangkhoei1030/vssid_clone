@@ -1,6 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -17,29 +18,34 @@ class SupportItem extends StatelessWidget {
     return CardBuilder(
       elevation: 0,
       onTap: item.function,
-      paddingModel: const PaddingModel(
-          paddingVerical: AppDimens.paddingVerySmall,
-          paddingHorizontal: AppDimens.defaultPadding),
+      paddingModel: PaddingModel(
+        paddingVerical: AppDimens.paddingVerySmall.ratioH,
+        paddingHorizontal: AppDimens.defaultPadding.ratioW,
+      ),
       backgroundColor: Colors.blue.withOpacity(0.05),
       child: Row(
         children: [
-          CardBuilder(
-            height: 45.h,
-            width: 45.h,
-            backgroundColor: Colors.transparent,
-            paddingModel:
-                const PaddingModel(paddingAll: AppDimens.paddingVerySmall),
-            radiusModel: const RadiusModel(radiusAll: 50),
-            isBorder: true,
-            borderColor: context.onSurfaceColor,
-            child: item.pathSVG != null
-                ? item.pathSVG!.svg()
-                : Icon(
-                    item.iconData,
-                    color: context.onSurfaceColor,
-                    size: AppDimens.sizeIconMedium,
-                  ),
-          ),
+          item.image != null
+              ? item.image!.image(
+                  height: 45.ratioH,
+                )
+              : CardBuilder(
+                  height: 45.ratioH,
+                  width: 45.ratioW,
+                  backgroundColor: Colors.transparent,
+                  paddingModel: const PaddingModel(
+                      paddingAll: AppDimens.paddingVerySmall),
+                  radiusModel: const RadiusModel(radiusAll: 50),
+                  isBorder: true,
+                  borderColor: context.onSurfaceColor,
+                  child: item.pathSVG != null
+                      ? item.pathSVG!.svg()
+                      : Icon(
+                          item.iconData,
+                          color: context.onSurfaceColor,
+                          size: AppDimens.sizeIconMedium,
+                        ),
+                ),
           UtilWidget.sizedBoxWidthPadding,
           Expanded(
             child: TextBuild(

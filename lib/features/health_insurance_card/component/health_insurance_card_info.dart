@@ -2,7 +2,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
   const HealthInsuranceCardInfo({super.key});
@@ -26,28 +28,59 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
         () => Column(
           children: [
             Row(
-              // crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Align(
-                  child: NetworkImageWidget(
-                      widgetImageBuilder: (context, imageProvider) {
-                        return CardBuilder(
-                            width: 50.h,
-                            height: 50.h,
-                            radiusModel: const RadiusModel(radiusAll: 100),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: imageProvider,
+                (controller.pageBuilderController.memberInfomation.value
+                            ?.anhTheBhyt)
+                        .isStringNotEmpty
+                    ? NetworkImageWidget(
+                        widgetImageBuilder: (context, imageProvider) {
+                          return ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Container(
+                                height: 100.ratioH,
+                                width: 100.ratioW,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: imageProvider,
+                                  ),
                                 ),
-                              ),
-                            ));
-                      },
-                      urlImage: controller.pageBuilderController
-                              .memberInfomation.value?.anhTheBhyt
-                              .toUrlCDN() ??
-                          ""),
-                ),
+                              ));
+                        },
+                        errorWidget: Assets.images.srcImagesAvatar.image(
+                          height: 100.ratioH,
+                          width: 100.ratioW,
+                          fit: BoxFit.cover,
+                        ),
+                        urlImage: controller.pageBuilderController
+                                .memberInfomation.value?.anhTheBhyt
+                                .toUrlCDN() ??
+                            "",
+                      )
+                    : Assets.images.srcImagesAvatar.image(
+                        height: 100.ratioH,
+                        width: 100.ratioW,
+                        fit: BoxFit.cover,
+                      ),
+                // Align(
+                //   child: NetworkImageWidget(
+                //       widgetImageBuilder: (context, imageProvider) {
+                //         return CardBuilder(
+                //             width: 50.h,
+                //             height: 50.h,
+                //             radiusModel: const RadiusModel(radiusAll: 100),
+                //             child: Container(
+                //               decoration: BoxDecoration(
+                //                 image: DecorationImage(
+                //                   image: imageProvider,
+                //                 ),
+                //               ),
+                //             ));
+                //       },
+                //       urlImage: controller.pageBuilderController
+                //               .memberInfomation.value?.anhTheBhyt
+                //               .toUrlCDN() ??
+                //           ""),
+                // ),
                 UtilWidget.sizedBoxWidthPadding,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

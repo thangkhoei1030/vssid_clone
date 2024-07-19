@@ -25,7 +25,7 @@ void main() async {
   _errorWidgetBuilder();
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: false,
       builder: (context) => const MyApp(), // Wrap your app
     ),
   );

@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "vssid_clone",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "vssid_clone (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "vssid_clone (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "Iphone 15 pro max",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "30EAE2D4-ABAE-43F6-AAB4-0AABF2E87567"
+        },
+        {
+            "name": "Iphone SE",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "8DF4855D-5656-4D7B-AC04-2FAE22E44B90"
+        },
+    ],
+    "compounds": [
+        {
+            "name": "All Devices",
+            "configurations": [
+                "Iphone 15 pro max",
+                "Iphone SE",
+            ]
+        }
+    ]
+}

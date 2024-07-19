@@ -26,20 +26,20 @@ class UtilWidget {
   static Widget sizedBoxPaddingHuge =
       SizedBox(height: AppDimens.paddingHuge.ratioH);
 
-  static const Widget sizedBoxWidthPadding =
-      SizedBox(width: AppDimens.defaultPadding);
+  static Widget sizedBoxWidthPadding =
+      SizedBox(width: AppDimens.defaultPadding.ratioW);
 
-  static const Widget sizedBoxWithPaddingHuge =
-      SizedBox(width: AppDimens.paddingHuge);
+  static Widget sizedBoxWithPaddingHuge =
+      SizedBox(width: AppDimens.paddingHuge.ratioW);
 
-  static const Widget sizedBoxPadding =
-      SizedBox(height: AppDimens.defaultPadding);
+  static Widget sizedBoxPadding =
+      SizedBox(height: AppDimens.defaultPadding.ratioH);
 
-  static const Widget sizedBoxPaddingMedium =
-      SizedBox(height: AppDimens.paddingMedium);
+  static Widget sizedBoxPaddingMedium =
+      SizedBox(height: AppDimens.paddingMedium.ratioH);
 
-  static const Widget sizedBoxWidthPaddingSmall =
-      SizedBox(width: AppDimens.paddingSmall);
+  static Widget sizedBoxWidthPaddingSmall =
+      SizedBox(width: AppDimens.paddingSmall.ratioW);
 
   static Widget sizedBoxHeightSafeAreaTop(BuildContext context) => SizedBox(
         height: MediaQuery.of(context).padding.top,

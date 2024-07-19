@@ -16,37 +16,37 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
         children: [
           MenuActionItem(
             funcion: () {},
-            icon: Iconsax.notification_bing,
+            image: Assets.images.srcImagesNewMenuThongbao,
             title: PageBuilderString.notification,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), Get.toNamed(AppRoutes.news)},
-            icon: Iconsax.book,
+            image: Assets.images.srcImagesNewMenuTintuc,
             title: PageBuilderString.news,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(0)},
-            icon: Iconsax.user_octagon,
+            image: Assets.images.srcImagesNewMenuCanhan,
             title: PageBuilderString.profileManager,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(1)},
-            icon: Iconsax.archive_book,
+            image: Assets.images.srcImagesDvcongtrang,
             title: PageBuilderString.publicService,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(2)},
-            svg: Assets.svg.searchScan,
+            image: Assets.images.srcImagesNewMenuTracuu,
             title: PageBuilderString.lookUpOnline,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(3)},
-            icon: Iconsax.message_question,
+            image: Assets.images.srcImagesNewMenuHotro,
             title: PageBuilderString.support,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), Get.toNamed(AppRoutes.setting)},
-            icon: Iconsax.setting,
+            image: Assets.images.srcImagesNewMenuCaidat,
             title: PageBuilderString.settings,
           ),
           UtilWidget.sizedBoxPaddingHuge,
@@ -54,13 +54,13 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
           UtilWidget.sizedBoxPaddingHuge,
           MenuActionItem(
             funcion: () {},
-            icon: Iconsax.lock,
+            image: Assets.images.srcImagesLock01,
             title: PageBuilderString.changePassword,
             isNeedIconSuffix: false,
           ),
           MenuActionItem(
             funcion: () => controller.logout(),
-            icon: Icons.power_settings_new_outlined,
+            image: Assets.images.srcImagesNewMenuDangxuat,
             title: PageBuilderString.logout,
             isNeedIconSuffix: false,
           ),
@@ -79,8 +79,9 @@ class MenuActionItem extends StatelessWidget {
     this.isNeedIconSuffix = true,
     this.textColor = Colors.white,
     this.iconColor = Colors.white,
-    this.iconSize = AppDimens.sizeIconMedium,
+    this.iconSize,
     this.svg,
+    this.image,
   });
 
   final Function() funcion;
@@ -97,7 +98,9 @@ class MenuActionItem extends StatelessWidget {
 
   final Color iconColor;
 
-  final double iconSize;
+  final double? iconSize;
+
+  final AssetGenImage? image;
 
   @override
   Widget build(BuildContext context) {
@@ -107,17 +110,22 @@ class MenuActionItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            svg != null
-                ? svg!.svg(
-                    color: iconColor,
-                    height: iconSize,
-                    width: iconSize,
+            image != null
+                ? image!.image(
+                    height: iconSize ?? AppDimens.sizeIconMedium,
+                    width: iconSize ?? AppDimens.sizeIconMedium,
                   )
-                : Icon(
-                    icon,
-                    color: iconColor,
-                    size: iconSize,
-                  ),
+                : svg != null
+                    ? svg!.svg(
+                        color: iconColor,
+                        height: iconSize ?? AppDimens.sizeIconMedium,
+                        width: iconSize ?? AppDimens.sizeIconMedium,
+                      )
+                    : Icon(
+                        icon,
+                        color: iconColor,
+                        size: iconSize ?? AppDimens.sizeIconMedium,
+                      ),
             UtilWidget.sizedBoxWidthPadding,
             Expanded(
               child: Column(

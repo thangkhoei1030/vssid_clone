@@ -1,4 +1,3 @@
-
 import 'package:vssid/core/src_core.dart';
 import 'package:vssid/pages/src_pages.dart';
 import 'package:get/get.dart';
@@ -21,6 +20,7 @@ class AppController extends GetxController {
   @override
   void onInit() {
     _initHive().then((value) async {
+      await Future.delayed(const Duration(seconds: 3));
       isDarkMode.value = APP_DATA.get(AppConst.keyDarkMode) ?? false;
       Get.put(BaseRequest(), permanent: true);
       Get.put(BaseGetxController(), permanent: true);
@@ -29,8 +29,6 @@ class AppController extends GetxController {
 
     super.onInit();
   }
-
-
 
   Future<void> _initHive() async {
     await _openBox();

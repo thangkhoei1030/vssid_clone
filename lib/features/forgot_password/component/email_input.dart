@@ -16,19 +16,20 @@ class EmailInputComponent extends GetView<ForgotPasswordController> {
             padding: const EdgeInsets.symmetric(
                 horizontal: AppDimens.paddingVerySmall),
             decoration: const BoxDecoration(color: Colors.blue),
-            child: const Icon(
+            child: Icon(
               Icons.email,
               color: Colors.white,
               size: AppDimens.sizeIconLarge,
             ),
           ),
           Expanded(
-              child: BuildInputText(
-            InputTextModel(
-              controller: controller.email,
-              hintText: ForgotPasswordString.email,
+            child: BuildInputText(
+              InputTextModel(
+                controller: controller.email,
+                hintText: ForgotPasswordString.email,
+              ),
             ),
-          ))
+          )
         ],
       ),
     );

@@ -23,11 +23,11 @@ class HealthInsuranceCardPage
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: const Column(
-                children: const [
-                  HealthInsuranceCardInfo(),
+              child: Column(
+                children: [
+                  const HealthInsuranceCardInfo(),
                   UtilWidget.sizedBoxPadding,
-                  BenefitInfo(),
+                  const BenefitInfo(),
                 ],
               ).paddingSymmetric(
                 horizontal: AppDimens.defaultPadding,

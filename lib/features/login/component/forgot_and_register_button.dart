@@ -21,7 +21,7 @@ class ForgotAndRegisterButton extends StatelessWidget {
             );
           },
           title: LoginStr.forgotPassword,
-          textColor: context.primaryColor,
+          textColor: context.onSurfaceColor,
         ),
       ],
     );

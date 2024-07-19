@@ -17,5 +17,9 @@ class LoginStr {
   static const String loginWithVNEID =
       "Đăng nhập bằng tài khoản định danh điện tử";
 
+  static const String openSettingVSSID = "Mở cài đặt VSSID";
+
+  static const String privacy = "Chính sánh và quyền riêng tư";
+
   static const String biometricAuthenticateFail = "Xác thực vân tay thất bại";
 }

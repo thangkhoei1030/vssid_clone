@@ -50,7 +50,7 @@ class ShowPopup {
             children: <Widget>[
               Container(
                 padding: const EdgeInsets.only(top: 15, bottom: 10),
-                child: const Icon(
+                child: Icon(
                   Icons.notification_important,
                   // _buildIconDialog(content),
                   size: AppDimens.sizeDialogNotiIcon,

@@ -150,7 +150,7 @@ class BuildInputTextState extends State<BuildInputText> {
         enabled: widget.inputTextFormModel.enable,
         autofocus: widget.inputTextFormModel.autoFocus,
         focusNode: widget.inputTextFormModel.currentNode,
-        scrollPadding: const EdgeInsets.only(
+        scrollPadding:  EdgeInsets.only(
           bottom: AppDimens.sizeAppBarBig + AppDimens.sizeAppBarSmall,
         ),
 
