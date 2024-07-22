@@ -35,7 +35,7 @@ class HealthInsuranceCardPage
               ),
             ),
           ),
-          CardAction()
+          const CardAction()
         ],
       ),
     );

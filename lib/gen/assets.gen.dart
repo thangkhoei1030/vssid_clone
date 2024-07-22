@@ -70,9 +70,21 @@ class $AssetsImagesGen {
   AssetGenImage get srcImagesHotrohdsd =>
       const AssetGenImage('assets/images/src_images_hotrohdsd.png');
 
+  /// File path: assets/images/src_images_icon_face.png
+  AssetGenImage get srcImagesIconFace =>
+      const AssetGenImage('assets/images/src_images_icon_face.png');
+
   /// File path: assets/images/src_images_lock01.png
   AssetGenImage get srcImagesLock01 =>
       const AssetGenImage('assets/images/src_images_lock01.png');
+
+  /// File path: assets/images/src_images_new_bg_menu.png
+  AssetGenImage get srcImagesNewBgMenu =>
+      const AssetGenImage('assets/images/src_images_new_bg_menu.png');
+
+  /// File path: assets/images/src_images_new_header01.png
+  AssetGenImage get srcImagesNewHeader01 =>
+      const AssetGenImage('assets/images/src_images_new_header01.png');
 
   /// File path: assets/images/src_images_new_icon_bhtn_d.png
   AssetGenImage get srcImagesNewIconBhtnD =>
@@ -285,7 +297,10 @@ class $AssetsImagesGen {
         srcImagesGiayChungNhan,
         srcImagesHotro1,
         srcImagesHotrohdsd,
+        srcImagesIconFace,
         srcImagesLock01,
+        srcImagesNewBgMenu,
+        srcImagesNewHeader01,
         srcImagesNewIconBhtnD,
         srcImagesNewIconBhtnE,
         srcImagesNewIconBhtnldD,

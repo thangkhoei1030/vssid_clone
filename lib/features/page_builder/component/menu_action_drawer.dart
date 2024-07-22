@@ -51,7 +51,6 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
           ),
           UtilWidget.sizedBoxPaddingHuge,
           UtilWidget.sizedBoxPaddingHuge,
-          UtilWidget.sizedBoxPaddingHuge,
           MenuActionItem(
             funcion: () {},
             image: Assets.images.srcImagesLock01,

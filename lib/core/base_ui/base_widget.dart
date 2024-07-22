@@ -102,11 +102,13 @@ class PageScaffold extends StatelessWidget {
       top: false,
       bottom: false,
       child: Scaffold(
+        
         backgroundColor: backgroundColor,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
         appBar: showAppBar
             ? customAppBar ??
                 AppBar(
+                  flexibleSpace: UtilWidget.appBarBgImage,
                   backgroundColor:
                       backgroundColorAppBar ?? context.onSurfaceColor,
                   automaticallyImplyLeading: false,

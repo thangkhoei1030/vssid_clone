@@ -24,7 +24,9 @@ class BHYTPage extends GetView<BHYTController> with GetViewLoading {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: AppDimens.defaultPadding);
+            ).paddingSymmetric(
+              horizontal: AppDimens.paddingVerySmall,
+            );
           }),
     );
   }

@@ -24,7 +24,9 @@ class BHXHPage extends GetView<BHXHController> with GetViewLoading {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: AppDimens.defaultPadding);
+            ).paddingSymmetric(
+              horizontal: AppDimens.paddingVerySmall,
+            );
           }),
     );
   }

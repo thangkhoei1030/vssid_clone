@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class ProcessDetailPage extends GetView<ProcessDetailController>
@@ -79,24 +80,40 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          const Expanded(
+                          Expanded(
                             child: CardBuilder(
                               paddingModel: PaddingModel(
-                                paddingVerical: AppDimens.paddingVerySmall,
-                                paddingHorizontal: AppDimens.defaultPadding,
+                                paddingVerical:
+                                    AppDimens.paddingVerySmallest.ratioH,
+                                paddingHorizontal:
+                                    AppDimens.paddingSmall.ratioW,
                               ),
                               isBorder: true,
                               borderColor: Colors.blue,
-                              child: TextBuild(title: "Tiền lương đóng BHXH"),
+                              child: const TextBuild(
+                                  title: "Tiền lương đóng BHXH"),
                             ),
                           ),
                           Expanded(
                             child: CardBuilder(
-                              paddingModel: const PaddingModel(
-                                paddingVerical: AppDimens.paddingVerySmall,
-                                paddingHorizontal: AppDimens.defaultPadding,
+                              paddingModel: PaddingModel(
+                                paddingVerical:
+                                    AppDimens.paddingVerySmall.ratioH,
+                                paddingHorizontal:
+                                    AppDimens.paddingVerySmall.ratioW,
                               ),
                               isBorder: true,
+                              border: Border(
+                                top: BorderSide(
+                                  color: context.onSurfaceColor,
+                                ),
+                                right: BorderSide(
+                                  color: context.onSurfaceColor,
+                                ),
+                                bottom: BorderSide(
+                                  color: context.onSurfaceColor,
+                                ),
+                              ),
                               borderColor: Colors.blue,
                               alignment: Alignment.centerRight,
                               child: TextBuild(
@@ -112,25 +129,46 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
                     ),
                     Row(
                       children: [
-                        const Expanded(
+                        Expanded(
                           child: CardBuilder(
                             paddingModel: PaddingModel(
-                              paddingVerical: AppDimens.paddingVerySmall,
-                              paddingHorizontal: AppDimens.defaultPadding,
+                              paddingVerical: AppDimens.paddingVerySmall.ratioH,
+                              paddingHorizontal:
+                                  AppDimens.paddingVerySmall.ratioW,
                             ),
                             isBorder: true,
                             borderColor: Colors.blue,
-                            child: TextBuild(title: "Mức lương"),
+                            border: Border(
+                              left: BorderSide(
+                                color: context.onSurfaceColor,
+                              ),
+                              right: BorderSide(
+                                color: context.onSurfaceColor,
+                              ),
+                              bottom: BorderSide(
+                                color: context.onSurfaceColor,
+                              ),
+                            ),
+                            child: const TextBuild(title: "Mức lương"),
                           ),
                         ),
                         Expanded(
                           child: CardBuilder(
                             alignment: Alignment.centerRight,
-                            paddingModel: const PaddingModel(
-                              paddingVerical: AppDimens.paddingVerySmall,
-                              paddingHorizontal: AppDimens.defaultPadding,
+                            paddingModel: PaddingModel(
+                              paddingVerical: AppDimens.paddingVerySmall.ratioH,
+                              paddingHorizontal:
+                                  AppDimens.paddingVerySmall.ratioW,
                             ),
                             isBorder: true,
+                            border: Border(
+                              right: BorderSide(
+                                color: context.onSurfaceColor,
+                              ),
+                              bottom: BorderSide(
+                                color: context.onSurfaceColor,
+                              ),
+                            ),
                             borderColor: Colors.blue,
                             child: TextBuild(
                               title: CurrencyUtils.formatCurrencyForeign(

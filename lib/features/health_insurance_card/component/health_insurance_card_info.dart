@@ -30,7 +30,7 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
             Row(
               children: [
                 (controller.pageBuilderController.memberInfomation.value
-                            ?.anhTheBhyt)
+                            ?.avatar)
                         .isStringNotEmpty
                     ? NetworkImageWidget(
                         widgetImageBuilder: (context, imageProvider) {
@@ -52,7 +52,7 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
                           fit: BoxFit.cover,
                         ),
                         urlImage: controller.pageBuilderController
-                                .memberInfomation.value?.anhTheBhyt
+                                .memberInfomation.value?.avatar
                                 .toUrlCDN() ??
                             "",
                       )

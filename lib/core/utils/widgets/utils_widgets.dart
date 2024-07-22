@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class UtilWidget {
   static const Widget sizedBox5 = SizedBox(height: 5);
@@ -47,6 +48,12 @@ class UtilWidget {
   static Widget sizedBoxHeightSafeAreaBottom(BuildContext context) => SizedBox(
         height: MediaQuery.of(context).padding.bottom.ratioH,
       );
+
+  static Widget appBarBgImage = Assets.images.srcImagesNewHeader01.image(
+    fit: BoxFit.fill,
+    height: double.infinity,
+    width: double.infinity,
+  );
 
   static Widget buildLogo(String imgLogo, double height) {
     return SizedBox(

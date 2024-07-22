@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/core/utils/extension/device_ratio.dart';
@@ -35,7 +36,7 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
                 ),
               ),
             ),
-            backgroundColor: Colors.blue,
+            flexibleSpace: UtilWidget.appBarBgImage,
             title: StreamBuilder(
               stream: controller.currentIndexPage.stream,
               builder: (context, snapshot) => TextBuild(
@@ -60,16 +61,20 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
             ],
             centerTitle: true,
           ),
-          body: PageView(
-            controller: controller.pageController,
-            allowImplicitScrolling: true,
-            physics: const NeverScrollableScrollPhysics(),
-            children: const [
-              ProfileManagerPage(),
-              PublicServicePage(),
-              LookUpOnline(),
-              SupportPage(),
-            ],
+          body: LayoutBuilder(
+            builder: (ctx, constraints) {
+              return PageView(
+                controller: controller.pageController,
+                allowImplicitScrolling: true,
+                physics: const NeverScrollableScrollPhysics(),
+                children: const [
+                  ProfileManagerPage(),
+                  PublicServicePage(),
+                  LookUpOnline(),
+                  SupportPage(),
+                ],
+              );
+            },
           ),
           bottomNavigationBar: Container(
             color: Colors.white,
@@ -103,7 +108,6 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
                       ),
                       CustomBottomBar(
                         label: PageBuilderString.supportShort,
-
                         // activeIcon: IconAsset.ASSET_ICON_PROPERTY_36_BOLD_SVG,
                         image: Assets.images.srcImagesTab5,
                         imageSelected: Assets.images.srcImagesTab5xanh,
@@ -163,12 +167,12 @@ class CustomBottomBar extends GetView<PageBuilderController> {
             () => image != null && imageSelected != null
                 ? index == controller.currentIndexPage.value
                     ? imageSelected!.image(
-                        height: AppDimens.sizeIconMedium * 1.25,
-                        width: AppDimens.sizeIconMedium * 1.25,
+                        height: AppDimens.sizeIconMedium,
+                        width: AppDimens.sizeIconMedium,
                       )
                     : image!.image(
-                        height: AppDimens.sizeIconMedium * 1.25,
-                        width: AppDimens.sizeIconMedium * 1.25,
+                        height: AppDimens.sizeIconMedium,
+                        width: AppDimens.sizeIconMedium,
                       )
                 : svg != null
                     ? svg!.svg(
@@ -184,9 +188,10 @@ class CustomBottomBar extends GetView<PageBuilderController> {
                             : context.onPrimaryColor,
                       ),
           ),
-          UtilWidget.sizedBox10,
+          UtilWidget.sizedBox5,
           TextBuild(
             title: label,
+            fontSize: AppDimens.sizeTextSmall,
           ),
         ],
       ),

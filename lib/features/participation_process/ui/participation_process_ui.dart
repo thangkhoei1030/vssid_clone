@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
@@ -15,43 +14,47 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
       initialIndex: 0,
       child: PageScaffold(
         customAppBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 3),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 3.0),
           child: SafeArea(
             top: false,
             child: Column(
               children: [
-                Container(
-                  color: Colors.blue,
+                SizedBox(
                   height:
                       kToolbarHeight + MediaQuery.of(context).viewPadding.top,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  child: Stack(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      UtilWidget.appBarBgImage,
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SimpleButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            child: const Icon(
-                              Icons.arrow_back_ios,
-                              color: Colors.white,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SimpleButton(
+                                onPressed: () {
+                                  Get.back();
+                                },
+                                child: const Icon(
+                                  Icons.arrow_back_ios,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              TextBuild(
+                                title: ParticipationProcessString.processTitle
+                                    .toUpperCase(),
+                                fontSize: AppDimens.sizeTextLarge,
+                                textColor: Colors.white,
+                              ),
+                              const SizedBox.shrink()
+                            ],
                           ),
-                          TextBuild(
-                            title: ParticipationProcessString.processTitle
-                                .toUpperCase(),
-                            fontSize: AppDimens.sizeTextLarge,
-                            textColor: Colors.white,
-                          ),
-                          const SizedBox.shrink()
                         ],
+                      ).paddingSymmetric(
+                        vertical: AppDimens.defaultPadding,
+                        horizontal: AppDimens.defaultPadding,
                       ),
                     ],
-                  ).paddingSymmetric(
-                    vertical: AppDimens.defaultPadding,
-                    horizontal: AppDimens.defaultPadding,
                   ),
                 ),
                 UtilWidget.sizedBoxPadding,

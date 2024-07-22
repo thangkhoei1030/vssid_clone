@@ -15,6 +15,7 @@ class UserInputComponent extends GetView<LoginController> {
       child: Column(
         children: [
           _buildInput(
+            context,
             Iconsax.user,
             InputTextModel(
               controller: controller.codeBHXH,
@@ -27,6 +28,7 @@ class UserInputComponent extends GetView<LoginController> {
           ),
           UtilWidget.sizedBoxPadding,
           _buildInput(
+            context,
             Iconsax.key,
             InputTextModel(
               obscureText: true,
@@ -43,7 +45,8 @@ class UserInputComponent extends GetView<LoginController> {
     );
   }
 
-  Widget _buildInput(IconData iconData, InputTextModel inputTextModel) {
+  Widget _buildInput(
+      BuildContext context, IconData iconData, InputTextModel inputTextModel) {
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,7 +54,7 @@ class UserInputComponent extends GetView<LoginController> {
           Container(
             padding: const EdgeInsets.symmetric(
                 horizontal: AppDimens.paddingVerySmall),
-            decoration: const BoxDecoration(color: Colors.blue),
+            decoration: BoxDecoration(color: context.onSurfaceColor),
             child: Icon(
               iconData,
               color: Colors.white,

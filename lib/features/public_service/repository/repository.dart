@@ -23,7 +23,7 @@ class PublicServiceRepository extends BaseRepository {
         break;
     }
     var response = await baseSendRequest(ApiUrl.service, RequestMethod.POST,
-        jsonMap: {"ids": idRequest});
+        jsonMap: {"id_categories": idRequest});
     return BaseResponseList<PublicServiceResponse>.fromJson(
       response,
       (x) => PublicServiceResponse.fromJson(x),

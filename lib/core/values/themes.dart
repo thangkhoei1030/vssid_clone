@@ -158,7 +158,7 @@ class AppTheme {
         background: primaryColor,
         onBackground: onBackgroundColor,
         surface: backgroundColor,
-        onSurface: Colors.blue,
+        onSurface: const Color.fromRGBO(1, 117, 200, 1),
         onPrimaryContainer: containerColor,
         primaryContainer: containerColor,
       ),

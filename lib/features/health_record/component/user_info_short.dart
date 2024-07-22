@@ -14,7 +14,7 @@ class UserInfoShort extends GetView<HealthRecordController> {
         child: Row(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        (controller.pageBuilderController.memberInfomation.value?.anhTheBhyt)
+        (controller.pageBuilderController.memberInfomation.value?.avatar)
                 .isStringNotEmpty
             ? NetworkImageWidget(
                 widgetImageBuilder: (context, imageProvider) {
@@ -37,7 +37,7 @@ class UserInfoShort extends GetView<HealthRecordController> {
                   fit: BoxFit.cover,
                 ),
                 urlImage: controller.pageBuilderController.memberInfomation
-                        .value?.anhTheBhyt
+                        .value?.avatar
                         .toUrlCDN() ??
                     "")
             : Assets.images.srcImagesAvatar.image(

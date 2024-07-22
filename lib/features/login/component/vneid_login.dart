@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -13,41 +14,50 @@ class VNEIDLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return CardBuilder(
         onTap: () {},
-        paddingModel: const PaddingModel(
-          paddingHorizontal: AppDimens.defaultPadding,
-          paddingVerical: AppDimens.paddingVerySmall,
-        ),
         radiusModel: const RadiusModel(
           radiusAll: AppDimens.radius8,
         ),
-        backgroundColor: Colors.red,
+        backgroundColor: const Color.fromRGBO(185, 33, 46, 1),
         child: IntrinsicHeight(
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Expanded(
+              UtilWidget.sizedBoxWithPaddingHuge,
+              Expanded(
+                flex: 2,
                 child: TextBuild(
                   title: LoginStr.loginWithVNEID,
-                  textColor: Colors.white,
-                  isBoldText: true,
+                  style: Get.textTheme.bodySmall!.copyWith(
+                    color: Colors.white,
+                    fontSize: AppDimens.sizeTextMedium,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ).paddingSymmetric(
+                  horizontal: AppDimens.defaultPadding,
+                  vertical: AppDimens.paddingVerySmall,
                 ),
               ),
-              UtilWidget.sizedBoxWidthPadding,
-              Align(
-                alignment: Alignment.center,
+              Expanded(
                 child: CardBuilder(
-                  height: 40.h,
+                  height: 50.ratioH,
+                  backgroundColor: Colors.transparent,
+                  alignment: Alignment.centerRight,
                   radiusModel: const RadiusModel(
                     radiusAll: AppDimens.radius8,
                   ),
-                  width: 40.h,
+                  paddingModel: const PaddingModel(
+                    paddingHorizontal: AppDimens.defaultPadding,
+                    paddingVerical: 6,
+                  ),
+                  width: 50.ratioW,
                   child: ClipRRect(
-                      borderRadius: BorderRadius.circular(
-                        AppDimens.radius8,
-                      ),
-                      child: Assets.images.vneid.image()),
+                    borderRadius: BorderRadius.circular(
+                      AppDimens.radius8,
+                    ),
+                    child: Assets.images.vneid.image(),
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ));

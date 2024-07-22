@@ -25,7 +25,9 @@ class BHTNPage extends GetView<BHTNController> with GetViewLoading {
                   ),
                 ),
               ],
-            ).paddingSymmetric(horizontal: AppDimens.defaultPadding);
+            ).paddingSymmetric(
+              horizontal: AppDimens.paddingVerySmall,
+            );
           }),
     );
   }

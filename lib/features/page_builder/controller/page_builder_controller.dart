@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
@@ -10,6 +11,9 @@ abstract class PageBuilderController extends BaseGetxController {
       PageBuilderRepository(this);
 
   final Rx<MemberInfomation?> memberInfomation = Rxn();
+
+  final PersistentTabController persistentTabController =
+      PersistentTabController(initialIndex: 0);
 
   final RxInt currentIndexPage = 0.obs;
 

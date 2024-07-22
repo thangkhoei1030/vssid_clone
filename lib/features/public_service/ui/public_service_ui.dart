@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -17,7 +18,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
       initialIndex: 0,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 1.75),
+          preferredSize: Size.fromHeight(kToolbarHeight * 1.8.ratioH),
           child: SizedBox(
             child: SafeArea(
               child: Column(

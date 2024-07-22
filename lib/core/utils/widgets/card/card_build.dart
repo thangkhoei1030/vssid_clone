@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:vssid/core/src_core.dart';
 
 class CardBuilder extends StatelessWidget {
-  const CardBuilder(
-      {super.key,
-      required this.child,
-      this.radiusModel = const RadiusModel(),
-      this.boxShadow,
-      this.backgroundColor,
-      this.height,
-      this.width,
-      this.isBorder = false,
-      this.boxConstrainsModel,
-      this.borderColor,
-      this.alignment = Alignment.center,
-      this.onTap,
-      this.paddingModel,
-      this.linearGradient,
-      this.elevation});
+  const CardBuilder({
+    super.key,
+    required this.child,
+    this.radiusModel = const RadiusModel(),
+    this.boxShadow,
+    this.backgroundColor,
+    this.height,
+    this.width,
+    this.isBorder = false,
+    this.boxConstrainsModel,
+    this.borderColor,
+    this.alignment = Alignment.center,
+    this.onTap,
+    this.paddingModel,
+    this.linearGradient,
+    this.elevation,
+    this.border,
+  });
 
   final double? height;
   final double? width;
@@ -33,6 +35,7 @@ class CardBuilder extends StatelessWidget {
   final Function()? onTap;
   final LinearGradient? linearGradient;
   final double? elevation;
+  final Border? border;
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +77,9 @@ class CardBuilder extends StatelessWidget {
             decoration: BoxDecoration(
               gradient: linearGradient,
               border: isBorder
-                  ? Border.all(
-                      color: borderColor ?? context.primaryColor, width: 1)
+                  ? border ??
+                      Border.all(
+                          color: borderColor ?? context.primaryColor, width: 1)
                   : null,
               color: backgroundColor ?? context.backGroundCardColor,
               borderRadius: radiusModel.radiusAll != null

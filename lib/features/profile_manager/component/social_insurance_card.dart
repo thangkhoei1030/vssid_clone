@@ -29,7 +29,7 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   (controller.pageBuilderController.memberInfomation.value
-                              ?.anhTheBhyt)
+                              ?.avatar)
                           .isStringNotEmpty
                       ? NetworkImageWidget(
                           widgetImageBuilder: (context, imageProvider) {
@@ -51,7 +51,7 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                             fit: BoxFit.cover,
                           ),
                           urlImage: controller.pageBuilderController
-                                  .memberInfomation.value?.anhTheBhyt
+                                  .memberInfomation.value?.avatar
                                   .toUrlCDN() ??
                               "",
                         )

@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -23,7 +26,7 @@ class LoginButton extends GetView<LoginController> {
                   },
                   isBorder: true,
                   paddingModel: PaddingModel(
-                    paddingVerical: AppDimens.paddingSmall.h,
+                    paddingVerical: AppDimens.paddingSmall.ratioH,
                   ),
                   radiusModel: const RadiusModel(radiusAll: AppDimens.radius8),
                   borderColor: context.onSurfaceColor,
@@ -36,10 +39,12 @@ class LoginButton extends GetView<LoginController> {
               ),
               SimpleButton(
                 onPressed: controller.biometricsLogin,
-                child: Assets.images.srcImagesVantay
+                child: (Platform.isAndroid
+                        ? Assets.images.srcImagesVantay
+                        : Assets.images.srcImagesIconFace)
                     .image(
-                      height: 40.h,
-                      width: 40.w,
+                      height: 40.ratioH,
+                      width: 40.ratioW,
                     )
                     .paddingSymmetric(horizontal: AppDimens.paddingSmall),
               )
