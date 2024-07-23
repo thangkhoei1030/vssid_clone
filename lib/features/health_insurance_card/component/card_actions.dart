@@ -31,8 +31,14 @@ class CardAction extends GetView<HealthInsuranceCardController> {
             Icon(
               icon,
               size: 40,
+              color: Get.context!.onSurfaceColor,
             ),
-            Align(alignment: Alignment.center, child: TextBuild(title: title)),
+            Align(
+                alignment: Alignment.center,
+                child: TextBuild(
+                  title: title,
+                  textColor: Get.context!.onSurfaceColor,
+                )),
           ],
         ).paddingSymmetric(vertical: AppDimens.defaultPadding),
       ),

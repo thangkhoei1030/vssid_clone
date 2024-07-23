@@ -24,7 +24,10 @@ class TableData extends GetView<ParticipationProcessController> {
   Widget build(BuildContext context) {
     return Table(
       // showBottomBorder: true,
-      border: TableBorder.all(),
+      border: TableBorder.all(
+        width: 0.1,
+        color: AppColors.onSurfaceColor2,
+      ),
       // columnSpacing: 10,]
       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
       columnWidths: tabType.columnWidth,
@@ -38,7 +41,7 @@ class TableData extends GetView<ParticipationProcessController> {
       children: [
         TableRow(
             decoration: const BoxDecoration(
-              color: Color.fromRGBO(56, 101, 155, 1),
+              color: AppColors.onSurfaceColor2,
             ),
             children: [
               if (tabType.getColumnView().fromDate)
@@ -108,17 +111,24 @@ class TableData extends GetView<ParticipationProcessController> {
                 ),
               ),
             SimpleButton(
-                onPressed: () => Get.toNamed(
-                      AppRoutes.processDetail,
-                      arguments: item.id,
-                    ),
-                child: const Icon(Icons.remove_red_eye))
+              onPressed: () => Get.toNamed(
+                AppRoutes.processDetail,
+                arguments: item.id,
+              ),
+              child: Icon(
+                Icons.remove_red_eye,
+                color: context.onSurfaceColor,
+              ),
+            )
           ])
       ],
     );
   }
 
   Widget _buildCeil(Widget child) {
-    return child.paddingAll(AppDimens.paddingSmallest);
+    return child.paddingSymmetric(
+      horizontal: AppDimens.paddingSmallest,
+      vertical: AppDimens.paddingVerySmall,
+    );
   }
 }

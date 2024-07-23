@@ -11,6 +11,14 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
 
   @override
   Widget build(BuildContext context) {
+    final textStyle = Get.textTheme.bodySmall!.copyWith(
+      color: Colors.white,
+      fontWeight: FontWeight.w600,
+      fontSize: AppDimens.sizeTextDefault,
+    );
+
+    final dividerAndIconColor = Colors.white.withOpacity(0.3);
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -18,36 +26,57 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             funcion: () {},
             image: Assets.images.srcImagesNewMenuThongbao,
             title: PageBuilderString.notification,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), Get.toNamed(AppRoutes.news)},
             image: Assets.images.srcImagesNewMenuTintuc,
             title: PageBuilderString.news,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(0)},
             image: Assets.images.srcImagesNewMenuCanhan,
             title: PageBuilderString.profileManager,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(1)},
             image: Assets.images.srcImagesDvcongtrang,
             title: PageBuilderString.publicService,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(2)},
             image: Assets.images.srcImagesNewMenuTracuu,
             title: PageBuilderString.lookUpOnline,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), controller.onPageChange(3)},
             image: Assets.images.srcImagesNewMenuHotro,
+            style: textStyle,
             title: PageBuilderString.support,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => {Get.back(), Get.toNamed(AppRoutes.setting)},
             image: Assets.images.srcImagesNewMenuCaidat,
+            style: textStyle,
             title: PageBuilderString.settings,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           UtilWidget.sizedBoxPaddingHuge,
           UtilWidget.sizedBoxPaddingHuge,
@@ -56,12 +85,18 @@ class MenuActionDrawer extends GetView<PageBuilderController> {
             image: Assets.images.srcImagesLock01,
             title: PageBuilderString.changePassword,
             isNeedIconSuffix: false,
+            style: textStyle,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
           MenuActionItem(
             funcion: () => controller.logout(),
             image: Assets.images.srcImagesNewMenuDangxuat,
             title: PageBuilderString.logout,
+            style: textStyle,
             isNeedIconSuffix: false,
+            iconColor: dividerAndIconColor,
+            dividerColor: dividerAndIconColor,
           ),
         ],
       ),
@@ -76,11 +111,13 @@ class MenuActionItem extends StatelessWidget {
     this.icon,
     required this.title,
     this.isNeedIconSuffix = true,
-    this.textColor = Colors.white,
-    this.iconColor = Colors.white,
+    this.style,
+    this.iconColor,
     this.iconSize,
     this.svg,
     this.image,
+    this.dividerColor,
+    this.isUppercase = false,
   });
 
   final Function() funcion;
@@ -91,15 +128,19 @@ class MenuActionItem extends StatelessWidget {
 
   final String title;
 
+  final TextStyle? style;
+
   final bool isNeedIconSuffix;
 
-  final Color textColor;
-
-  final Color iconColor;
+  final Color? iconColor;
 
   final double? iconSize;
 
   final AssetGenImage? image;
+
+  final Color? dividerColor;
+
+  final bool isUppercase;
 
   @override
   Widget build(BuildContext context) {
@@ -133,19 +174,21 @@ class MenuActionItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextBuild(
-                        title: title,
-                        textColor: textColor,
-                        fontSize: AppDimens.sizeTextMedium,
+                        title: isUppercase ? title.toUpperCase() : title,
+                        style: style,
                       ),
                       const Spacer(),
                       if (isNeedIconSuffix)
                         Icon(
                           Icons.arrow_forward_ios,
-                          color: textColor,
+                          color: iconColor,
                         ),
                     ],
                   ).paddingSymmetric(vertical: AppDimens.paddingSmall),
-                  UtilWidget.buildDivider(color: textColor.withOpacity(0.2)),
+                  UtilWidget.buildDivider(
+                    color: dividerColor,
+                    thickness: 0.5,
+                  ),
                 ],
               ),
             )

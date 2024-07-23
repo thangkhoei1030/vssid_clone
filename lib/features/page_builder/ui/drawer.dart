@@ -24,7 +24,7 @@ class PageBuilderDrawer extends GetView<PageBuilderController> {
             child: Container(
               height: 2,
               width: Get.width,
-              color: const Color.fromRGBO(1, 117, 200, 1),
+              color: AppColors.appColor,
             ),
           ),
           UtilWidget.sizedBoxPadding,

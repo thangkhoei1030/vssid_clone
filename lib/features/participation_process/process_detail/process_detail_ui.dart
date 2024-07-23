@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +90,8 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
                               isBorder: true,
                               borderColor: Colors.blue,
                               child: const TextBuild(
-                                  title: "Tiền lương đóng BHXH"),
+                                title: "Tiền lương đóng BHXH",
+                              ),
                             ),
                           ),
                           Expanded(
@@ -190,8 +190,10 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
 
   Widget _textSpan(String text1, String text2) {
     return RichText(
-        textAlign: TextAlign.left,
-        text: TextSpan(text: text1, children: [
+      textAlign: TextAlign.left,
+      text: TextSpan(
+        text: text1,
+        children: [
           TextSpan(
               text: text2,
               style: Get.textTheme.bodySmall!.copyWith(
@@ -199,6 +201,8 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
                 color: Colors.white,
                 fontSize: AppDimens.sizeTextDefault,
               ))
-        ]));
+        ],
+      ),
+    );
   }
 }

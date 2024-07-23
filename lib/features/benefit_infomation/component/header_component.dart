@@ -17,6 +17,12 @@ class HeaderPageComponent extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(239, 238, 238, 1),
       child: TextBuild(
         title: headerTitle,
+        fontSize: AppDimens.sizeTextMedium,
+        style: Get.textTheme.bodySmall!.copyWith(
+          fontSize: AppDimens.sizeTextMedium,
+          color: AppColors.onSurfaceColor2,
+          fontWeight: FontWeight.w300,
+        ),
       ),
     );
   }

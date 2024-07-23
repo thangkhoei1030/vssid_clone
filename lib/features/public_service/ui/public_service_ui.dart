@@ -74,7 +74,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
   }) {
     return Obx(() {
       final color = controller.currentTabIndex.value == index
-          ? Colors.blue
+          ? Get.context!.onSurfaceColor
           : Colors.black.withOpacity(0.3);
       return Column(
         children: [
@@ -91,11 +91,13 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                 ),
           UtilWidget.sizedBox5,
           SizedBox(
-            height: 30.h,
+            height: 30.ratioH,
             child: TextBuild(
-              fontSize: AppDimens.sizeTextSmall,
               title: title,
-              textColor: color,
+              style: Get.textTheme.bodySmall!.copyWith(
+                  fontSize: AppDimens.sizeTextMedium,
+                  color: color,
+                  fontWeight: FontWeight.w300),
             ),
           )
         ],

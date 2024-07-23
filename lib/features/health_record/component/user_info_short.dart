@@ -21,8 +21,8 @@ class UserInfoShort extends GetView<HealthRecordController> {
                   return ClipRRect(
                       borderRadius: BorderRadius.circular(50),
                       child: Container(
-                        height: 40.ratioH,
-                        width: 40.ratioW,
+                        height: 60.ratioH,
+                        width: 60.ratioW,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: imageProvider,
@@ -32,23 +32,25 @@ class UserInfoShort extends GetView<HealthRecordController> {
                       ));
                 },
                 errorWidget: Assets.images.srcImagesAvatar.image(
-                  height: 40.ratioH,
-                  width: 40.ratioW,
+                  height: 60.ratioH,
+                  width: 60.ratioW,
                   fit: BoxFit.cover,
                 ),
-                urlImage: controller.pageBuilderController.memberInfomation
-                        .value?.avatar
+                urlImage: controller
+                        .pageBuilderController.memberInfomation.value?.avatar
                         .toUrlCDN() ??
                     "")
             : Assets.images.srcImagesAvatar.image(
-                height: 40.ratioH,
-                width: 40.ratioW,
+                height: 60.ratioH,
+                width: 60.ratioW,
                 fit: BoxFit.cover,
               ),
         UtilWidget.sizedBoxWidthPadding,
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+            const SizedBox.shrink(),
             TextBuild(
               title: controller
                       .pageBuilderController.memberInfomation.value?.fullName ??
@@ -56,12 +58,12 @@ class UserInfoShort extends GetView<HealthRecordController> {
               isBoldText: true,
               fontSize: AppDimens.sizeTextMedium,
             ),
-            UtilWidget.sizedBoxPadding,
             TextBuild(
               title:
                   "${ProfileManagerString.codeBHXH} ${controller.pageBuilderController.memberInfomation.value?.code ?? ""}",
               textAlign: TextAlign.start,
             ),
+            const SizedBox.shrink(),
           ],
         )
       ],

@@ -16,8 +16,8 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
         paddingHorizontal: AppDimens.defaultPadding,
         paddingVerical: AppDimens.paddingVerySmall,
       ),
-      linearGradient: LinearGradient(
-        colors: [Colors.white.withOpacity(0.2), Colors.blue.withOpacity(0.2)],
+      linearGradient: const LinearGradient(
+        colors: AppColors.linearCardBackgroundColor,
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
@@ -27,79 +27,60 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
       child: Obx(
         () => Column(
           children: [
-            Row(
-              children: [
-                (controller.pageBuilderController.memberInfomation.value
-                            ?.avatar)
-                        .isStringNotEmpty
-                    ? NetworkImageWidget(
-                        widgetImageBuilder: (context, imageProvider) {
-                          return ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: Container(
-                                height: 100.ratioH,
-                                width: 100.ratioW,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: imageProvider,
+            IntrinsicHeight(
+              child: Row(
+                children: [
+                  (controller.pageBuilderController.memberInfomation.value
+                              ?.avatar)
+                          .isStringNotEmpty
+                      ? NetworkImageWidget(
+                          widgetImageBuilder: (context, imageProvider) {
+                            return ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Container(
+                                  height: 75.ratioH,
+                                  width: 75.ratioW,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: imageProvider,
+                                    ),
                                   ),
-                                ),
-                              ));
-                        },
-                        errorWidget: Assets.images.srcImagesAvatar.image(
-                          height: 100.ratioH,
-                          width: 100.ratioW,
+                                ));
+                          },
+                          errorWidget: Assets.images.srcImagesAvatar.image(
+                            height: 75.ratioH,
+                            width: 75.ratioW,
+                            fit: BoxFit.cover,
+                          ),
+                          urlImage: controller.pageBuilderController
+                                  .memberInfomation.value?.avatar
+                                  .toUrlCDN() ??
+                              "",
+                        )
+                      : Assets.images.srcImagesAvatar.image(
+                          height: 75.ratioH,
+                          width: 75.ratioW,
                           fit: BoxFit.cover,
                         ),
-                        urlImage: controller.pageBuilderController
-                                .memberInfomation.value?.avatar
-                                .toUrlCDN() ??
+                  UtilWidget.sizedBoxWidthPadding,
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextBuild(
+                        title: controller.pageBuilderController.memberInfomation
+                                .value?.fullName ??
                             "",
-                      )
-                    : Assets.images.srcImagesAvatar.image(
-                        height: 100.ratioH,
-                        width: 100.ratioW,
-                        fit: BoxFit.cover,
+                        isBoldText: true,
                       ),
-                // Align(
-                //   child: NetworkImageWidget(
-                //       widgetImageBuilder: (context, imageProvider) {
-                //         return CardBuilder(
-                //             width: 50.h,
-                //             height: 50.h,
-                //             radiusModel: const RadiusModel(radiusAll: 100),
-                //             child: Container(
-                //               decoration: BoxDecoration(
-                //                 image: DecorationImage(
-                //                   image: imageProvider,
-                //                 ),
-                //               ),
-                //             ));
-                //       },
-                //       urlImage: controller.pageBuilderController
-                //               .memberInfomation.value?.anhTheBhyt
-                //               .toUrlCDN() ??
-                //           ""),
-                // ),
-                UtilWidget.sizedBoxWidthPadding,
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextBuild(
-                      title: controller.pageBuilderController.memberInfomation
-                              .value?.fullName ??
-                          "",
-                      isBoldText: true,
-                    ),
-                    UtilWidget.sizedBoxPadding,
-                    const TextBuild(title: "Thời hạn có giá trị"),
-                    UtilWidget.sizedBoxPadding,
-                    TextBuild(
-                        title:
-                            "${controller.pageBuilderController.memberInfomation.value?.bhytTuNgay} đến ${controller.pageBuilderController.memberInfomation.value?.bhytDenNgay}")
-                  ],
-                )
-              ],
+                      const TextBuild(title: "Thời hạn có giá trị"),
+                      TextBuild(
+                          title:
+                              "${controller.pageBuilderController.memberInfomation.value?.bhytTuNgay} đến ${controller.pageBuilderController.memberInfomation.value?.bhytDenNgay}")
+                    ],
+                  )
+                ],
+              ),
             ),
             UtilWidget.sizedBoxPadding,
             UtilWidget.buildDivider(),
@@ -151,9 +132,9 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
             ),
           ],
         ),
-        UtilWidget.sizedBoxPadding,
+        UtilWidget.sizedBox10,
         UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
-        UtilWidget.sizedBoxPadding,
+        UtilWidget.sizedBox10,
       ],
     );
   }

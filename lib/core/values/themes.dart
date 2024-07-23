@@ -12,7 +12,8 @@ class AppTheme {
   ThemeData getThemeByAppTheme({bool isDarkMode = false}) {
     final primaryColor = isDarkMode ? ColorDark.primaryColor : Colors.white;
 
-    final onBackgroundColor = isDarkMode ? Colors.white : Colors.black;
+    final onBackgroundColor =
+        isDarkMode ? Colors.white : const Color.fromRGBO(106, 107, 107, 1);
 
     final backgroundColor =
         isDarkMode ? ColorDark.backgroundColorApp : ColorLight.primaryColor;
@@ -158,7 +159,7 @@ class AppTheme {
         background: primaryColor,
         onBackground: onBackgroundColor,
         surface: backgroundColor,
-        onSurface: const Color.fromRGBO(1, 117, 200, 1),
+        onSurface: AppColors.appColor,
         onPrimaryContainer: containerColor,
         primaryContainer: containerColor,
       ),

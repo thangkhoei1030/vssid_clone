@@ -9,11 +9,11 @@ enum HealthRecordTabType {
     3: FractionColumnWidth(0.1),
   }),
   giaycap(HealthRecordStr.giaycap, {
-    0: FractionColumnWidth(0.3),
+    0: FractionColumnWidth(0.25),
     1: FractionColumnWidth(0.25),
-    2: FractionColumnWidth(0.25),
-    3: FractionColumnWidth(0.15),
-    4: FractionColumnWidth(0.05)
+    2: FractionColumnWidth(0.2),
+    3: FractionColumnWidth(0.2),
+    4: FractionColumnWidth(0.1)
   });
 
   final String headerTitle;

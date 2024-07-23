@@ -8,9 +8,18 @@ class AppColors {
 
   AppColors._internal();
 
+  static const appColor = Color.fromRGBO(1, 117, 200, 1);
+
+  static const linearCardBackgroundColor = [
+    Color.fromRGBO(235, 236, 239, 1),
+    Color.fromRGBO(227, 233, 241, 1),
+  ];
+
   // for Light Theme
   static const darkPrimaryColor = Color(0xFF3e4161);
   static const darkAccentColor = Color(0xFF25273f);
+
+  static const onSurfaceColor2 = Color.fromRGBO(56, 101, 155, 1);
 
   static const Color colorLoading = Color(0xFF58a0ff);
   static const Color colorBackgroundLight = Color(0xFFf7f7f7);

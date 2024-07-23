@@ -28,23 +28,45 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
             children: [
               Align(
                 alignment: Alignment.centerRight,
-                child: TextBuild(
-                  isBoldText: true,
-                  title: controller.yearSelected.value.toString(),
-                  textColor: context.onSurfaceColor,
-                  decoration: TextDecoration.underline,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  // crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    TextBuild(
+                      isBoldText: true,
+                      title: controller.yearSelected.value.toString(),
+                      style: Get.textTheme.bodySmall!.copyWith(
+                        color: AppColors.onSurfaceColor2,
+                        decoration: TextDecoration.underline,
+                        decorationThickness: 0.5,
+                        fontSize: AppDimens.sizeTextMedium,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Icon(
+                        Icons.arrow_drop_down,
+                        size: AppDimens.sizeIconMedium,
+                      ),
+                    )
+                  ],
                 ),
               ),
               UtilWidget.sizedBoxPadding,
               Obx(
                 () => Table(
-                  border: TableBorder.all(color: Colors.white),
+                  border: TableBorder.all(
+                    color: Colors.white,
+                    width: 0.5,
+                  ),
                   defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                   columnWidths: tabType.columnWidth,
                   children: [
                     TableRow(
                         decoration: const BoxDecoration(
-                            color: Color.fromRGBO(56, 101, 155, 1)),
+                          color: AppColors.onSurfaceColor2,
+                        ),
                         children: [
                           if (tabType.getColumnView().ngayvao)
                             _buildCeil(
@@ -53,7 +75,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                                 title: HealthRecordStr.ngayvao,
                                 textColor: Colors.white,
                                 maxLines: 5,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().ngayra)
@@ -61,7 +83,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.ngayra,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().tenbenh)
@@ -69,7 +91,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.tenbenh,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().soseri)
@@ -77,7 +99,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.seriNumber,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().loaichungtu)
@@ -85,7 +107,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.loaichungtu,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().ngaycap)
@@ -93,7 +115,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.ngaycap,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           if (tabType.getColumnView().trangthai)
@@ -101,7 +123,7 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                               TextBuild(
                                 title: HealthRecordStr.trangthai,
                                 textColor: Colors.white,
-                                fontSize: AppDimens.sizeTextSmall,
+                                fontSize: AppDimens.sizeTextDefault,
                               ),
                             ),
                           const SizedBox.shrink(),
@@ -155,7 +177,10 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                                   AppRoutes.healthRecordDetail,
                                   arguments: item.id.toString(),
                                 ),
-                            child: const Icon(Icons.remove_red_eye))
+                            child: Icon(
+                              Icons.remove_red_eye,
+                              color: context.onSurfaceColor,
+                            ))
                       ])
                   ],
                 ),
@@ -168,6 +193,9 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
   }
 
   Widget _buildCeil(Widget child) {
-    return child.paddingAll(AppDimens.paddingSmall);
+    return child.paddingSymmetric(
+      horizontal: AppDimens.paddingSmallest,
+      vertical: AppDimens.paddingVerySmall,
+    );
   }
 }

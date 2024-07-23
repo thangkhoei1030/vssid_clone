@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class ServiceItemComponent extends StatelessWidget {
@@ -11,6 +12,7 @@ class ServiceItemComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const colorText = Color.fromRGBO(48, 109, 172, 1);
     return Column(
       children: [
         IntrinsicHeight(
@@ -22,8 +24,8 @@ class ServiceItemComponent extends StatelessWidget {
                 child: NetworkImageWidget(
                   urlImage: response.imageAvatar.toUrlCDN(),
                   widgetImageBuilder: (ctx, imageProvider) => Container(
-                    height: 50.h,
-                    width: 50.h,
+                    height: 50.ratioH,
+                    width: 50.ratioW,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       image: DecorationImage(
@@ -39,16 +41,15 @@ class ServiceItemComponent extends StatelessWidget {
                     TextBuild(
                       textAlign: TextAlign.start,
                       title: response.name ?? "",
-                      isBoldText: true,
-                      fontSize: AppDimens.sizeTextMedium,
-                      textColor: context.onSurfaceColor,
+                      fontSize: AppDimens.sizeTextDefault,
+                      textColor: colorText,
                     ),
                     TextBuild(
                       textAlign: TextAlign.start,
                       title: response.description ?? "",
                     ),
                     UtilWidget.sizedBoxPadding,
-                    UtilWidget.buildDivider(),
+                    UtilWidget.buildDivider(thickness: 0.3),
                   ],
                 ).paddingSymmetric(horizontal: AppDimens.paddingSmall),
               )

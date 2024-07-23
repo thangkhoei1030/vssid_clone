@@ -21,11 +21,18 @@
             "type": "dart",
             "flutterMode": "release"
         },
+        //5CB79548-25E6-4944-BB30-700766C70DFB
         {
             "name": "Iphone 15 pro max",
             "request": "launch",
             "type": "dart",
             "deviceId": "30EAE2D4-ABAE-43F6-AAB4-0AABF2E87567"
+        },
+        {
+            "name": "Iphone 13 pro max",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "5CB79548-25E6-4944-BB30-700766C70DFB"
         },
         {
             "name": "Iphone SE",
@@ -40,6 +47,7 @@
             "configurations": [
                 "Iphone 15 pro max",
                 "Iphone SE",
+                "Iphone 13 pro max"
             ]
         }
     ]

@@ -5,22 +5,22 @@ enum TabProcessType {
   bhxh(ParticipationProcessString.bhxh, {
     0: FractionColumnWidth(0.15),
     1: FractionColumnWidth(0.15),
-    2: FractionColumnWidth(0.4),
-    3: FractionColumnWidth(0.2),
+    2: FractionColumnWidth(0.35),
+    3: FractionColumnWidth(0.25),
     4: FractionColumnWidth(0.1)
   }),
   bhtn(ParticipationProcessString.bhtn, {
     0: FractionColumnWidth(0.15),
     1: FractionColumnWidth(0.15),
-    2: FractionColumnWidth(0.4),
-    3: FractionColumnWidth(0.2),
+    2: FractionColumnWidth(0.35),
+    3: FractionColumnWidth(0.25),
     4: FractionColumnWidth(0.1)
   }),
   bhtnld(ParticipationProcessString.bhtnld, {
     0: FractionColumnWidth(0.15),
     1: FractionColumnWidth(0.15),
-    2: FractionColumnWidth(0.4),
-    3: FractionColumnWidth(0.2),
+    2: FractionColumnWidth(0.35),
+    3: FractionColumnWidth(0.25),
     4: FractionColumnWidth(0.1)
   }),
   bhyt(ParticipationProcessString.bhyt, {

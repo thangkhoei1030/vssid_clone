@@ -15,7 +15,7 @@ class ParticipationProcessString {
 
   static const String bhtnldProcess =
       "Quá trình tham gia Bảo hiểm tai nạn lao động, bệnh nghề nghiệp";
-      
+
   static const String tnProcess = "Quá trình tham gia bảo hiểm thất nghiệp";
 
   static const String totalTimeJoin = "Tông thời gian tham gia";
@@ -30,7 +30,7 @@ class ParticipationProcessString {
 
   static const String factory = "Đơn vị";
 
-  static const String job = "Chức vụ";
+  static const String job = "Nghề nghiệp Chức vụ";
 
   static const String share = "Chia sẻ";
 }

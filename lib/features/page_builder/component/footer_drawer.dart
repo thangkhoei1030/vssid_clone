@@ -13,14 +13,14 @@ class FooterDrawer extends StatelessWidget {
       children: [
         TextBuild(
           title: PageBuilderString.version,
-          fontSize: AppDimens.sizeTextSmall,
+          fontSize: AppDimens.sizeTextMedium,
           textColor: Colors.white,
         ),
         UtilWidget.sizedBoxPadding,
         TextBuild(
           title: PageBuilderString.license,
           maxLines: 2,
-          fontSize: AppDimens.sizeTextSmall,
+          fontSize: AppDimens.sizeTextMedium,
           textAlign: TextAlign.start,
           textColor: Colors.white,
         ),

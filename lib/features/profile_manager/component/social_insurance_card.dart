@@ -13,11 +13,8 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
     return CardBuilder(
       backgroundColor: context.primaryColor,
       paddingModel: const PaddingModel(paddingAll: AppDimens.paddingSmall),
-      linearGradient: LinearGradient(
-        colors: [
-          Colors.white.withOpacity(0.3),
-          Colors.blue.withOpacity(0.1),
-        ],
+      linearGradient: const LinearGradient(
+        colors: AppColors.linearCardBackgroundColor,
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
@@ -36,8 +33,8 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                             return ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Container(
-                                  height: 50.ratioH,
-                                  width: 50.ratioW,
+                                  height: 75.ratioH,
+                                  width: 75.ratioW,
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image: imageProvider,
@@ -46,8 +43,8 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                                 ));
                           },
                           errorWidget: Assets.images.srcImagesAvatar.image(
-                            width: 50.ratioW,
-                            height: 50.ratioH,
+                            width: 75.ratioW,
+                            height: 75.ratioH,
                             fit: BoxFit.cover,
                           ),
                           urlImage: controller.pageBuilderController
@@ -56,13 +53,14 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                               "",
                         )
                       : Assets.images.srcImagesAvatar.image(
-                          width: 50.ratioW,
-                          height: 50.ratioH,
+                          width: 75.ratioW,
+                          height: 75.ratioH,
                           fit: BoxFit.cover,
                         ),
                   UtilWidget.sizedBoxWidthPadding,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       TextBuild(
                         title: controller.pageBuilderController.memberInfomation
@@ -71,7 +69,6 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                         isBoldText: true,
                         fontSize: AppDimens.sizeTextMedium,
                       ),
-                      UtilWidget.sizedBoxPadding,
                       TextBuild(
                         title:
                             "${ProfileManagerString.codeBHXH} ${controller.pageBuilderController.memberInfomation.value?.code ?? ""}",
@@ -82,46 +79,59 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                 ],
               ).paddingSymmetric(horizontal: AppDimens.defaultPadding),
             ),
-            UtilWidget.sizedBoxPadding,
-            UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
-            UtilWidget.sizedBoxPadding,
+            UtilWidget.sizedBox10,
+            UtilWidget.buildDivider(color: Colors.black.withOpacity(0.5)),
+            UtilWidget.sizedBox10,
             _rowInfo(
                 ProfileManagerString.dateOfBirth,
                 controller.pageBuilderController.memberInfomation.value
                         ?.birthday ??
                     ""),
-            UtilWidget.sizedBoxPadding,
+            UtilWidget.sizedBox10,
             _rowInfo(
                 ProfileManagerString.cccd,
                 controller.pageBuilderController.memberInfomation.value
                         ?.identityCardId ??
                     ""),
-            UtilWidget.sizedBoxPadding,
+            UtilWidget.sizedBox10,
             _rowInfo(
                 ProfileManagerString.phone,
                 controller
                         .pageBuilderController.memberInfomation.value?.phone ??
                     ""),
-            UtilWidget.sizedBoxPadding,
+            UtilWidget.sizedBox10,
             _rowInfo(
-                ProfileManagerString.address,
-                controller.pageBuilderController.memberInfomation.value
-                        ?.fullAddress ??
-                    ""),
-            UtilWidget.sizedBoxPadding,
+              ProfileManagerString.address,
+              controller.pageBuilderController.memberInfomation.value
+                      ?.fullAddress ??
+                  "",
+              isLast: true,
+            ),
+            UtilWidget.sizedBox10,
           ],
         ),
       ),
     );
   }
 
-  Widget _rowInfo(String key, String value) {
+  Widget _rowInfo(
+    String key,
+    String value, {
+    bool isLast = false,
+  }) {
+    final textStyle = Get.textTheme.bodySmall!.copyWith(
+        fontSize: AppDimens.sizeTextDefault,
+        fontWeight: FontWeight.w300,
+        color: Colors.black.withOpacity(
+          0.7,
+        ));
     return Column(
       children: [
         Row(
           children: [
             TextBuild(
               title: key,
+              style: textStyle,
             ),
             UtilWidget.sizedBoxWidth10,
             Expanded(
@@ -130,13 +140,15 @@ class SocialInsuranceCard extends GetView<ProfileManagerController> {
                 child: TextBuild(
                   textAlign: TextAlign.right,
                   title: value,
+                  style: textStyle,
                 ),
               ),
             ),
           ],
         ),
-        UtilWidget.sizedBoxPadding,
-        UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
+        UtilWidget.sizedBox10,
+        if (!isLast)
+          UtilWidget.buildDivider(color: Colors.black.withOpacity(0.2)),
       ],
     );
   }

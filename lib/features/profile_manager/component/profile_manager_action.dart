@@ -11,42 +11,45 @@ class ProfileManagerAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = Get.textTheme.bodySmall!.copyWith(
+      fontSize: AppDimens.sizeTextLarge,
+    );
     return Column(
       children: [
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.healthInsuranceCard),
           image: Assets.images.srcImagesNewIconTheBhyt,
           title: ProfileManagerString.healthInsuranceCard,
-          iconColor: Colors.blue,
-          textColor: Colors.black,
-          iconSize: AppDimens.sizeIconLarge * 1.25,
+          iconSize: AppDimens.sizeIconLarge * 1.1,
+          isUppercase: true,
+          style: style,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.participationProcess),
           title: ProfileManagerString.participationProcess,
-          iconColor: Colors.blue,
-          textColor: Colors.black,
-          iconSize: AppDimens.sizeIconLarge * 1.25,
+          iconSize: AppDimens.sizeIconLarge * 1.1,
           image: Assets.images.srcImagesNewIconQttg,
+          isUppercase: true,
+          style: style,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.benefitInfomation),
           image: Assets.images.srcImagesNewIconTtHuong,
           title: ProfileManagerString.beneficiaryInformation,
-          iconColor: Colors.blue,
-          textColor: Colors.black,
-          iconSize: AppDimens.sizeIconLarge * 1.25,
+          iconSize: AppDimens.sizeIconLarge * 1.1,
+          isUppercase: true,
+          style: style,
         ),
         UtilWidget.sizedBoxPadding,
         MenuActionItem(
           funcion: () => Get.toNamed(AppRoutes.healthRecord),
           image: Assets.images.srcImagesNewIconSoKcb,
           title: ProfileManagerString.healthRecords,
-          iconColor: Colors.blue,
-          textColor: Colors.black,
-          iconSize: AppDimens.sizeIconLarge * 1.25,
+          iconSize: AppDimens.sizeIconLarge * 1.1,
+          isUppercase: true,
+          style: style,
         ),
         UtilWidget.sizedBoxPadding,
       ],
