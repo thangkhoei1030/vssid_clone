@@ -1,7 +1,9 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:vssid/core/utils/extension/device_ratio.dart';
+import 'package:vssid/core/utils/extension/theme_getter.dart';
 
 class AppDimens {
   static double fontSize10() => 10.divSF;
@@ -118,6 +120,8 @@ class AppDimens {
   static const double ratioDefaultSlider = 16 / 9;
   static const double categoryProductSize = 50;
   static const double iconListTileSizeDefaut = 16;
+  static double appBarSize(BuildContext context) =>
+      kToolbarHeight * 2 / 3 + context.viewPaddingTop;
 }
 
 extension GetSizeScreen on num {

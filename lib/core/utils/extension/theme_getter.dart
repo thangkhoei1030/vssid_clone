@@ -46,4 +46,6 @@ extension ThemeGetter on BuildContext {
 
 extension SizeGetter on BuildContext {
   double get viewPaddingTop => MediaQuery.of(this).viewPadding.top;
+
+  double get viewPaddingBottom => MediaQuery.of(this).viewPadding.bottom;
 }

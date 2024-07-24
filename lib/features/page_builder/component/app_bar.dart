@@ -10,69 +10,90 @@ class PageBuilderAppBar extends GetView<PageBuilderController> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-          horizontal: AppDimens.defaultPadding,
-          vertical: AppDimens.defaultPadding),
-      height: kToolbarHeight + MediaQuery.of(context).viewPadding.top,
-      width: Get.width,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: Assets.images.srcImagesNewHeader01.provider(),
-          fit: BoxFit.fill,
+    return UtilWidget.customAppBarBody(
+      context,
+      leading: SimpleButton(
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
+        child: Icon(
+          Icons.menu,
+          color: Colors.white,
+          size: AppDimens.sizeIconSpinner,
         ),
       ),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: SimpleButton(
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: AppDimens.sizeIconSpinner,
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: StreamBuilder(
-                stream: controller.currentIndexPage.stream,
-                builder: (context, snapshot) => TextBuild(
-                  title: controller.titleAppBar.toUpperCase(),
-                  fontSize: AppDimens.sizeTextLarge,
-                  textColor: Colors.white,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ),
-          ),
-          Positioned.fill(
-            child: Align(
-              alignment: Alignment.bottomRight,
-              child: Obx(
-                () => controller.currentIndexPage.value == 0
-                    ? Assets.images.srcImagesTb3
-                        .image(
-                          height: 25.ratioH,
-                          width: 25.ratioW,
-                        )
-                        .paddingSymmetric(
-                          horizontal: AppDimens.defaultPadding.ratioW,
-                        )
-                    : const SizedBox.shrink(),
-              ),
-            ),
-          ),
-          UtilWidget.sizedBoxPadding,
-        ],
+      title: StreamBuilder(
+        stream: controller.currentIndexPage.stream,
+        builder: (context, snapshot) => TextBuild(
+          title: controller.titleAppBar.toUpperCase(),
+          fontSize: AppDimens.sizeTextLarge,
+          textColor: Colors.white,
+          textAlign: TextAlign.center,
+        ),
       ),
+      action: Obx(
+        () => controller.currentIndexPage.value == 0
+            ? Assets.images.srcImagesTb3
+                .image(
+                  height: 25.ratioH,
+                  width: 25.ratioW,
+                )
+                .paddingSymmetric(
+                  horizontal: AppDimens.defaultPadding.ratioW,
+                )
+            : const SizedBox.shrink(),
+      ),
+      // child: Stack(
+      //   children: [
+      //     Positioned.fill(
+      //       child: Align(
+      //         alignment: Alignment.bottomLeft,
+      //         child: SimpleButton(
+      //           onPressed: () {
+      //             Scaffold.of(context).openDrawer();
+      //           },
+      //           child: Icon(
+      //             Icons.menu,
+      //             color: Colors.white,
+      //             size: AppDimens.sizeIconSpinner,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //     Positioned.fill(
+      //       child: Align(
+      //         alignment: Alignment.bottomCenter,
+      //         child: StreamBuilder(
+      //           stream: controller.currentIndexPage.stream,
+      //           builder: (context, snapshot) => TextBuild(
+      //             title: controller.titleAppBar.toUpperCase(),
+      //             fontSize: AppDimens.sizeTextLarge,
+      //             textColor: Colors.white,
+      //             textAlign: TextAlign.center,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //     Positioned.fill(
+      //       child: Align(
+      //         alignment: Alignment.bottomRight,
+      //         child: Obx(
+      //           () => controller.currentIndexPage.value == 0
+      //               ? Assets.images.srcImagesTb3
+      //                   .image(
+      //                     height: 25.ratioH,
+      //                     width: 25.ratioW,
+      //                   )
+      //                   .paddingSymmetric(
+      //                     horizontal: AppDimens.defaultPadding.ratioW,
+      //                   )
+      //               : const SizedBox.shrink(),
+      //         ),
+      //       ),
+      //     ),
+      //     UtilWidget.sizedBoxPadding,
+      //   ],
+      // ),
     );
   }
 }

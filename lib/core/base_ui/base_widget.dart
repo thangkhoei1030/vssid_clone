@@ -71,29 +71,17 @@ class PageScaffold extends StatelessWidget {
   });
 
   final bool showBackButton;
-
   final Widget child;
-
   final List<Widget> action;
-
   final Widget? title;
-
   final TextStyle? titleTextStyle;
-
   final Widget? floatingActionButton;
-
   final bool showAppBar;
-
   final bool showFloatingButton;
-
   final Color? backgroundColor;
-
   final Color? backgroundColorAppBar;
-
   final Function()? overrideBackFunction;
-
   final bool resizeToAvoidBottomInset;
-
   final PreferredSize? customAppBar;
 
   @override
@@ -124,15 +112,12 @@ class PageScaffold extends StatelessWidget {
                   centerTitle: true,
                   actions: action,
                   titleTextStyle: titleTextStyle,
-                  // toolbarHeight: height ?? kToolbarHeight,
                 )
             : null,
         floatingActionButton: showFloatingButton
             ? floatingActionButton ??
                 FloatingButtonDraggable(
                   isStack: true,
-                  // backgroundColor: AppColors.appColor,
-                  ///TODO: Bottom sheet
                   onPressed: () => Get.bottomSheet(
                     Container(),
                   ),

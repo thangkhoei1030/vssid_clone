@@ -29,10 +29,7 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      SizedBox(
-                        height: (kToolbarHeight + context.viewPaddingTop),
-                        child: const PageBuilderAppBar(),
-                      ),
+                      const PageBuilderAppBar(),
                       UtilWidget.sizedBox5,
                       SizedBox(
                         height: (kTextTabBarHeight * 1.7).ratioH,

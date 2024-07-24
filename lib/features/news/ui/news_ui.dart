@@ -10,10 +10,19 @@ class NewsPage extends BaseRefreshWidget<NewsController> {
     return buildPageReload(
       showBackButton: true,
       backgroundColorAppBar: context.onSurfaceColor,
-      title: TextBuild(
-        title: NewsString.news.toUpperCase(),
-        fontSize: AppDimens.sizeTextLarge,
-        textColor: Colors.white,
+      customAppBar: UtilWidget.customAppBar(
+        context,
+        leading: SimpleButton(
+          onPressed: () {
+            Get.back();
+          },
+          child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+        ),
+        title: TextBuild(
+          title: NewsString.news.toUpperCase(),
+          fontSize: AppDimens.sizeTextLarge,
+          textColor: Colors.white,
+        ),
       ),
       child: UtilWidget.buildErrorOccurred(
         controller,

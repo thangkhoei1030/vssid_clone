@@ -14,14 +14,13 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
       initialIndex: 0,
       child: PageScaffold(
         customAppBar: PreferredSize(
-          preferredSize: Size.fromHeight(Get.height * 0.3),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 4),
           child: SafeArea(
             top: false,
             child: Column(
               children: [
                 SizedBox(
-                  height:
-                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  height: AppDimens.appBarSize(context),
                   child: Stack(
                     children: [
                       UtilWidget.appBarBgImage,

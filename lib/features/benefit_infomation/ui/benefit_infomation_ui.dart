@@ -14,14 +14,13 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
       initialIndex: 0,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 3),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2.5),
           child: SafeArea(
             top: false,
             child: Column(
               children: [
                 SizedBox(
-                  height:
-                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  height: AppDimens.appBarSize(context),
                   child: Stack(
                     children: [
                       UtilWidget.appBarBgImage,

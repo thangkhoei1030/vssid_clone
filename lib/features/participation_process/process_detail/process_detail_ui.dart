@@ -15,11 +15,19 @@ class ProcessDetailPage extends GetView<ProcessDetailController>
   Widget build(BuildContext context) {
     return PageScaffold(
         showAppBar: true,
-        showBackButton: true,
-        title: TextBuild(
-          title: "Chi tiết".toUpperCase(),
-          textColor: Colors.white,
-          fontSize: AppDimens.sizeTextLarge,
+        customAppBar: UtilWidget.customAppBar(
+          context,
+          leading: SimpleButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+          ),
+          title: TextBuild(
+            title: "Chi tiết".toUpperCase(),
+            textColor: Colors.white,
+            fontSize: AppDimens.sizeTextLarge,
+          ),
         ),
         child: loadingWidget(
           isShowLoading: controller.isShowLoading,

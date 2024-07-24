@@ -15,14 +15,13 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
       initialIndex: 0,
       child: PageScaffold(
         customAppBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 3.0),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2.8),
           child: SafeArea(
             top: false,
             child: Column(
               children: [
                 SizedBox(
-                  height:
-                      kToolbarHeight + MediaQuery.of(context).viewPadding.top,
+                  height: AppDimens.appBarSize(context),
                   child: Stack(
                     children: [
                       UtilWidget.appBarBgImage,

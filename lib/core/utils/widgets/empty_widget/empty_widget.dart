@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:vssid/core/src_core.dart';
 
 class EmptyWidget extends StatelessWidget {

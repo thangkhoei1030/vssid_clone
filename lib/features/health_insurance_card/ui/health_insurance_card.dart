@@ -10,16 +10,21 @@ class HealthInsuranceCardPage
   Widget buildWidgets(BuildContext context) {
     return PageScaffold(
       showAppBar: true,
-      showBackButton: true,
-      overrideBackFunction: () {
-        Get.back(
-          id: ProfileManagerPage.profileManagerNavigatorId,
-        );
-      },
-      title: TextBuild(
-        title: HealthInsuranceCard.cardBHYT.toUpperCase(),
-        textColor: Colors.white,
-        fontSize: AppDimens.sizeTextLarge,
+      customAppBar: UtilWidget.customAppBar(
+        context,
+        leading: SimpleButton(
+          onPressed: () {
+            Get.back(
+              id: ProfileManagerPage.profileManagerNavigatorId,
+            );
+          },
+          child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+        ),
+        title: TextBuild(
+          title: HealthInsuranceCard.cardBHYT.toUpperCase(),
+          textColor: Colors.white,
+          fontSize: AppDimens.sizeTextLarge,
+        ),
       ),
       child: Column(
         children: [

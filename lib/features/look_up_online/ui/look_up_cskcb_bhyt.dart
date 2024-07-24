@@ -13,11 +13,20 @@ class LookUpCskcbBhyt extends GetView<LookUpCSKCBBHYTController> {
   Widget build(BuildContext context) {
     return PageScaffold(
       showAppBar: true,
-      title: TextBuild(
-        title: LookUpOnlineString.lookUpCSKCBHeadling,
-        fontSize: AppDimens.sizeTextLarge,
-        textColor: Colors.white,
-        isAutoSizeText: true,
+      customAppBar: UtilWidget.customAppBar(
+        context,
+        leading: SimpleButton(
+          onPressed: () {
+            Get.back();
+          },
+          child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+        ),
+        title: TextBuild(
+          title: LookUpOnlineString.lookUpCSKCBHeadling,
+          fontSize: AppDimens.sizeTextLarge,
+          textColor: Colors.white,
+          isAutoSizeText: true,
+        ),
       ),
       showBackButton: true,
       child: SingleChildScrollView(

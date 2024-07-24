@@ -30,6 +30,7 @@ abstract class BaseRefreshWidget<T extends BaseRefreshGetxController>
     bool safeAreaTop = false,
     Widget? expandedBottom,
     Function()? overrideBackFunction,
+    PreferredSize? customAppBar,
   }) {
     return PageScaffold(
       action: action,
@@ -42,6 +43,7 @@ abstract class BaseRefreshWidget<T extends BaseRefreshGetxController>
       overrideBackFunction: overrideBackFunction,
       backgroundColor: backgroundColor,
       backgroundColorAppBar: backgroundColorAppBar,
+      customAppBar: customAppBar,
       child: Column(
         children: [
           if (headerPinned != null) headerPinned,

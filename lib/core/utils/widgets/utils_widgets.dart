@@ -43,18 +43,93 @@ class UtilWidget {
       SizedBox(width: AppDimens.paddingSmall.ratioW);
 
   static Widget sizedBoxHeightSafeAreaTop(BuildContext context) => SizedBox(
-        height: MediaQuery.of(context).padding.top,
+        height: context.viewPaddingTop,
       );
   static Widget sizedBoxHeightSafeAreaBottom(BuildContext context) => SizedBox(
-        height: MediaQuery.of(context).padding.bottom.ratioH,
+        height: context.viewPaddingBottom,
       );
 
   static Widget navigatorWithBottomBar(int id, Widget child) {
     return Navigator(
-        key: Get.nestedKey(id),
-        onGenerateRoute: (settings) => MaterialPageRoute(
-              builder: (_) => child,
-            ));
+      key: Get.nestedKey(id),
+      onGenerateRoute: (settings) => MaterialPageRoute(
+        builder: (_) => child,
+      ),
+    );
+  }
+
+  static PreferredSize customAppBar(
+    BuildContext context, {
+    Widget? leading,
+    Widget? title,
+    Widget? action,
+  }) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(
+        AppDimens.appBarSize(context),
+      ),
+      child: customAppBarBody(
+        context,
+        leading: leading,
+        title: title,
+        action: action,
+      ),
+    );
+  }
+
+  static Widget appBarIcon(IconData icon) {
+    return Icon(
+      icon,
+      color: Colors.white,
+      size: AppDimens.sizeIconMedium,
+    );
+  }
+
+  static Widget customAppBarBody(
+    BuildContext context, {
+    Widget? leading,
+    Widget? title,
+    Widget? action,
+  }) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+          horizontal: AppDimens.defaultPadding,
+          vertical: AppDimens.defaultPadding),
+      height: AppDimens.appBarSize(context),
+      width: Get.width,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: Assets.images.srcImagesNewHeader01.provider(),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: Stack(
+        children: [
+          if (leading != null)
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: leading,
+              ),
+            ),
+          if (title != null)
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: title,
+              ),
+            ),
+          if (action != null)
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: action,
+              ),
+            ),
+          UtilWidget.sizedBoxPadding,
+        ],
+      ),
+    );
   }
 
   static Widget widgetWithOverlay(WidgetCallback child) {
@@ -102,6 +177,7 @@ class UtilWidget {
   }
 
   static const String requiredLogin = "Đăng nhập đê tiếp tục";
+
   static Widget buildWidgetRequiredLogin(
     WidgetCallback child,
   ) {
