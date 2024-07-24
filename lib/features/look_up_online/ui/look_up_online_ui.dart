@@ -7,10 +7,12 @@ import 'package:vssid/gen/assets.gen.dart';
 class LookUpOnline extends StatelessWidget {
   const LookUpOnline({super.key});
 
+  static const int lookUpOnlineNavigatorId = 2;
+
   @override
   Widget build(BuildContext context) {
     return UtilWidget.navigatorWithBottomBar(
-      2,
+      lookUpOnlineNavigatorId,
       Column(
         children: [
           const PageBuilderAppBar(),

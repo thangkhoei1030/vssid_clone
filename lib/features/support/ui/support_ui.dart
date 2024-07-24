@@ -7,10 +7,12 @@ import 'package:vssid/gen/assets.gen.dart';
 class SupportPage extends GetView<SupportController> {
   const SupportPage({super.key});
 
+  static const int supportNavigatorId = 3;
+
   @override
   Widget build(BuildContext context) {
     return UtilWidget.navigatorWithBottomBar(
-      3,
+      supportNavigatorId,
       Column(
         children: [
           const PageBuilderAppBar(),
@@ -18,11 +20,12 @@ class SupportPage extends GetView<SupportController> {
             child: Column(
               children: [
                 SizedBox(
-                    width: Get.width,
-                    height: Get.width * 9 / 16,
-                    child: Assets.images.supportBanner.image(
-                      fit: BoxFit.cover,
-                    )),
+                  width: Get.width,
+                  height: Get.width * 9 / 16,
+                  child: Assets.images.supportBanner.image(
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 Expanded(
                   child: ListView.separated(
                       padding: const EdgeInsets.symmetric(

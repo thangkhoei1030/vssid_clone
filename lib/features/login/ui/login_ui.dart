@@ -2,6 +2,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -10,6 +11,8 @@ class LoginPage extends BaseGetWidget<LoginController> {
 
   @override
   Widget buildWidgets(BuildContext context) {
+    // print(Get.width);
+    // print(Get.height);
     return LoadingOverlayWidget(
       isLoadingPage: true,
       child: PageScaffold(
@@ -31,8 +34,8 @@ class LoginPage extends BaseGetWidget<LoginController> {
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: Assets.images.srcImagesNewLogo01.image(
-                        height: 125.h,
-                        width: 125.w,
+                        height: 125.ratioH,
+                        width: 125.ratioW,
                       ),
                     ),
                     UtilWidget.sizedBoxPaddingHuge,

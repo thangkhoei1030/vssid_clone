@@ -9,11 +9,11 @@ class ProfileManagerPage extends BaseGetWidget<ProfileManagerController> {
   ProfileManagerController get controller =>
       Get.put(ProfileManagerControllerImp());
 
-  static const int profileManagerControllerId = 0;
+  static const int profileManagerNavigatorId = 0;
   @override
   Widget buildWidgets(BuildContext context) {
     return UtilWidget.navigatorWithBottomBar(
-      0,
+      profileManagerNavigatorId,
       Column(
         children: [
           const PageBuilderAppBar(),

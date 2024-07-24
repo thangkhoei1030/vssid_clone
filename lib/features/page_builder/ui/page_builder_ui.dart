@@ -2,7 +2,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
-import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
@@ -27,20 +26,16 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
             backgroundColor: Colors.blue,
             child: PageBuilderDrawer(),
           ),
-          body: LayoutBuilder(
-            builder: (ctx, constraints) {
-              return Obx(
-                () => IndexedStack(
-                  index: controller.currentIndexPage.value,
-                  children: [
-                    ProfileManagerPage(),
-                    PublicServicePage(),
-                    LookUpOnline(),
-                    SupportPage(),
-                  ],
-                ),
-              );
-            },
+          body: Obx(
+            () => IndexedStack(
+              index: controller.currentIndexPage.value,
+              children: const [
+                ProfileManagerPage(),
+                PublicServicePage(),
+                LookUpOnline(),
+                SupportPage(),
+              ],
+            ),
           ),
           bottomNavigationBar: Container(
             color: Colors.white,

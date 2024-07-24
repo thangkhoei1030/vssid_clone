@@ -34,19 +34,19 @@
             "type": "dart",
             "deviceId": "5CB79548-25E6-4944-BB30-700766C70DFB"
         },
-        {
-            "name": "Iphone SE",
-            "request": "launch",
-            "type": "dart",
-            "deviceId": "8DF4855D-5656-4D7B-AC04-2FAE22E44B90"
-        },
+        // {
+        //     "name": "Iphone SE",
+        //     "request": "launch",
+        //     "type": "dart",
+        //     "deviceId": "8DF4855D-5656-4D7B-AC04-2FAE22E44B90"
+        // },
     ],
     "compounds": [
         {
             "name": "All Devices",
             "configurations": [
                 "Iphone 15 pro max",
-                "Iphone SE",
+                // "Iphone SE",
                 "Iphone 13 pro max"
             ]
         }

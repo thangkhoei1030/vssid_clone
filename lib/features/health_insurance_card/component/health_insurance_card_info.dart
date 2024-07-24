@@ -91,9 +91,13 @@ class HealthInsuranceCardInfo extends GetView<HealthInsuranceCardController> {
                         ?.birthday ??
                     ""),
             _rowInfo(
-                HealthInsuranceCard.sex,
-                controller.pageBuilderController.memberInfomation.value?.sex ??
-                    ""),
+              HealthInsuranceCard.sex,
+              AppStr.sex[controller
+                          .pageBuilderController.memberInfomation.value?.sex
+                          ?.toLowerCase() ??
+                      ""] ??
+                  "",
+            ),
             _rowInfo(
                 HealthInsuranceCard.codeBHYT,
                 controller.pageBuilderController.memberInfomation.value?.code ??

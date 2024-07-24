@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:vssid/core/src_core.dart';
-import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
 
 class NewsControllerImp extends NewsController {
@@ -17,7 +15,7 @@ class NewsControllerImp extends NewsController {
         showLoading();
       }
 
-      await repository.getData(RequestType.dichvu).then((value) {
+      await repository.getData(RequestType.tintuc).then((value) {
         if (value.data.isNotEmpty) {
           listNews.assignAll(value.data);
         }

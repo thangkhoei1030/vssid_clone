@@ -36,7 +36,7 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                                 onPressed: () {
                                   Get.back(
                                     id: ProfileManagerPage
-                                        .profileManagerControllerId,
+                                        .profileManagerNavigatorId,
                                   );
                                 },
                                 child: const Icon(

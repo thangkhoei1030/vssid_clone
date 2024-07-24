@@ -34,4 +34,6 @@ class AppStr {
   static const String defaultDateInValid = "--/--/----";
 
   static String get currentPlatform => Platform.isAndroid ? android : ios;
+
+  static const Map<String, String> sex = {"male": "Nam", "female": "Nữ"};
 }

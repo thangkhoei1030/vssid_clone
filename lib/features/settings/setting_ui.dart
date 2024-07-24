@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class SettingPage extends GetView<SettingController> {
   const SettingPage({super.key});
@@ -21,32 +22,56 @@ class SettingPage extends GetView<SettingController> {
         showBackButton: true,
         child: Column(
           children: [
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextBuild(
+                        textAlign: TextAlign.center,
+                        title: SettingStr.language,
+                        fontSize: AppDimens.sizeTextMedium,
+                        textColor: context.onSurfaceColor,
+                      ),
+                    ),
+                  ),
+                  Assets.images.srcImagesVn.image(),
+                ],
+              ),
+            ),
             SimpleButton(
                 child: IntrinsicHeight(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const Expanded(
+                  Expanded(
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: TextBuild(
                         textAlign: TextAlign.center,
                         title: SettingStr.enbaleBiometricLogin,
+                        fontSize: AppDimens.sizeTextMedium,
+                        textColor: context.onSurfaceColor,
                       ),
                     ),
                   ),
-                  Obx(
-                    () => Checkbox(
-                        activeColor: Colors.green,
-                        checkColor: Colors.white,
-                        value: controller.enableBiometricLogin.value,
-                        onChanged: (val) {
-                          controller.enableBiometricLogin.value = val ?? false;
-                        }),
+                  Align(
+                    child: Obx(
+                      () => Checkbox(
+                          activeColor: Colors.green,
+                          checkColor: Colors.white,
+                          value: controller.enableBiometricLogin.value,
+                          onChanged: (val) {
+                            controller.enableBiometricLogin.value =
+                                val ?? false;
+                          }),
+                    ),
                   )
                 ],
               ),
-            ))
+            )),
           ],
         ).paddingAll(AppDimens.defaultPadding));
   }

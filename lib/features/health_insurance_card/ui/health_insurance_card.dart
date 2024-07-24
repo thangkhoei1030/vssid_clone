@@ -13,7 +13,7 @@ class HealthInsuranceCardPage
       showBackButton: true,
       overrideBackFunction: () {
         Get.back(
-          id: ProfileManagerPage.profileManagerControllerId,
+          id: ProfileManagerPage.profileManagerNavigatorId,
         );
       },
       title: TextBuild(

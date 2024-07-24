@@ -35,7 +35,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                                 onPressed: () {
                                   Get.back(
                                     id: ProfileManagerPage
-                                        .profileManagerControllerId,
+                                        .profileManagerNavigatorId,
                                   );
                                 },
                                 child: const Icon(

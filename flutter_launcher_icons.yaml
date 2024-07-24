@@ -1,4 +1,7 @@
 flutter_launcher_icons:
-  image_path: "assets/images/app_icon_1.png"
+  image_path: "assets/images/ic_launcher.png"
   android: true # can specify file name here e.g. "ic_launcher"
   ios: true # can specify file name here e.g. "My-Launcher-Icon"
+  
+
+##flutter pub run flutter_launcher_icons -f flutter_launcher_icons.yaml 

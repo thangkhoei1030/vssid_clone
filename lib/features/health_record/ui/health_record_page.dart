@@ -36,7 +36,7 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                                   onPressed: () {
                                     Get.back(
                                       id: ProfileManagerPage
-                                          .profileManagerControllerId,
+                                          .profileManagerNavigatorId,
                                     );
                                   },
                                   child: const Icon(
