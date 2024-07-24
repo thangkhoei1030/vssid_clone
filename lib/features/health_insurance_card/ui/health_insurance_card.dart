@@ -7,13 +7,15 @@ class HealthInsuranceCardPage
     extends BaseGetWidget<HealthInsuranceCardController> {
   const HealthInsuranceCardPage({super.key});
   @override
-  HealthInsuranceCardController get controller =>
-      Get.put(HealthInsuranceCardControllerImp());
-  @override
   Widget buildWidgets(BuildContext context) {
     return PageScaffold(
       showAppBar: true,
       showBackButton: true,
+      overrideBackFunction: () {
+        Get.back(
+          id: ProfileManagerPage.profileManagerControllerId,
+        );
+      },
       title: TextBuild(
         title: HealthInsuranceCard.cardBHYT.toUpperCase(),
         textColor: Colors.white,
@@ -35,7 +37,7 @@ class HealthInsuranceCardPage
               ),
             ),
           ),
-          const CardAction()
+          const CardAction(),
         ],
       ),
     );

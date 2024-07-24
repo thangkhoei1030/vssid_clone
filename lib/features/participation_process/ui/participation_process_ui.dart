@@ -9,6 +9,7 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
   const ParticipationProcessPage({super.key});
   @override
   Widget build(BuildContext context) {
+    ParticipationProcessBindings().dependencies();
     return DefaultTabController(
       length: 5,
       initialIndex: 0,
@@ -33,7 +34,10 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                             children: [
                               SimpleButton(
                                 onPressed: () {
-                                  Get.back();
+                                  Get.back(
+                                    id: ProfileManagerPage
+                                        .profileManagerControllerId,
+                                  );
                                 },
                                 child: const Icon(
                                   Icons.arrow_back_ios,

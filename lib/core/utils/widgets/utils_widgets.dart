@@ -49,6 +49,25 @@ class UtilWidget {
         height: MediaQuery.of(context).padding.bottom.ratioH,
       );
 
+  static Widget navigatorWithBottomBar(int id, Widget child) {
+    return Navigator(
+        key: Get.nestedKey(id),
+        onGenerateRoute: (settings) => MaterialPageRoute(
+              builder: (_) => child,
+            ));
+  }
+
+  static Widget widgetWithOverlay(WidgetCallback child) {
+    return Column(
+      children: [
+        Expanded(child: child()),
+        const SizedBox(
+          height: kBottomNavigationBarHeight,
+        )
+      ],
+    );
+  }
+
   static Widget appBarBgImage = Assets.images.srcImagesNewHeader01.image(
     fit: BoxFit.fill,
     height: double.infinity,

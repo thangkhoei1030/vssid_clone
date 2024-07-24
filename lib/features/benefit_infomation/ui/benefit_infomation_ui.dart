@@ -8,9 +8,6 @@ import 'package:vssid/gen/assets.gen.dart';
 class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
   const BenefitInfomationPage({super.key});
   @override
-  BenefitInfomationController get controller =>
-      Get.put(BenefitInfomationController());
-  @override
   Widget buildWidgets(BuildContext context) {
     return DefaultTabController(
       length: 4,
@@ -36,7 +33,10 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                             children: [
                               SimpleButton(
                                 onPressed: () {
-                                  Get.back();
+                                  Get.back(
+                                    id: ProfileManagerPage
+                                        .profileManagerControllerId,
+                                  );
                                 },
                                 child: const Icon(
                                   Icons.arrow_back_ios,

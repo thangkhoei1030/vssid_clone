@@ -10,6 +10,7 @@ import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/pages/pages.dart';
 import 'package:vssid/pages/routes.dart';
+import 'package:vssid/pages/src_pages.dart';
 import 'core/src_core.dart';
 
 String applicationPath = "";
@@ -51,6 +52,7 @@ void _errorWidgetBuilder() {
       ),
       child: TextBuild(
         title: details.exception.toString(),
+        maxLines: 5,
       ),
     );
   };
@@ -75,26 +77,50 @@ class _MyAppState extends State<MyApp> {
         minTextAdapt: true,
         splitScreenMode: true,
         designSize: const Size(430, 932),
-        builder: (context, child) => GetMaterialApp(
-          locale: DevicePreview.locale(context),
+        builder: (_, child) => GetMaterialApp(
+          // locale: DevicePreview.locale(context),
           // locale: const Locale('vi', 'VN'),
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoutes.splashPage,
           getPages: PageRoutes.pageRoutes,
           useInheritedMediaQuery: false,
-          builder: DevicePreview.appBuilder,
-          // builder: (context, child) => ScrollConfiguration(
-          //   behavior: MyBehavior(),
-          //   child: MediaQuery(
-          //     data:
-          //         MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
-          //     child: GestureDetector(
-          //         onTap: () {
-          //           FocusManager.instance.primaryFocus?.unfocus();
-          //         },
-          //         child: child ?? Container()),
-          //   ),
-          // ),
+          home: WillPopScope(
+            onWillPop: () async =>
+                await _navigatorKey.currentState?.maybePop() ?? false,
+            child: LayoutBuilder(
+              builder: (context, contrains) {
+                return Navigator(
+                  key: _navigatorKey,
+                  onGenerateRoute: (RouteSettings settings) {
+                    switch (settings.name) {
+                      case '/':
+                        return MaterialPageRoute(
+                            builder: (_) => const SplashPage());
+                      default:
+                        return MaterialPageRoute(
+                          builder: (_) => SplashPage(
+                            key: _navigatorKey,
+                          ),
+                        );
+                    }
+                  },
+                );
+              },
+            ),
+          ),
+          builder: (context, child) => ScrollConfiguration(
+            behavior: MyBehavior(),
+            child: MediaQuery(
+              data:
+                  MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+              child: GestureDetector(
+                onTap: () {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: child ?? const SplashPage(),
+              ),
+            ),
+          ),
           title: AppStr.appName,
           theme: AppTheme().getThemeByAppTheme(),
           navigatorObservers: [

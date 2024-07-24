@@ -20,7 +20,6 @@ class PageBuilderControllerImp extends PageBuilderController {
   @override
   void onPageChange(int index) {
     currentIndexPage.value = index;
-    pageController.jumpToPage(index);
   }
 
   Future<void> _getMemberInfomation() async {

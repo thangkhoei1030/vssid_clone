@@ -8,16 +8,28 @@ class ProfileManagerPage extends BaseGetWidget<ProfileManagerController> {
   @override
   ProfileManagerController get controller =>
       Get.put(ProfileManagerControllerImp());
+
+  static const int profileManagerControllerId = 0;
   @override
   Widget buildWidgets(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return UtilWidget.navigatorWithBottomBar(
+      0,
+      Column(
         children: [
-          const SocialInsuranceCard(),
-          UtilWidget.sizedBoxPaddingHuge,
-          const ProfileManagerAction(),
+          const PageBuilderAppBar(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SocialInsuranceCard(),
+                  UtilWidget.sizedBoxPaddingHuge,
+                  const ProfileManagerAction(),
+                ],
+              ).paddingAll(AppDimens.defaultPadding),
+            ),
+          ),
         ],
-      ).paddingAll(AppDimens.defaultPadding),
+      ),
     );
   }
 }

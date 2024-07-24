@@ -14,12 +14,34 @@ class PageRoutes {
     Function(T?)? functionResult,
     bool preventDuplicates = true,
     dynamic arguments,
+    int? id,
+    Bindings? bindings,
   }) async {
     Get.to<T?>(
       () => page,
+      binding: bindings,
       arguments: arguments,
       preventDuplicates: preventDuplicates,
-    )?.then((value) => functionResult?.call(value));
+      id: id ?? Get.find<PageBuilderController>().currentIndexPage.value,
+    )?.then(
+      (value) => functionResult?.call(value),
+    );
+  }
+
+  static Future<T?>? toNamed<T>(
+    String page, {
+    dynamic arguments,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    int? id,
+  }) {
+    return Get.toNamed(
+      page,
+      arguments: arguments,
+      preventDuplicates: preventDuplicates,
+      parameters: parameters,
+      id: Get.find<PageBuilderController>().currentIndexPage.value,
+    );
   }
 
   static void backMultiScreen(String routeBack) async {
@@ -30,6 +52,7 @@ class PageRoutes {
     GetPage(
       name: AppRoutes.splashPage,
       page: () => const SplashPage(),
+
       //transition: Transition.circularReveal,
     ),
     GetPage(

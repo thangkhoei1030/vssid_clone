@@ -1,8 +1,5 @@
-import 'dart:ffi';
-
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/core/utils/extension/device_ratio.dart';
@@ -11,68 +8,37 @@ import 'package:vssid/gen/assets.gen.dart';
 
 class PageBuilder extends BaseGetWidget<PageBuilderController> {
   const PageBuilder({super.key});
+
   @override
   PageBuilderController get controller => Get.put(PageBuilderControllerImp());
+
   @override
   Widget buildWidgets(BuildContext context) {
+    controller.dependenciesController();
     return LoadingOverlayWidget(
       child: SafeArea(
         top: false,
         bottom: false,
         child: Scaffold(
+          primary: true,
+          drawerScrimColor: Colors.black.withOpacity(0.6),
           drawer: const Drawer(
+            elevation: 1,
             backgroundColor: Colors.blue,
             child: PageBuilderDrawer(),
           ),
-          appBar: AppBar(
-            leading: Builder(
-              builder: (ctx) => SimpleButton(
-                onPressed: () {
-                  Scaffold.of(ctx).openDrawer();
-                },
-                child: const Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            flexibleSpace: UtilWidget.appBarBgImage,
-            title: StreamBuilder(
-              stream: controller.currentIndexPage.stream,
-              builder: (context, snapshot) => TextBuild(
-                title: controller.titleAppBar.toUpperCase(),
-                fontSize: AppDimens.sizeTextLarge,
-                textColor: Colors.white,
-              ),
-            ),
-            actions: [
-              Obx(
-                () => controller.currentIndexPage.value == 0
-                    ? Assets.images.srcImagesTb3
-                        .image(
-                          height: 25.ratioH,
-                          width: 25.ratioW,
-                        )
-                        .paddingSymmetric(
-                          horizontal: AppDimens.defaultPadding.ratioW,
-                        )
-                    : const SizedBox.shrink(),
-              )
-            ],
-            centerTitle: true,
-          ),
           body: LayoutBuilder(
             builder: (ctx, constraints) {
-              return PageView(
-                controller: controller.pageController,
-                allowImplicitScrolling: true,
-                physics: const NeverScrollableScrollPhysics(),
-                children: const [
-                  ProfileManagerPage(),
-                  PublicServicePage(),
-                  LookUpOnline(),
-                  SupportPage(),
-                ],
+              return Obx(
+                () => IndexedStack(
+                  index: controller.currentIndexPage.value,
+                  children: [
+                    ProfileManagerPage(),
+                    PublicServicePage(),
+                    LookUpOnline(),
+                    SupportPage(),
+                  ],
+                ),
               );
             },
           ),
@@ -153,11 +119,15 @@ class CustomBottomBar extends GetView<PageBuilderController> {
   @override
   Widget build(BuildContext context) {
     assert(
-        (image == null && imageSelected == null) ||
-            (image != null && imageSelected != null),
-        "Image and image select same value");
+      (image == null && imageSelected == null) ||
+          (image != null && imageSelected != null),
+      "Image and image select same value",
+    );
     return SimpleButton(
       onPressed: () {
+        // if (Get.currentRoute != AppRoutes.pageBuilder) {
+        //   PageRoutes.backMultiScreen(AppRoutes.pageBuilder);
+        // }
         controller.onPageChange(index);
       },
       child: Column(

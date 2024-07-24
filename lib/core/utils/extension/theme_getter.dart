@@ -15,7 +15,6 @@ extension ThemeGetter on BuildContext {
 
   Color get onSurfaceColor => Theme.of(this).colorScheme.onSurface;
 
-
   List<BoxShadow> get boxShadow => isDarkMode
       ? [
           BoxShadow(
@@ -43,4 +42,8 @@ extension ThemeGetter on BuildContext {
             //second parameter is top to down
           ),
         ];
+}
+
+extension SizeGetter on BuildContext {
+  double get viewPaddingTop => MediaQuery.of(this).viewPadding.top;
 }

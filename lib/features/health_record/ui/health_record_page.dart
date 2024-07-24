@@ -1,4 +1,3 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,10 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                               children: [
                                 SimpleButton(
                                   onPressed: () {
-                                    Get.back();
+                                    Get.back(
+                                      id: ProfileManagerPage
+                                          .profileManagerControllerId,
+                                    );
                                   },
                                   child: const Icon(
                                     Icons.arrow_back_ios,

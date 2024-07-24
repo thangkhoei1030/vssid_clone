@@ -13,57 +13,67 @@ class PublicServicePage extends BaseGetWidget<PublicServiceController> {
   PublicServiceController get controller => Get.put(PublicServiceController());
   @override
   Widget buildWidgets(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      initialIndex: 0,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(kToolbarHeight * 1.8.ratioH),
-          child: SizedBox(
-            child: SafeArea(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  const Expanded(child: SizedBox.shrink()),
-                  TabBar(
-                    controller: controller.tabController,
-                    indicatorColor: Colors.black.withOpacity(0.2),
-                    dividerColor: Colors.black.withOpacity(0.2),
-                    indicator: const BoxDecoration(),
-                    indicatorWeight: 1,
-                    onTap: controller.onTabChange,
-                    unselectedLabelColor: Colors.black,
-                    labelColor: Colors.blue,
-                    labelPadding: const EdgeInsets.symmetric(
-                        vertical: AppDimens.paddingVerySmall),
-                    tabs: [
-                      _tabItem(
-                        PublicServiceString.service,
-                        0,
-                        icon: Iconsax.archive_book,
+    return UtilWidget.navigatorWithBottomBar(
+        1,
+        SafeArea(
+          top: false,
+          child: DefaultTabController(
+            length: 2,
+            initialIndex: 0,
+            child: Column(
+              children: [
+                SizedBox(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: (kToolbarHeight + context.viewPaddingTop),
+                        child: const PageBuilderAppBar(),
                       ),
-                      _tabItem(
-                        PublicServiceString.history,
-                        1,
-                        svg: Assets.svg.history,
+                      SizedBox(
+                        height: (kToolbarHeight * 1.6).ratioH,
+                        child: TabBar(
+                          controller: controller.tabController,
+                          indicatorColor: Colors.black.withOpacity(0.2),
+                          dividerColor: Colors.black.withOpacity(0.2),
+                          indicator: const BoxDecoration(),
+                          indicatorWeight: 1,
+                          onTap: controller.onTabChange,
+                          unselectedLabelColor: Colors.black,
+                          labelColor: Colors.blue,
+                          labelPadding: const EdgeInsets.symmetric(
+                              vertical: AppDimens.paddingVerySmall),
+                          tabs: [
+                            _tabItem(
+                              PublicServiceString.service,
+                              0,
+                              icon: Iconsax.archive_book,
+                            ),
+                            _tabItem(
+                              PublicServiceString.history,
+                              1,
+                              svg: Assets.svg.history,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ],
-              ),
+                ),
+                Expanded(
+                  child: TabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
+                      controller: controller.tabController,
+                      children: const [
+                        Service(),
+                        History(),
+                        // const Service(),
+                      ]),
+                ),
+              ],
             ),
           ),
-        ),
-        body: TabBarView(
-            physics: const NeverScrollableScrollPhysics(),
-            controller: controller.tabController,
-            children: const [
-              Service(),
-              History(),
-              // const Service(),
-            ]),
-      ),
-    );
+        ));
   }
 
   Widget _tabItem(
