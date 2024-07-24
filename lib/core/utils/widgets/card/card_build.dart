@@ -76,6 +76,7 @@ class CardBuilder extends StatelessWidget {
                 : null,
             decoration: BoxDecoration(
               gradient: linearGradient,
+              boxShadow: boxShadow,
               border: isBorder
                   ? border ??
                       Border.all(

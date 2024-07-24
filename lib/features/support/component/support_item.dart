@@ -22,7 +22,26 @@ class SupportItem extends StatelessWidget {
         paddingVerical: AppDimens.paddingVerySmall.ratioH,
         paddingHorizontal: AppDimens.defaultPadding.ratioW,
       ),
-      backgroundColor: Colors.blue.withOpacity(0.05),
+      linearGradient: const LinearGradient(
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        colors: [
+          Color.fromRGBO(229, 233, 235, 1),
+          Color.fromRGBO(224, 228, 230, 1),
+        ],
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Color.fromRGBO(224, 228, 230, 1),
+          offset: Offset(1, 1),
+          blurRadius: 4,
+        ),
+        BoxShadow(
+          color: Color.fromRGBO(209, 208, 209, 1),
+          offset: Offset(1, 1),
+          blurRadius: 4,
+        ),
+      ],
       child: Row(
         children: [
           item.image != null
