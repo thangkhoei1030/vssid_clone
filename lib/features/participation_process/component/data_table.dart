@@ -18,6 +18,7 @@ class TableData extends GetView<ParticipationProcessController> {
 
   TextStyle textStyleValue() => Get.textTheme.bodySmall!.copyWith(
         fontSize: AppDimens.sizeTextSmall,
+        fontWeight: FontWeight.w300,
       );
 
   @override

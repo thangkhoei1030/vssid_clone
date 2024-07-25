@@ -10,7 +10,8 @@ class AppTheme {
   AppTheme._();
 
   ThemeData getThemeByAppTheme({bool isDarkMode = false}) {
-    final primaryColor = isDarkMode ? ColorDark.primaryColor : Colors.white;
+    final primaryColor =
+        isDarkMode ? ColorDark.primaryColor : ColorLight.primaryColor;
 
     final onBackgroundColor =
         isDarkMode ? Colors.white : const Color.fromRGBO(106, 107, 107, 1);
@@ -147,6 +148,10 @@ class AppTheme {
         : ColorLight.cardBackGroundColor;
 
     return base.copyWith(
+      bottomAppBarTheme: BottomAppBarTheme(
+        color: primaryColor,
+      ),
+      scaffoldBackgroundColor: const Color.fromRGBO(248, 247, 249, 1),
       colorScheme: ColorScheme.fromSeed(
         seedColor: primaryColor,
         brightness: isDarkMode ? Brightness.light : Brightness.dark,

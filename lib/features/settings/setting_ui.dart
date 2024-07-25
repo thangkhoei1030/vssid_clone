@@ -14,10 +14,19 @@ class SettingPage extends GetView<SettingController> {
   Widget build(BuildContext context) {
     return PageScaffold(
         showAppBar: true,
-        title: TextBuild(
-          title: SettingStr.setting.toUpperCase(),
-          fontSize: AppDimens.sizeTextLarge,
-          textColor: Colors.white,
+        customAppBar: UtilWidget.customAppBar(
+          context,
+          leading: SimpleButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+          ),
+          title: TextBuild(
+            title: SettingStr.setting.toUpperCase(),
+            fontSize: AppDimens.sizeTextLarge,
+            textColor: Colors.white,
+          ),
         ),
         showBackButton: true,
         child: Column(
@@ -41,6 +50,7 @@ class SettingPage extends GetView<SettingController> {
                 ],
               ),
             ),
+            UtilWidget.sizedBoxPadding,
             SimpleButton(
                 child: IntrinsicHeight(
               child: Row(

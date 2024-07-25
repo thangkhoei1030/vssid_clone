@@ -19,6 +19,10 @@ class $AssetsImagesGen {
   AssetGenImage get appIcon1 =>
       const AssetGenImage('assets/images/app_icon_1.png');
 
+  /// File path: assets/images/ic_launcher.png
+  AssetGenImage get icLauncher =>
+      const AssetGenImage('assets/images/ic_launcher.png');
+
   /// File path: assets/images/login_background_image.png
   AssetGenImage get loginBackgroundImage =>
       const AssetGenImage('assets/images/login_background_image.png');
@@ -284,6 +288,7 @@ class $AssetsImagesGen {
   /// List of all assets
   List<AssetGenImage> get values => [
         appIcon1,
+        icLauncher,
         loginBackgroundImage,
         loginBackgroundImage2,
         splash,
@@ -420,6 +425,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/thatnghiep.svg
   SvgGenImage get thatnghiep => const SvgGenImage('assets/svg/thatnghiep.svg');
 
+  /// File path: assets/svg/user.svg
+  SvgGenImage get user => const SvgGenImage('assets/svg/user.svg');
+
   /// File path: assets/svg/vneid.svg
   SvgGenImage get vneid => const SvgGenImage('assets/svg/vneid.svg');
 
@@ -445,6 +453,7 @@ class $AssetsSvgGen {
         scanBarcode,
         stateAgencies,
         thatnghiep,
+        user,
         vneid
       ];
 }

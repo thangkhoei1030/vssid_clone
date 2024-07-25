@@ -127,11 +127,14 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
     );
   }
 
-  Widget _tabItem(String title, int index,
-      {SvgGenImage? svg,
-      IconData? icon,
-      AssetGenImage? image,
-      AssetGenImage? imageSelected}) {
+  Widget _tabItem(
+    String title,
+    int index, {
+    SvgGenImage? svg,
+    IconData? icon,
+    AssetGenImage? image,
+    AssetGenImage? imageSelected,
+  }) {
     assert(
         (image == null && imageSelected == null) ||
             (image != null && imageSelected != null),

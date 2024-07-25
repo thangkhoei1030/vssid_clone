@@ -9,7 +9,7 @@ class ForgotAndRegisterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextBuild(
           function: () {
@@ -21,6 +21,18 @@ class ForgotAndRegisterButton extends StatelessWidget {
             );
           },
           title: LoginStr.forgotPassword,
+          textColor: context.onSurfaceColor,
+        ),
+        TextBuild(
+          function: () {
+            // Get.bottomSheet(
+            //   isScrollControlled: true,
+            //   isDismissible: true,
+            //   enableDrag: false,
+            //   const ForgotPassword(),
+            // );
+          },
+          title: LoginStr.register,
           textColor: context.onSurfaceColor,
         ),
       ],

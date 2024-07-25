@@ -26,7 +26,7 @@ class LoadingOverlayWidget extends StatelessWidget {
               child: _buildLoading(),
             )
           : _buildLoading(),
-      useDefaultLoading: true,
+      useDefaultLoading: false,
       child: child,
     );
   }

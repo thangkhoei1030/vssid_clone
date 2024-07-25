@@ -7,7 +7,7 @@ class ColorLight {
   static Color buttonDefaultColor = HexColor.fromHex("#FCE8E0")!;
   static Color inputDefaultColor = HexColor.fromHex("#EEF3FF")!;
   static Color defaultColorBorderInput = HexColor.fromHex("#707070")!;
-  static Color primaryColor = HexColor.fromHex("#f9f9f9")!;
+  static const Color primaryColor = Color.fromRGBO(248, 247, 249, 1);
   static Color borderCard = HexColor.fromHex("CCF2F4")!;
   static const Color cardBackGroundColor = Colors.white;
   static const Color seeAllTextButtonColor = Colors.red;

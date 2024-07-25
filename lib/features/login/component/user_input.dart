@@ -1,9 +1,9 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/features/src_feature.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 class UserInputComponent extends GetView<LoginController> {
   const UserInputComponent({super.key});
@@ -16,7 +16,6 @@ class UserInputComponent extends GetView<LoginController> {
         children: [
           _buildInput(
             context,
-            Iconsax.user,
             InputTextModel(
               controller: controller.codeBHXH,
               hintText: LoginStr.codeBHXH,
@@ -25,11 +24,11 @@ class UserInputComponent extends GetView<LoginController> {
                 value: value,
               ),
             ),
+            svg: Assets.svg.user,
           ),
           UtilWidget.sizedBoxPadding,
           _buildInput(
             context,
-            Iconsax.key,
             InputTextModel(
               obscureText: true,
               controller: controller.password,
@@ -39,6 +38,7 @@ class UserInputComponent extends GetView<LoginController> {
                 value: value,
               ),
             ),
+            iconData: Iconsax.key5,
           ),
         ],
       ),
@@ -46,7 +46,12 @@ class UserInputComponent extends GetView<LoginController> {
   }
 
   Widget _buildInput(
-      BuildContext context, IconData iconData, InputTextModel inputTextModel) {
+    BuildContext context,
+    InputTextModel inputTextModel, {
+    IconData? iconData,
+    SvgGenImage? svg,
+  }) {
+    assert(svg == null || iconData == null, "Required svg or iconData");
     return IntrinsicHeight(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -55,11 +60,15 @@ class UserInputComponent extends GetView<LoginController> {
             padding: const EdgeInsets.symmetric(
                 horizontal: AppDimens.paddingVerySmall),
             decoration: BoxDecoration(color: context.onSurfaceColor),
-            child: Icon(
-              iconData,
-              color: Colors.white,
-              size: AppDimens.sizeIconMedium,
-            ),
+            child: iconData != null
+                ? Icon(
+                    iconData,
+                    color: Colors.white,
+                    size: AppDimens.sizeIconMedium,
+                  )
+                : svg!.svg(
+                    color: Colors.white,
+                  ),
           ),
           Expanded(
               child: BuildInputText(

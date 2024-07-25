@@ -61,13 +61,11 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                     ],
                   ),
                 ),
-                UtilWidget.sizedBoxPadding,
+                UtilWidget.sizedBox5,
                 const UserInfoShort(),
-                UtilWidget.sizedBoxPadding,
+                UtilWidget.sizedBox5,
                 TabBar(
                   controller: controller.tabController,
-
-                  // automaticIndicatorColorAdjustment: true,
                   indicatorColor: Colors.black.withOpacity(0.2),
                   dividerColor: Colors.black.withOpacity(0.2),
                   indicator: const BoxDecoration(),

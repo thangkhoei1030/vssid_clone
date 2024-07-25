@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vssid/core/src_core.dart';
+import 'package:vssid/core/utils/extension/device_ratio.dart';
+import 'package:vssid/gen/assets.gen.dart';
 
 enum AnimationDialogType {
   none,
@@ -27,14 +29,14 @@ class AnimationDialog extends StatelessWidget {
   const AnimationDialog({
     super.key,
     this.animationDialogType = AnimationDialogType.none,
-    this.height = 200,
-    this.width,
+    this.height = 50,
+    this.width = 50,
     this.repeat = true,
   });
 
-  final double? height;
+  final double height;
 
-  final double? width;
+  final double width;
 
   final bool repeat;
 
@@ -57,7 +59,36 @@ class AnimationDialog extends StatelessWidget {
         break;
       case AnimationDialogType.loading:
         assetAnimation = AnimationAsset.loadingAnimation;
-        break;
+        return RippleAnimation(
+          delay: const Duration(seconds: 1),
+          repeat: true,
+          minRadius: 17,
+          color: context.onSurfaceColor,
+          child: SizedBox(
+            height: height.ratioH,
+            width: width.ratioW,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Assets.images.appIcon1.image(
+                  fit: BoxFit.cover,
+                  height: height.ratioH - 5,
+                  width: width.ratioW - 5,
+                ),
+                SizedBox(
+                  height: height.ratioH,
+                  width: width.ratioW,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      context.onSurfaceColor,
+                    ),
+                    strokeWidth: 0.7,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        );
       case AnimationDialogType.favourite:
         assetAnimation = AnimationAsset.heartAnimation;
         break;
@@ -94,6 +125,7 @@ class AnimationDialog extends StatelessWidget {
       default:
         assetAnimation = "";
     }
+
     return Lottie.asset(
       assetAnimation,
       height: height,

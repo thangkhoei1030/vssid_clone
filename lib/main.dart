@@ -1,15 +1,12 @@
 import 'dart:io';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
-import 'package:vssid/features/src_feature.dart';
-import 'package:vssid/pages/pages.dart';
-import 'package:vssid/pages/routes.dart';
 import 'package:vssid/pages/src_pages.dart';
 import 'core/src_core.dart';
 

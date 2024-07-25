@@ -14,7 +14,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
       initialIndex: 0,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2.5),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2.7),
           child: SafeArea(
             top: false,
             child: Column(

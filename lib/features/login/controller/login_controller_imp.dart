@@ -48,6 +48,7 @@ class LoginControllerImp extends LoginController {
       await CookiesSingleton().createCookiesForUser(userName: codeBHXH.text);
       try {
         showLoadingOverlay();
+        // await Future.delayed(const Duration(seconds: 5));
         await loginRepository.login(loginRequest).then((value) async {
           if (value.data != null && value.code != "error") {
             showToast(LoginStr.loginSuccess, toastStatus: ToastStatus.success);
