@@ -14,7 +14,7 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
       initialIndex: 0,
       child: PageScaffold(
         customAppBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 4),
+          preferredSize: Size.fromHeight(kToolbarHeight.ratioH * 3.8),
           child: SafeArea(
             top: false,
             child: Column(
@@ -54,7 +54,7 @@ class HealthRecordPage extends BaseGetWidget<HealthRecordController> {
                             ),
                           ],
                         ).paddingSymmetric(
-                          vertical: AppDimens.defaultPadding,
+                          vertical: AppDimens.paddingVerySmall,
                           horizontal: AppDimens.defaultPadding,
                         ),
                       ),

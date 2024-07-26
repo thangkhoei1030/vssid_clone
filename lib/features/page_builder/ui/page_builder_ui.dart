@@ -54,7 +54,7 @@ class PageBuilder extends BaseGetWidget<PageBuilderController> {
                         index: 0,
                       ),
                       CustomBottomBar(
-                        label: PageBuilderString.publicServiceShort,
+                        label: PageBuilderString.publicService,
                         // activeIcon: Icons.list_alt_sharp,
                         image: Assets.images.srcImagesDichvucongtab,
                         imageSelected: Assets.images.srcImagesDichvucongtabxanh,

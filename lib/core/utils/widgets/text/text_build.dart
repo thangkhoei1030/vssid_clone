@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/core/src_core.dart';
+import 'package:vssid/main.dart';
 
 class TextBuild extends StatelessWidget {
   const TextBuild({
@@ -60,6 +61,7 @@ class TextBuild extends StatelessWidget {
               overflow: overflow,
               maxLines: maxLines,
               textAlign: textAlign,
+              textScaler: TextScaler.linear(ScaleSize.textScaleFactor(context)),
             ),
     );
   }

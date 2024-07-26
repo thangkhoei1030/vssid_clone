@@ -9,7 +9,7 @@ class PageBuilderString {
 
   static const String lookUpOnline = "Tra cứu trực tuyến";
 
-  static const String lookUpOnlineShort = "Tra cứu TT";
+  static const String lookUpOnlineShort = "Tra cứu";
 
   static const String support = "Trung tâm trợ giúp";
 

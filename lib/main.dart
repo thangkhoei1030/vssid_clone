@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -142,5 +143,14 @@ class NavigatorObservers extends GetObserver {
   void didPush(Route route, Route? previousRoute) {
     super.didPush(route, previousRoute);
     // dateTime = DateTime.now();
+  }
+}
+
+class ScaleSize {
+  static double textScaleFactor(BuildContext context,
+      {double maxTextScaleFactor = 1}) {
+    final width = MediaQuery.of(context).size.width;
+    double val = (width / 1400) * maxTextScaleFactor;
+    return max(1, min(val, maxTextScaleFactor));
   }
 }

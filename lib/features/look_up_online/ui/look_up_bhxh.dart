@@ -13,21 +13,25 @@ class LookUpBHXH extends GetView<LookUpBHXHController> {
   Widget build(BuildContext context) {
     return PageScaffold(
         showAppBar: true,
-        customAppBar: UtilWidget.customAppBar(
+        customAppBar: lookUpAppBar(
           context,
-          leading: SimpleButton(
-            onPressed: () {
-              Get.back();
-            },
-            child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
-          ),
-          title: TextBuild(
-            title: LookUpOnlineString.lookUpCodeBHXH,
-            fontSize: AppDimens.sizeTextLarge,
-            textColor: Colors.white,
-            isAutoSizeText: true,
-          ),
+          LookUpOnlineString.lookUpCodeBHXH.toUpperCase(),
         ),
+        // customAppBar: UtilWidget.customAppBar(
+        //   context,
+        //   leading: SimpleButton(
+        //     onPressed: () {
+        //       Get.back();
+        //     },
+        //     child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
+        //   ),
+        //   title: TextBuild(
+        //     title: LookUpOnlineString.lookUpCodeBHXH.toUpperCase(),
+        //     fontSize: AppDimens.sizeTextLarge,
+        //     textColor: Colors.white,
+        //     isAutoSizeText: true,
+        //   ),
+        // ),
         showBackButton: true,
         child: SingleChildScrollView(
           child: Obx(

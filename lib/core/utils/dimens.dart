@@ -121,7 +121,7 @@ class AppDimens {
   static const double categoryProductSize = 50;
   static const double iconListTileSizeDefaut = 16;
   static double appBarSize(BuildContext context) =>
-      kToolbarHeight * 2 / 3 + context.viewPaddingTop;
+      kToolbarHeight / 2.5 + context.viewPaddingTop;
 }
 
 extension GetSizeScreen on num {

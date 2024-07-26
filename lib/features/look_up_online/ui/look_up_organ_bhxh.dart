@@ -16,20 +16,9 @@ class LookUpOrganBHXH extends GetView<LookUpOrganBHXHController> {
   Widget build(BuildContext context) {
     return PageScaffold(
       showAppBar: true,
-      customAppBar: UtilWidget.customAppBar(
+      customAppBar: lookUpAppBar(
         context,
-        leading: SimpleButton(
-          onPressed: () {
-            Get.back();
-          },
-          child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
-        ),
-        title: TextBuild(
-          title: LookUpOnlineString.lookUpOrganBHXH,
-          fontSize: AppDimens.sizeTextLarge,
-          textColor: Colors.white,
-          isAutoSizeText: true,
-        ),
+        LookUpOnlineString.lookUpOrganBHXH.toUpperCase(),
       ),
       showBackButton: true,
       child: SingleChildScrollView(

@@ -65,19 +65,19 @@ class AnimationDialog extends StatelessWidget {
           minRadius: 17,
           color: context.onSurfaceColor,
           child: SizedBox(
-            height: height.ratioH,
-            width: width.ratioW,
+            height: height,
+            width: width,
             child: Stack(
               alignment: Alignment.center,
               children: [
                 Assets.images.appIcon1.image(
                   fit: BoxFit.cover,
-                  height: height.ratioH - 5,
-                  width: width.ratioW - 5,
+                  height: height - 5,
+                  width: width - 5,
                 ),
                 SizedBox(
-                  height: height.ratioH,
-                  width: width.ratioW,
+                  height: height,
+                  width: width,
                   child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
                       context.onSurfaceColor,

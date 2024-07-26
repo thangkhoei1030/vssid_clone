@@ -14,7 +14,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
       initialIndex: 0,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2.7),
+          preferredSize: const Size.fromHeight(kToolbarHeight * 2.4),
           child: SafeArea(
             top: false,
             child: Column(
@@ -53,7 +53,7 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                           ),
                         ],
                       ).paddingSymmetric(
-                        vertical: AppDimens.defaultPadding,
+                        vertical: AppDimens.paddingVerySmall,
                         horizontal: AppDimens.defaultPadding,
                       ),
                     ],
@@ -163,7 +163,6 @@ class BenefitInfomationPage extends BaseGetWidget<BenefitInfomationController> {
                     ),
           UtilWidget.sizedBox5,
           TextBuild(
-            isAutoSizeText: true,
             fontSize: AppDimens.sizeTextSmall,
             title: title,
             textColor: color,

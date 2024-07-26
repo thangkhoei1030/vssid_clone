@@ -93,8 +93,9 @@ class UtilWidget {
   }) {
     return Container(
       padding: const EdgeInsets.symmetric(
-          horizontal: AppDimens.defaultPadding,
-          vertical: AppDimens.defaultPadding),
+        horizontal: AppDimens.defaultPadding,
+        vertical: AppDimens.paddingVerySmall,
+      ),
       height: AppDimens.appBarSize(context),
       width: Get.width,
       decoration: BoxDecoration(
@@ -105,18 +106,18 @@ class UtilWidget {
       ),
       child: Stack(
         children: [
-          if (leading != null)
-            Positioned.fill(
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: leading,
-              ),
-            ),
           if (title != null)
             Positioned.fill(
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: title,
+              ),
+            ),
+          if (leading != null)
+            Positioned.fill(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: leading,
               ),
             ),
           if (action != null)

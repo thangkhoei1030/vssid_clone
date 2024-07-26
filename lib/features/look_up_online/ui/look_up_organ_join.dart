@@ -13,20 +13,9 @@ class LookUpOrganJoin extends GetView<LookUpOrganJoinController> {
   Widget build(BuildContext context) {
     return PageScaffold(
       showAppBar: true,
-      customAppBar: UtilWidget.customAppBar(
+      customAppBar: lookUpAppBar(
         context,
-        leading: SimpleButton(
-          onPressed: () {
-            Get.back();
-          },
-          child: UtilWidget.appBarIcon(Icons.arrow_back_ios_new),
-        ),
-        title: TextBuild(
-          title: LookUpOnlineString.lookUpMemberJoinBHXH,
-          fontSize: AppDimens.sizeTextLarge,
-          textColor: Colors.white,
-          isAutoSizeText: true,
-        ),
+        LookUpOnlineString.lookUpMemberJoinBHXH.toUpperCase(),
       ),
       showBackButton: true,
       child: SingleChildScrollView(

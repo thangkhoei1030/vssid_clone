@@ -29,13 +29,10 @@ class LookUpOnlineString {
   static const String pleaseSelectCityId = "Vui lòng chọn tỉnh/thành phố";
 
   static const String organBHXH = "Cơ quan BHXH";
-  
+
   static const String selectOrganBHXH = "-- chọn Cơ quan BHXH --";
 
   static const String nameOrgan = "Tên đơn vị";
 
   static const String codeOrgan = "Mã đơn vị";
-
-
-
 }

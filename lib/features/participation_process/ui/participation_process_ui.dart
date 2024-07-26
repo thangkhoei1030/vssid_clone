@@ -15,7 +15,7 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
       initialIndex: 0,
       child: PageScaffold(
         customAppBar: PreferredSize(
-          preferredSize: const Size.fromHeight(kToolbarHeight * 2.8),
+          preferredSize: Size.fromHeight(kToolbarHeight.ratioH * 2.37),
           child: SafeArea(
             top: false,
             child: Column(
@@ -54,13 +54,12 @@ class ParticipationProcessPage extends GetView<ParticipationProcessController> {
                           ),
                         ],
                       ).paddingSymmetric(
-                        vertical: AppDimens.defaultPadding,
+                        vertical: AppDimens.paddingVerySmall,
                         horizontal: AppDimens.defaultPadding,
                       ),
                     ],
                   ),
                 ),
-                UtilWidget.sizedBoxPadding,
                 TabBar(
                   controller: controller.tabController,
                   indicatorColor: Colors.transparent,

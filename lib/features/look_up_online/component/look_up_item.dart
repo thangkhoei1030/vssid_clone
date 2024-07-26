@@ -1,9 +1,7 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:vssid/core/src_core.dart';
 import 'package:flutter/material.dart';
 import 'package:vssid/core/utils/extension/device_ratio.dart';
-import 'package:vssid/features/src_feature.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
 class LookUpItem extends StatelessWidget {
