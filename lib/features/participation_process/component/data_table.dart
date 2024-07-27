@@ -17,9 +17,9 @@ class TableData extends GetView<ParticipationProcessController> {
   const TableData.bhyt({super.key}) : tabType = TabProcessType.bhyt;
 
   TextStyle textStyleValue() => Get.textTheme.bodySmall!.copyWith(
-        fontSize: AppDimens.sizeTextSmall,
-        fontWeight: FontWeight.w300,
-      );
+      fontSize: AppDimens.sizeTextSmall,
+      fontWeight: FontWeight.w500,
+      color: Colors.black);
 
   @override
   Widget build(BuildContext context) {

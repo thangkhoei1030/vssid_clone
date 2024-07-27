@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:vssid/core/src_core.dart';
-import 'package:vssid/core/utils/extension/device_ratio.dart';
 import 'package:vssid/gen/assets.gen.dart';
 
 enum AnimationDialogType {

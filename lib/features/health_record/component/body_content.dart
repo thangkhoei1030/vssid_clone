@@ -16,6 +16,11 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
     super.key,
   }) : tabType = HealthRecordTabType.giaycap;
 
+  TextStyle textStyleValue() => Get.textTheme.bodySmall!.copyWith(
+      fontSize: AppDimens.sizeTextSmall,
+      fontWeight: FontWeight.w500,
+      color: Colors.black);
+
   @override
   Widget build(BuildContext context) {
     return BuildSmartRefreshWidget(
@@ -134,42 +139,49 @@ class BodyContent<T extends HealthRecordTabController> extends GetView<T>
                           _buildCeil(
                             TextBuild(
                               title: item.ngayVao ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().ngayra)
                           _buildCeil(
                             TextBuild(
                               title: item.ngayRa ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().tenbenh)
                           _buildCeil(
                             TextBuild(
                               title: item.tenBenh ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().soseri)
                           _buildCeil(
                             TextBuild(
                               title: item.soSeri ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().loaichungtu)
                           _buildCeil(
                             TextBuild(
                               title: item.loaiChungTu ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().ngaycap)
                           _buildCeil(
                             TextBuild(
                               title: item.ngayCap ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         if (tabType.getColumnView().trangthai)
                           _buildCeil(
                             TextBuild(
                               title: item.trangThai ?? "",
+                              style: textStyleValue(),
                             ),
                           ),
                         SimpleButton(

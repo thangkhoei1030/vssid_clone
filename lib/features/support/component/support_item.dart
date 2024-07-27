@@ -30,7 +30,7 @@ class SupportItem extends StatelessWidget {
           Color.fromRGBO(224, 228, 230, 1),
         ],
       ),
-      boxShadow: [
+      boxShadow: const [
         BoxShadow(
           color: Color.fromRGBO(224, 228, 230, 1),
           offset: Offset(1, 1),

@@ -32,20 +32,31 @@ class TimeParticipation extends StatelessWidget {
           children: [
             TextBuild(
               title: title,
-              fontSize: AppDimens.sizeTextMedium,
-              textAlign: TextAlign.start,
-              textColor: context.onSurfaceColor,
+              style: Get.textTheme.bodySmall!.copyWith(
+                color: AppColors.onSurfaceColor2,
+                fontSize: AppDimens.sizeTextMedium,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             UtilWidget.sizedBox5,
             TextBuild(
               title: "${ParticipationProcessString.totalTimeJoin}: $totalTime",
               textAlign: TextAlign.start,
+              style: Get.textTheme.bodySmall!.copyWith(
+                color: Colors.black,
+                fontSize: AppDimens.sizeTextDefault,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             UtilWidget.sizedBox5,
             TextBuild(
               title:
                   "${ParticipationProcessString.totalTimeDebt}: $totalTimeDebt",
-              textColor: Colors.red,
+              style: Get.textTheme.bodySmall!.copyWith(
+                color: const Color.fromARGB(255, 255, 17, 0),
+                fontSize: AppDimens.sizeTextDefault,
+                fontWeight: FontWeight.w400,
+              ),
               textAlign: TextAlign.start,
             ),
           ],
